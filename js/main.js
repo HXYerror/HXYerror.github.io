@@ -281,7 +281,7 @@ jQuery(document).ready(function($) {
 	};
 
 	/* ToTop */
-	var Annie_ToAnchor = function() {
+		var Annie_ToAnchor = function() {
 		var scrollSpeed = scrollSpeedG,
 			upperLimit = scrollLimitG,
 			toTop = $('#totop'),
