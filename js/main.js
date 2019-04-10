@@ -28,7 +28,7 @@ jQuery(document).ready(function($) {
 
 		if(mode == 'random') {
 			randomNum = Math.floor(Math.random() * (randomMax - 1) + 1);
-			curImgSrc = $('header').attr('data-random-src') + randomNum + '.jpg';
+			curImgSrc = $('header').attr('data-random-src') + randomNum + '.png';
 		} else if(mode == 'normal') {
 			curImgSrc = $('header').attr('data-normal-src');
 		} else {
