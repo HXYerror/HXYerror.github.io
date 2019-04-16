@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      Codeforces Global Round 2-B | ACMer-HXYerror
+      乘法逆元 | ACMer-HXYerror
     
   </title>
   <meta name="author" content="HXYerror">
@@ -111,7 +111,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《Codeforces Global Round 2-B》
+						当前文章&nbsp;:&nbsp;《乘法逆元》
 					
 				</p>
 				<!-- Progress bar -->
@@ -256,8 +256,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/04/11/Codeforces Global Round 2-B/" itemprop="url">
-		Codeforces Global Round 2-B
+	<a href="/2019/04/16/乘法逆元/" itemprop="url">
+		乘法逆元
 	</a>
 
 	</div>
@@ -266,17 +266,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/04/11/Codeforces Global Round 2-B/" itemprop="url">
-		<time datetime="2019-04-11T14:15:55.000Z" itemprop="datePublished">
-	  		2019-04-11
+	<a href="/2019/04/16/乘法逆元/" itemprop="url">
+		<time datetime="2019-04-16T08:23:21.000Z" itemprop="datePublished">
+	  		2019-04-16
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/04/11/Codeforces Global Round 2-B/" itemprop="url">
-		<time datetime="2019-04-11T14:15:55.000Z" itemprop="dateUpdated">
-	  		2019-04-12
+	<a href="/2019/04/16/乘法逆元/" itemprop="url">
+		<time datetime="2019-04-16T08:23:21.000Z" itemprop="dateUpdated">
+	  		2019-04-16
 	  </time>
 	</a> 	
 
@@ -286,8 +286,12 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/cf/" class=" ">
-			cf
+		<a href="/tags/数论/" class=" ">
+			数论
+		</a>
+	
+		<a href="/tags/乘法逆元/" class=" ">
+			乘法逆元
 		</a>
 	
 		
@@ -295,7 +299,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/04/11/Codeforces Global Round 2-B/_visitors" data-url="/2019/04/11/Codeforces Global Round 2-B/" data-title="Codeforces Global Round 2-B">
+    <span class="leancloud_visitors" id="/2019/04/16/乘法逆元/_visitors" data-url="/2019/04/16/乘法逆元/" data-title="乘法逆元">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -304,7 +308,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/04/11/Codeforces Global Round 2-B/_likes" data-url="/2019/04/11/Codeforces Global Round 2-B/" data-title="Codeforces Global Round 2-B" rel="unlike">
+    <span class="leancloud_likes" id="/2019/04/16/乘法逆元/_likes" data-url="/2019/04/16/乘法逆元/" data-title="乘法逆元" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -313,71 +317,13 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h4 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h4><p><a href><a href="http://codeforces.com/contest/1119/problem/B" target="_blank" rel="noopener">http://codeforces.com/contest/1119/problem/B</a></a></p>
-<h3 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h3><p>比赛的时候这个题写了好久，主要是就想着按照俩个间距最小放一起，然后就想着放一个把前面的优化一次就写不出来</p>
-<p>然后看了这个豁然开朗，排完序相邻的就是间距最小了，嗯，就是这样</p>
-<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cmath></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iomanip></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;set></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;map></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;queue></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stack></span></span>
-<span class="token macro property">#<span class="token directive keyword">define</span> LL long long</span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> MAX <span class="token operator">=</span> <span class="token number">10010</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> INF <span class="token operator">=</span> <span class="token number">0xfffffff</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//268435455,2e8;</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> MOD <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> T<span class="token punctuation">,</span>N<span class="token punctuation">,</span>M<span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//std::ios::sync_with_stdio(false);</span>
-<span class="token comment" spellcheck="true">/*-------------------------------------------------------*/</span>
-
-vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> bottle<span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">/* --------------------------------------------------------------*/</span>
-
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    cin <span class="token operator">>></span> N <span class="token operator">>></span> M<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> flag<span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> x<span class="token punctuation">;</span>
-        <span class="token keyword">int</span> height <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        cin <span class="token operator">>></span> x<span class="token punctuation">;</span>
-        bottle<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">sort</span><span class="token punctuation">(</span>bottle<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>bottle<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> bottle<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">-</span><span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">>=</span> <span class="token number">1</span><span class="token punctuation">)</span> height <span class="token operator">+</span><span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>bottle<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>bottle<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">else</span> height <span class="token operator">+</span><span class="token operator">=</span> bottle<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>height <span class="token operator">></span> M<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>N<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
-            <span class="token punctuation">{</span>
-                <span class="token keyword">int</span> x<span class="token punctuation">;</span>
-                cin <span class="token operator">>></span> x<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            cout <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-            flag <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-            <span class="token keyword">break</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span>cout <span class="token operator">&lt;&lt;</span> N <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+		<h3 id="乘法逆元"><a href="#乘法逆元" class="headerlink" title="乘法逆元"></a>乘法逆元</h3><h4 id="什么是乘法逆元？"><a href="#什么是乘法逆元？" class="headerlink" title="什么是乘法逆元？"></a>什么是乘法逆元？</h4><p>$$<br>假设gcd(a,p) = 1<br>$$</p>
+<p>那么存在一个b，使得<br>$$<br>a*b ≡ 1 (mod p)  即  ab=pk+1<br>$$<br>b就叫做a关于模p的乘法逆元</p>
+<h4 id="怎么求乘法逆元"><a href="#怎么求乘法逆元" class="headerlink" title="怎么求乘法逆元"></a>怎么求乘法逆元</h4><h6 id="一"><a href="#一" class="headerlink" title="一."></a>一.</h6><p>费马小定理：<br>$$<br>满足gcd(a,p) = 1<br>$$<br>则有<br>$$<br>a^p≡a(modp)<br>$$</p>
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post_cover/cover2.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/post_cover/covertemp.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -391,12 +337,8 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/04/12/Codeforces Global Round 2-F/" title="Codeforces Global Round 2-F" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/04/10/HelloWorld/" title="HelloWorld" rel="next">
+			<a href="/2019/04/14/pass-CET4/" title="PASS-CET4" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -411,6 +353,26 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 
 <div class="relate-post">
 	<ul>
+		
+				<li>
+					<div>
+						<a href="/2019/04/14/pass-CET4/" title="PASS-CET4">
+							PASS-CET4
+						</a>
+						<p>
+							我要过四级我要过四级我要过四级没有什么写的，只是表达一下我很想过四级！！！！
+sad，昨天的cf被hack了，不然我就青了QAQ
+听了听保研的经验分享会，感觉怎么样也好难啊，考研难，保研难
+打好比赛，好好学习，过四级！
+
+						</p>
+					</div>
+
+					<a href="/2019/04/14/pass-CET4/" title="PASS-CET4">				
+						<img src="/img/post_cover/covertemp.jpg" class="relateImg" alt="PASS-CET4">
+					</a>
+				</li>											
+		
 		
 				<li>
 					<div>
@@ -432,38 +394,18 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 		
 				<li>
 					<div>
-						<a href="/2019/04/16/乘法逆元/" title="乘法逆元">
-							乘法逆元
+						<a href="/2019/04/11/Codeforces Global Round 2-B/" title="Codeforces Global Round 2-B">
+							Codeforces Global Round 2-B
 						</a>
 						<p>
-							乘法逆元什么是乘法逆元？$$假设gcd(a,p) = 1$$
-那么存在一个b，使得$$a*b ≡ 1 (mod p)  即  ab=pk+1$$b就叫做a关于模p的乘法逆元
-怎么求乘法逆元一.费马小定理：$$满足gcd(a,p) = ...
+							题目链接：http://codeforces.com/contest/1119/problem/B
+题目思路：比赛的时候这个题写了好久，主要是就想着按照俩个间距最小放一起，然后就想着放一个把前面的优化一次就写不出来
+然后看了这个豁然开...
 						</p>
 					</div>
 
-					<a href="/2019/04/16/乘法逆元/" title="乘法逆元">				
-						<img src="/img/post_cover/covertemp.jpg" class="relateImg" alt="乘法逆元">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/04/14/pass-CET4/" title="PASS-CET4">
-							PASS-CET4
-						</a>
-						<p>
-							我要过四级我要过四级我要过四级没有什么写的，只是表达一下我很想过四级！！！！
-sad，昨天的cf被hack了，不然我就青了QAQ
-听了听保研的经验分享会，感觉怎么样也好难啊，考研难，保研难
-打好比赛，好好学习，过四级！
-
-						</p>
-					</div>
-
-					<a href="/2019/04/14/pass-CET4/" title="PASS-CET4">				
-						<img src="/img/post_cover/covertemp.jpg" class="relateImg" alt="PASS-CET4">
+					<a href="/2019/04/11/Codeforces Global Round 2-B/" title="Codeforces Global Round 2-B">				
+						<img src="/img/post_cover/cover2.jpg" class="relateImg" alt="Codeforces Global Round 2-B">
 					</a>
 				</li>											
 		
