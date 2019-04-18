@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      Codeforces Global Round 2-F | ACMer-HXYerror
+      kk | ACMer-HXYerror
     
   </title>
   <meta name="author" content="HXYerror">
@@ -111,7 +111,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《Codeforces Global Round 2-F》
+						当前文章&nbsp;:&nbsp;《kk》
 					
 				</p>
 				<!-- Progress bar -->
@@ -256,8 +256,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/04/12/Codeforces Global Round 2-F/" itemprop="url">
-		Codeforces Global Round 2-F
+	<a href="/2019/04/18/Codeforces Round #552 (Div. 3)-E/" itemprop="url">
+		kk
 	</a>
 
 	</div>
@@ -266,17 +266,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/04/12/Codeforces Global Round 2-F/" itemprop="url">
-		<time datetime="2019-04-12T13:32:52.000Z" itemprop="datePublished">
-	  		2019-04-12
+	<a href="/2019/04/18/Codeforces Round #552 (Div. 3)-E/" itemprop="url">
+		<time datetime="2019-04-18T14:07:33.000Z" itemprop="datePublished">
+	  		2019-04-18
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/04/12/Codeforces Global Round 2-F/" itemprop="url">
-		<time datetime="2019-04-12T13:32:52.000Z" itemprop="dateUpdated">
-	  		2019-04-12
+	<a href="/2019/04/18/Codeforces Round #552 (Div. 3)-E/" itemprop="url">
+		<time datetime="2019-04-18T14:07:33.000Z" itemprop="dateUpdated">
+	  		2019-04-18
 	  </time>
 	</a> 	
 
@@ -290,8 +290,12 @@
 			cf
 		</a>
 	
-		<a href="/tags/贪心/" class=" ">
-			贪心
+		<a href="/tags/并查集/" class=" ">
+			并查集
+		</a>
+	
+		<a href="/tags/迭代器/" class=" ">
+			迭代器
 		</a>
 	
 		
@@ -299,7 +303,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/04/12/Codeforces Global Round 2-F/_visitors" data-url="/2019/04/12/Codeforces Global Round 2-F/" data-title="Codeforces Global Round 2-F">
+    <span class="leancloud_visitors" id="/2019/04/18/Codeforces Round #552 (Div. 3)-E/_visitors" data-url="/2019/04/18/Codeforces Round #552 (Div. 3)-E/" data-title="kk">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -308,7 +312,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/04/12/Codeforces Global Round 2-F/_likes" data-url="/2019/04/12/Codeforces Global Round 2-F/" data-title="Codeforces Global Round 2-F" rel="unlike">
+    <span class="leancloud_likes" id="/2019/04/18/Codeforces Round #552 (Div. 3)-E/_likes" data-url="/2019/04/18/Codeforces Round #552 (Div. 3)-E/" data-title="kk" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -317,116 +321,244 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h3 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h3><p><a href="/img/post_cover/cover3.jpg"><a href="http://codeforces.com/contest/1119/problem/E" target="_blank" rel="noopener">http://codeforces.com/contest/1119/problem/E</a></a></p>
-<h3 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h3><p>​    这题吧比赛的时候因为B题做了好久其实就没怎么看，我也不知道会不会，啊哈哈哈</p>
-<p>​    看了题解发现挺简单的吧，比D要简单</p>
-<p>​    就是能构成三角形的只有三个相同边。或者是俩大一小（三个不同，俩小一大都可以证明不能构成三角形）</p>
-<p>​    然后就是贪心吧，优先俩大一小，然后三边相同</p>
-<h3 id="题目代码："><a href="#题目代码：" class="headerlink" title="题目代码："></a>题目代码：</h3><h4 id="MY："><a href="#MY：" class="headerlink" title="MY："></a>MY：</h4><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#include<bits stdc++.h>
+		<h3 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h3><p><a href><a href="http://codeforces.com/contest/1154/problem/E" target="_blank" rel="noopener">http://codeforces.com/contest/1154/problem/E</a></a></p>
+<h3 id="题目思路"><a href="#题目思路" class="headerlink" title="题目思路"></a>题目思路</h3><p>首先结构体保存队列信息，并进行排序，flag[]记录队伍</p>
+<p>第一种：利用并查集优化，利用一个pre[p]{int r，int l}，来记录位置p左边，和右边下一个可以选的人是谁，</p>
+<p>然后选人的时候，就让当前pre[p]指向p+1 or p-1，然后在pre_find中优化并查集</p>
+<p>第二种：利用map<int,int>,key-位置p,value-skills,value理论上是没什么用的，然后通过迭代器删减操作，选人删人</int,int></p>
+<h4 id="这个迭代器可太难了"><a href="#这个迭代器可太难了" class="headerlink" title="这个迭代器可太难了"></a>这个迭代器可太难了</h4><p>STL中的容器按存储方式分为两类：一类是序列容器（如：vector，deque），另一类是关联容器（如：list，map，set）。</p>
+<p>在使用erase方法删除元素时，有几点需要注意：</p>
+<p>1） 对于关联容器（如map， set，multimap，multiset），删除当前的iterator，仅仅会使当前的iterator失效，只要在erase时，递增当前iterator即可。这是因为map之类的容器，使用了红黑树来实现，插入、删除一个结点不会对其他结点造成影响。</p>
+<p>2）对于序列式容器（如vector，deque），删除当前的iterator会使后面所有元素的iterator都失效。这是因为vetor，deque使用了连续分配的内存，删除一个元素导致后面所有的元素会向前移动一个位置。还好erase方法可以返回下一个有效的iterator。</p>
+<p>3）对于list来说，它使用了不连续分配的内存，并且它的erase方法也会返回下一个有效的iterator，因此上面两种正确的方法都可以使用。</p>
+<h5 id="栗子1：（vector）"><a href="#栗子1：（vector）" class="headerlink" title="栗子1：（vector）"></a>栗子1：（vector）</h5><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">for(auto iter = v.begin(), iter!=v.end(); /*iter++*/)
+ {
+      if(iter == 3)
+           iter = v.erase(iter);
+       else
+           iter++;
+ }
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="栗子2：（map）"><a href="#栗子2：（map）" class="headerlink" title="栗子2：（map）"></a>栗子2：（map）</h5><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">for(auto iter1 = theMap.begin(); iter1 != theMap.end(); )  
+{  
+    if(iter1->second == xxx)  
+    {  
+        theMap.erase(iter1++);  
+    }  
+    else  
+    {  
+        ++iter1;  
+    }  
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="first"><a href="#first" class="headerlink" title="first"></a>first</h4><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">//#include<bits stdc++.h>
+#include <iostream>
+#include <cstdio>
+#include <cmath>
+#include <iomanip>
+#include <string>
+#include <cstring>
+#include <algorithm>
+#include <set>
+#include <map>
+#include <vector>
+#include <queue>
+#include <stack>
 #define LL long long
 using namespace std;
-const int MAX = 1000010;
+const int MAX = 200020;
 const int INF = 0xfffffff;//268435455,2e8;
-const int EPS = 0.0000001;
-const int MOD = 1e9+7;
+const double EPS = 0.0000001;
+const int MOD = 100;
 int T,N,M;
-//std::ios::sync_with_stdio(false);
-/*-------------------------------------------------------*/
 
 
-/* --------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+int flag[MAX];
+int skill[MAX];
+struct STU
+{
+    int v;
+    int p;
+}stu[MAX];
 
+struct RL
+{
+    int l;
+    int r;
+}pre[MAX];
+
+bool Cmp(STU a,STU b)
+{
+    return a.v > b.v;
+}
+
+/* ------------------------------------------------------------------------------------------*/
+
+int find_prel(int x)
+{
+    if(pre[x].l == x)
+    {
+        return x;
+    }
+    else return pre[x].l = find_prel(pre[x].l);
+}
+
+int find_prer(int x)
+{
+    if(pre[x].r == x)
+    {
+        return x;
+    }
+    else return pre[x].r = find_prer(pre[x].r);
+}
 
 int main()
 {
-    cin >> N;
-    LL ans = 0;
-    LL surplus = 0;
-    while(N--)
+    std::ios::sync_with_stdio(false);
+    cin >> N >>M;
+    int cnt = 0;
+    for(int i = 0;i < N;i++)
     {
-        LL x;
-        cin >> x;
-        if(x >= 2)
-        {
-            if(surplus > 0)
-            {
-                LL k = x / 2;
-                if(k > surplus)
-                {
-                    ans += surplus;
-                    x -= 2 * surplus;
-                    surplus = 0;
-                    if(x >= 3)
-                    {
-                        ans += x / 3;
-                        surplus += x % 3;
-                    }
-                    else
-                    {
-                        surplus += x;
-                    }
-                }
-                else
-                {
-                    surplus -= k;
-                    ans += k;
-                    if(x % 2 == 1) surplus += 1;
-                }
-            }
-            else
-            {
-                ans += x / 3;
-                surplus += x % 3;
-            }
-
-        }
-        else
-        {
-            surplus += x;
-        }
+        cin >> skill[i];
+        stu[i].v = skill[i];
+        stu[i].p = i;
+        pre[i].l = pre[i].r = i;
     }
-    cout << ans << endl;
-    return 0;
+    sort(stu,stu+N,Cmp);
 
+
+    int ff = 1;
+    for(int i = 0;i < N;i++)
+    {
+        if(cnt == N) break;
+        int x = stu[i].p;
+        if(!flag[x])
+        {
+            flag[x] = ff;
+            int cnnt = 0;
+            int m;
+            for(m = x+1;m < N;m++)
+            {
+                if(cnnt == M) break;//end flag
+                int k = m;
+                if(pre[m].r != m)
+                {
+                    m = find_prer(m);
+                }
+                if(m == N) break;
+                if(!flag[m])
+                {
+                    flag[m] = ff;
+                    cnnt++;
+                    cnt++;
+                    pre[k].r = min(m+1,N-1);
+                    pre[k].l = x;
+                }
+            }
+            pre[x].r = min(m,N-1);
+
+            cnnt = 0;
+            for(m = x-1;m >= 0;m--)
+            {
+                if(cnnt == M) break;
+                int k = m;
+                if(pre[m].l != m)
+                {
+                    m = find_prel(m);
+                }
+                if(m < 0) break;
+                if(!flag[m])
+                {
+                    flag[m] = ff;
+                    cnnt++;
+                    cnt++;
+                    pre[k].l = max(m-1,0);
+                    pre[k].r = x;
+                }
+            }
+            pre[x].l = max(m,0);
+            if(ff == 1)
+            {
+                ff = 2;
+            }
+            else ff = 1;
+        }
+
+    }
+    for(int i = 0;i < N;i++)
+    {
+        cout << flag[i];
+    }
+    return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></bits></code></pre>
-<h4 id="Other："><a href="#Other：" class="headerlink" title="Other："></a>Other：</h4><p>这个好简洁呀，没那么分类，直接一次通式处理QAQ</p>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#include<bits stdc++.h>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></stack></queue></vector></map></set></algorithm></cstring></string></iomanip></cmath></cstdio></iostream></bits></code></pre>
+<h4 id="second"><a href="#second" class="headerlink" title="second"></a>second</h4><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">//#include<bits stdc++.h>
+#include <iostream>
+#include <cstdio>
+#include <cmath>
+#include <iomanip>
+#include <string>
+#include <cstring>
+#include <algorithm>
+#include <set>
+#include <map>
+#include <vector>
+#include <queue>
+#include <stack>
+#define LL long long
 using namespace std;
-const int MAX = 1000010;
+const int MAX = 200020;
 const int INF = 0xfffffff;//268435455,2e8;
-const int EPS = 0.0000001;
-const int MOD = 1e9+7;
+const double EPS = 0.0000001;
+const int MOD = 100;
 int T,N,M;
-//std::ios::sync_with_stdio(false);
-/*-------------------------------------------------------*/
 
-/* --------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------*/
+int flag[MAX];//标记队伍
+struct STU
+{
+    int v;
+    int p;
+}stu[MAX];//对技能值排序
+
+
+bool Cmp(STU a,STU b)
+{
+    return a.v > b.v;
+}
+
+map<int,int> sk;//保存原始队列key-坐标，value-技能
+//这里value好像没什么用，我只是想快速找到坐标在哪
+
+/* ------------------------------------------------------------------------------------------*/
+
+
 int main()
 {
-    cin >> N;
-    LL ans = 0;
-    LL surplus = 0;
-    while(N--)
-    {
-        LL x;
-        cin >> x;
-        LL k;
-        k = min(surplus,x/2);
-        ans += k;
-        surplus -= k;
-        x -= 2*k;
-        ans += x / 3;
-        surplus += x % 3;
+    std::ios::sync_with_stdio(false);
+    cin >> N >>M;
+    int cnt = 0;
+    for(int i = 1;i <= n;i++) { int x; cin>> x;
+        stu[i].v = x;
+        stu[i].p = i;
+        sk[i] = x;
     }
-    cout << ans << endl;
-    return 0;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></bits></code></pre>
+    sort(stu+1,stu+N+1,Cmp);
+    int ff = 1;
+    for(int i = 1;i <= n;i++) { map<int,int> ::iterator it;
+        int x = stu[i].p;
+        if(!flag[x])
+        {
+            flag[x] = ff;
+            //cout << x << " " << ff <<endl; int cnnt="0;" it="sk.find(x);" it++; while(cnnt !="M)//啊啊啊啊啊，这个迭代器操作可太难了" { if(it="=" sk.end()) break; flag[it->first] = ff;
+               // cout << it->first << " " << ff <<endl; sk.erase(it++); cnnt++; } it="sk.find(x);" if(it="=" sk.begin()) { if(ff="=" 1) ff="2;" else sk.erase(it); continue; it--; cnnt="0;" while(cnnt !="M)" flag[it->first] = ff;
+                //cout << it->first << " " << ff<<endl; if(it="=" sk.begin()) { sk.erase(it); break; } else sk.erase(it--); cnnt++; sk.erase(sk.find(x)); if(ff="=" 1) ff="2;" for(int i="1;i" <="N;i++)" cout << flag[i]; return 0; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></endl;></endl;></endl;></=></=></int,int></stack></queue></vector></map></set></algorithm></cstring></string></iomanip></cmath></cstdio></iostream></bits></code></pre>
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post_cover/cover3.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/post_cover/covertemp.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -440,12 +572,8 @@ int main()
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/04/14/pass-CET4/" title="PASS-CET4" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/04/11/Codeforces Global Round 2-B/" title="Codeforces Global Round 2-B" rel="next">
+			<a href="/2019/04/16/乘法逆元/" title="乘法逆元" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -463,18 +591,18 @@ int main()
 		
 				<li>
 					<div>
-						<a href="/2019/04/18/Codeforces Round #552 (Div. 3)-E/" title="kk">
-							kk
+						<a href="/2019/04/12/Codeforces Global Round 2-F/" title="Codeforces Global Round 2-F">
+							Codeforces Global Round 2-F
 						</a>
 						<p>
-							题目链接http://codeforces.com/contest/1154/problem/E
-题目思路首先结构体保存队列信息，并进行排序，flag[]记录队伍
-第一种：利用并查集优化，利用一个pre[p]{int r，int l}...
+							题目链接：http://codeforces.com/contest/1119/problem/E
+题目思路：​    这题吧比赛的时候因为B题做了好久其实就没怎么看，我也不知道会不会，啊哈哈哈
+​    看了题解发现挺简单的吧，比D...
 						</p>
 					</div>
 
-					<a href="/2019/04/18/Codeforces Round #552 (Div. 3)-E/" title="kk">				
-						<img src="/img/post_cover/covertemp.jpg" class="relateImg" alt="kk">
+					<a href="/2019/04/12/Codeforces Global Round 2-F/" title="Codeforces Global Round 2-F">				
+						<img src="/img/post_cover/cover3.jpg" class="relateImg" alt="Codeforces Global Round 2-F">
 					</a>
 				</li>											
 		
