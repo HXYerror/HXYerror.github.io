@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-       | ACMer-HXYerror
+      2015ACM/ICPC亚洲区沈阳站-B | ACMer-HXYerror
     
   </title>
   <meta name="author" content="HXYerror">
@@ -107,7 +107,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《》
+						当前文章&nbsp;:&nbsp;《2015ACM/ICPC亚洲区沈阳站-B》
 					
 				</p>
 				<!-- Progress bar -->
@@ -248,6 +248,10 @@
 	
 	<div class="article-title">
 		
+	<a href="/2019/07/10/hh/" itemprop="url">
+		2015ACM/ICPC亚洲区沈阳站-B
+	</a>
+
 	</div>
 
 	<div class="article-meta">
@@ -291,7 +295,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/07/10/hh/_visitors" data-url="/2019/07/10/hh/" data-title>
+    <span class="leancloud_visitors" id="/2019/07/10/hh/_visitors" data-url="/2019/07/10/hh/" data-title="2015ACM/ICPC亚洲区沈阳站-B">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -300,7 +304,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/07/10/hh/_likes" data-url="/2019/07/10/hh/" data-title rel="unlike">
+    <span class="leancloud_likes" id="/2019/07/10/hh/_likes" data-url="/2019/07/10/hh/" data-title="2015ACM/ICPC亚洲区沈阳站-B" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -309,8 +313,65 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<p><a href="2015ACM/ICPC亚洲区沈阳站"><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5510" target="_blank" rel="noopener">http://acm.hdu.edu.cn/showproblem.php?pid=5510</a></a></p>
-	
+		<h3 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h3><p><a href="2015ACM/ICPC亚洲区沈阳站"><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5510" target="_blank" rel="noopener">http://acm.hdu.edu.cn/showproblem.php?pid=5510</a></a></p>
+<h3 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h3><p>1.ac自动机多个串匹配咱也不会</p>
+<p>2.kmp一个个搜会tle -&gt; $500<em>500</em>4000$</p>
+<p>3.<a href="https://blog.csdn.net/weixin_39453270/article/details/80141690" target="_blank" rel="noopener">参考博客</a></p>
+<p>进一步分析我们可以发现，对于第ｊ串字符串，倘若前ｊ串都是ｊ的字串，那么我们下一步只需要判断ｊ是否是ｊ＋１的字串即可（因为如果ｊ是ｊ＋１的字串，而前ｊ串又是ｊ的字串，易得ｊ＋１串也是前ｊ串的字串，进而得出前ｊ＋１串是ｊ＋１串的字串。）</p>
+<p>而倘若ｊ串并不是ｊ＋１串的字串，那么下一步只需判断ｊ串是否是ｊ＋２串的字串即可。</p>
+<p>my：</p>
+<p>如果j不是i的子串，那么答案直接就可以是max（ans，j）</p>
+<p>如果j是i的子串，那么1-j的所有串也是i的子串，所以j++，继续比，保证j &lt; i</p>
+<p>通过维护j的位置，来保证同一个子串集合内的父子串一定会被匹配到</p>
+<p>（看到一篇博客说，如果j不是i的子串，那么j-1也不是i的子串，这话应该是错的，虽然跟这个思路没关系）</p>
+<pre class="line-numbers language-c++"><code class="language-c++">//f代表不是子串，->代表是子串
+1 f 2
+1 f 3
+1 f 4
+1 -> 5
+2-> 5
+3-> 5
+4 f 5
+(1,2,3)可以用5表示
+4 -> 6
+5 f 6
+(1,2,3,4)可以用6表示
+所以不会缺
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a><strong>KMP</strong></h3><p>啥是kmp呢？</p>
+<h4 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a><a href="https://blog.csdn.net/gao506440410/article/details/81812163" target="_blank" rel="noopener">参考博客</a></h4><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><pre class="line-numbers language-c++"><code class="language-c++">int KmpSearch(char* s, char* p)
+{
+    int i = 0;
+    int j = 0;
+    int sLen = strlen(s);
+    int pLen = strlen(p);
+    while (i < sLen && j < pLen)
+    {
+        //①如果j = -1，或者当前字符匹配成功（即S[i] == P[j]），都令i++，j++    
+        if (j == -1 || s[i] == p[j])
+        {
+            i++;
+            j++;
+        }
+        else
+        {
+            //②如果j != -1，且当前字符匹配失败（即S[i] != P[j]），则令 i 不变，j = next[j]    
+            //next[j]即为j所对应的next值      
+            j = next[j];
+        }
+    }
+    if (j == pLen)
+        return i - j;
+    else
+        return -1;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="解释："><a href="#解释：" class="headerlink" title="解释："></a>解释：</h4><ul>
+<li>假设现在文本串S匹配到 i 位置，模式串P匹配到 j 位置</li>
+<li>如果j = -1，或者当前字符匹配成功（即S[i] == P[j]），都令i++，j++，继续匹配下一个字符；</li>
+<li>如果j != -1，且当前字符匹配失败（即S[i] != P[j]），则令 i 不变，j = next[j]。此举意味着失配时，模式串P相对于文本串S向右移动了j - next [j] 位。</li>
+</ul>
+<h4 id="next："><a href="#next：" class="headerlink" title="next："></a>next：</h4><h4 id="优化next："><a href="#优化next：" class="headerlink" title="优化next："></a>优化next：</h4>	
 	</div>
 	
 	<div id="current-post-cover" data-scr="/img/post_cover/cover16.jpg"></div>
@@ -383,12 +444,12 @@
 							Codeforces Round
 						</a>
 						<p>
-							ji就学了一个lower把，先放在这里
+							就学了一个lower把，先放在这里
 还要学习读题23333
 //#include&lt;bits/stdc++.h>
 #include &lt;iostream>
 #include &lt;cstdio>
-#include &lt...
+#include &lt;c...
 						</p>
 					</div>
 
@@ -686,6 +747,13 @@ b就叫做a关于模p的乘法逆元
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
+
+		
+
+		<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
 	
 		</main>
 		
@@ -854,5 +922,20 @@ b就叫做a关于模p的乘法逆元
 <script src="/js/vibrant.js"></script>
 <script src="/js/chinese.js"></script>
 <script src="/js/main.js"></script>
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 	</html>
