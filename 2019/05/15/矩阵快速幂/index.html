@@ -268,7 +268,7 @@
 	更新于
 	<a href="/2019/05/15/矩阵快速幂/" itemprop="url">
 		<time datetime="2019-05-15T13:40:53.000Z" itemprop="dateUpdated">
-	  		2019-05-16
+	  		2019-07-10
 	  </time>
 	</a> 	
 
@@ -327,11 +327,11 @@
     <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>矩阵快速幂就是把数字a，b变成矩阵来求</p>
+<h3 id="矩阵快速幂"><a href="#矩阵快速幂" class="headerlink" title="矩阵快速幂"></a>矩阵快速幂</h3><p>就是把数字a，b变成矩阵来求</p>
 <p>实例：POJ3070 </p>
 <p><a href><a href="https://vjudge.net/problem/POJ-3070" target="_blank" rel="noopener">https://vjudge.net/problem/POJ-3070</a></a></p>
 <p>$f（i） = f(i-1) + f(i-2)​$</p>
-<p>此处有图</p>
+<p><img src="/img/post_blog/2019515-2.jpg" alt="/img/post_blog/2019515-2.jpg"></p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*-------------------------------------------------------------------------------------------*/</span>
 <span class="token keyword">int</span> a<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">int</span> b<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -409,9 +409,8 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>实例2：</p>
 <p>HBCPC-B</p>
-<p>此处有图<br>$$<br>s[i] = s[i - 1]*q + q<br>$$<br>把这个递推式变成矩阵乘法</p>
-<p>此处有图</p>
-<p><img src="/img/post_blog/2019515.jpg" alt="/img/post_blog/2019515.jpg"></p>
+<p><a href><a href="https://ac.nowcoder.com/acm/problem/25999" target="_blank" rel="noopener">https://ac.nowcoder.com/acm/problem/25999</a></a><br>$$<br>s[i] = s[i - 1]*q + q<br>$$<br>把这个递推式变成矩阵乘法</p>
+<p><img src="/img/post_blog/2019515-1.jpg" alt="/img/post_blog/2019515-1.jpg"></p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*-------------------------------------------------------------------------------------------*/</span>
 LL a<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span>
 LL b<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -455,7 +454,7 @@ LL b<span class="token punctuation">[</span>MAX<span class="token punctuation">]
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post_cover/covertemp.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/post_cover/cover13.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -492,6 +491,56 @@ LL b<span class="token punctuation">[</span>MAX<span class="token punctuation">]
 		
 				<li>
 					<div>
+						<a href="/2019/07/10/hh/" title>
+							
+						</a>
+						<p>
+							http://acm.hdu.edu.cn/showproblem.php?pid=5510
+
+						</p>
+					</div>
+
+					<a href="/2019/07/10/hh/" title>				
+						<img src="/img/post_cover/cover16.jpg" class="relateImg">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/05/16/RMQ/" title="RMQ">
+							RMQ
+						</a>
+						<p>
+							
+						</p>
+					</div>
+
+					<a href="/2019/05/16/RMQ/" title="RMQ">				
+						<img src="/img/post_cover/cover15.jpg" class="relateImg" alt="RMQ">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/05/16/位运算/" title="位运算">
+							位运算
+						</a>
+						<p>
+							i&lt;&lt;=n 等价于 i=i*(2的n次方）; i&gt;&gt;=n 等价于 i=i/（2的n次方）
+
+						</p>
+					</div>
+
+					<a href="/2019/05/16/位运算/" title="位运算">				
+						<img src="/img/post_cover/cover14.jpg" class="relateImg" alt="位运算">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
 						<a href="/2019/05/15/Codeforces Round #559 (Div. 2)-C/" title="Codeforces Round">
 							Codeforces Round
 						</a>
@@ -506,7 +555,7 @@ LL b<span class="token punctuation">[</span>MAX<span class="token punctuation">]
 					</div>
 
 					<a href="/2019/05/15/Codeforces Round #559 (Div. 2)-C/" title="Codeforces Round">				
-						<img src="/img/post_cover/covertemp.jpg" class="relateImg" alt="Codeforces Round">
+						<img src="/img/post_cover/cover12.jpg" class="relateImg" alt="Codeforces Round">
 					</a>
 				</li>											
 		
@@ -525,7 +574,7 @@ $n = p_1^{e_1} ...
 					</div>
 
 					<a href="/2019/05/15/数论-因子/" title="数论 - 因子">				
-						<img src="/img/post_cover/covertemp.jpg" class="relateImg" alt="数论 - 因子">
+						<img src="/img/post_cover/cover11.jpg" class="relateImg" alt="数论 - 因子">
 					</a>
 				</li>											
 		
@@ -617,62 +666,6 @@ b就叫做a关于模p的乘法逆元
 
 					<a href="/2019/04/16/乘法逆元/" title="乘法逆元">				
 						<img src="/img/post_cover/cover6.jpg" class="relateImg" alt="乘法逆元">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/04/14/pass-CET4/" title="PASS-CET4">
-							PASS-CET4
-						</a>
-						<p>
-							我要过四级我要过四级我要过四级没有什么写的，只是表达一下我很想过四级！！！！
-sad，昨天的cf被hack了，不然我就青了QAQ
-听了听保研的经验分享会，感觉怎么样也好难啊，考研难，保研难
-打好比赛，好好学习，过四级！
-
-						</p>
-					</div>
-
-					<a href="/2019/04/14/pass-CET4/" title="PASS-CET4">				
-						<img src="/img/post_cover/cover4.jpg" class="relateImg" alt="PASS-CET4">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/04/12/Codeforces Global Round 2-F/" title="Codeforces Global Round 2-F">
-							Codeforces Global Round 2-F
-						</a>
-						<p>
-							题目链接：http://codeforces.com/contest/1119/problem/E
-题目思路：​    这题吧比赛的时候因为B题做了好久其实就没怎么看，我也不知道会不会，啊哈哈哈
-​    看了题解发现挺简单的吧，比D...
-						</p>
-					</div>
-
-					<a href="/2019/04/12/Codeforces Global Round 2-F/" title="Codeforces Global Round 2-F">				
-						<img src="/img/post_cover/cover3.jpg" class="relateImg" alt="Codeforces Global Round 2-F">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/04/11/Codeforces Global Round 2-B/" title="Codeforces Global Round 2-B">
-							Codeforces Global Round 2-B
-						</a>
-						<p>
-							题目链接：http://codeforces.com/contest/1119/problem/B
-题目思路：比赛的时候这个题写了好久，主要是就想着按照俩个间距最小放一起，然后就想着放一个把前面的优化一次就写不出来
-然后看了这个豁然开...
-						</p>
-					</div>
-
-					<a href="/2019/04/11/Codeforces Global Round 2-B/" title="Codeforces Global Round 2-B">				
-						<img src="/img/post_cover/cover2.jpg" class="relateImg" alt="Codeforces Global Round 2-B">
 					</a>
 				</li>											
 		
@@ -1007,20 +1000,5 @@ sad，昨天的cf被hack了，不然我就青了QAQ
 <script src="/js/vibrant.js"></script>
 <script src="/js/chinese.js"></script>
 <script src="/js/main.js"></script>
-	<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-</body>
+	</body>
 	</html>
