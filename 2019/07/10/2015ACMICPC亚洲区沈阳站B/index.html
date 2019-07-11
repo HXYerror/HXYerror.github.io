@@ -315,7 +315,7 @@
 	<div class="article-content" id="article-content">
 		<h3 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h3><p><a href="2015ACM/ICPC亚洲区沈阳站"><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5510" target="_blank" rel="noopener">http://acm.hdu.edu.cn/showproblem.php?pid=5510</a></a></p>
 <h3 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h3><p>1.ac自动机多个串匹配咱也不会</p>
-<p>2.kmp一个个搜会tle -&gt; $500<em>500</em>4000$</p>
+<p>2.kmp一个个搜会tle -&gt; 500 <em> 500 </em> 4000​</p>
 <p>3.<a href="https://blog.csdn.net/weixin_39453270/article/details/80141690" target="_blank" rel="noopener">参考博客</a></p>
 <p>进一步分析我们可以发现，对于第ｊ串字符串，倘若前ｊ串都是ｊ的字串，那么我们下一步只需要判断ｊ是否是ｊ＋１的字串即可（因为如果ｊ是ｊ＋１的字串，而前ｊ串又是ｊ的字串，易得ｊ＋１串也是前ｊ串的字串，进而得出前ｊ＋１串是ｊ＋１串的字串。）</p>
 <p>而倘若ｊ串并不是ｊ＋１串的字串，那么下一步只需判断ｊ串是否是ｊ＋２串的字串即可。</p>
@@ -329,8 +329,8 @@
 <span class="token number">1</span> f <span class="token number">3</span>
 <span class="token number">1</span> f <span class="token number">4</span>
 <span class="token number">1</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token number">5</span>
-<span class="token number">2</span><span class="token operator">-</span><span class="token operator">></span> <span class="token number">5</span>
-<span class="token number">3</span><span class="token operator">-</span><span class="token operator">></span> <span class="token number">5</span>
+<span class="token number">2</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token number">5</span>
+<span class="token number">3</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token number">5</span>
 <span class="token number">4</span> f <span class="token function">5</span>
 <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>可以用<span class="token number">5</span>表示
 <span class="token number">4</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token number">6</span>
@@ -477,7 +477,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="优化next："><a href="#优化next：" class="headerlink" title="优化next："></a>优化next：</h4><p>问题出在不该出现p[j] = p[ next[j] ]。为什么呢？理由是：当p[j] != s[i] 时，下次匹配必然是p[ next [j]] 跟s[i]匹配，如果p[j] = p[ next[j] ]，必然导致后一步匹配失败（因为p[j]已经跟s[i]失配，然后你还用跟p[j]等同的值p[next[j]]去跟s[i]匹配，很显然，必然失配），所以不能允许p[j] = p[ next[j ]]。如果出现了p[j] = p[ next[j] ]咋办呢？如果出现了，则需要再次递归，即令next[j] = next[ next[j] ]。</p>
+<h5 id="优化next："><a href="#优化next：" class="headerlink" title="优化next："></a>优化next：</h5><p>问题出在不该出现p[j] = p[ next[j] ]。为什么呢？理由是：当p[j] != s[i] 时，下次匹配必然是p[ next [j]] 跟s[i]匹配，如果p[j] = p[ next[j] ]，必然导致后一步匹配失败（因为p[j]已经跟s[i]失配，然后你还用跟p[j]等同的值p[next[j]]去跟s[i]匹配，很显然，必然失配），所以不能允许p[j] = p[ next[j ]]。如果出现了p[j] = p[ next[j] ]咋办呢？如果出现了，则需要再次递归，即令next[j] = next[ next[j] ]。</p>
 <p>代码：</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//优化过后的next 数组求法</span>
 <span class="token keyword">void</span> <span class="token function">GetNextval</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span> p<span class="token punctuation">,</span> <span class="token keyword">int</span> next<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
@@ -668,8 +668,8 @@
 		
 				<li>
 					<div>
-						<a href="/2019/05/15/Codeforces Round #559 (Div. 2)-C/" title="Codeforces Round">
-							Codeforces Round
+						<a href="/2019/05/15/Codeforces Round #559 (Div. 2)-C/" title="Codeforces Round 559.2-C">
+							Codeforces Round 559.2-C
 						</a>
 						<p>
 							就学了一个lower把，先放在这里
@@ -681,8 +681,8 @@
 						</p>
 					</div>
 
-					<a href="/2019/05/15/Codeforces Round #559 (Div. 2)-C/" title="Codeforces Round">				
-						<img src="/img/post_cover/cover12.jpg" class="relateImg" alt="Codeforces Round">
+					<a href="/2019/05/15/Codeforces Round #559 (Div. 2)-C/" title="Codeforces Round 559.2-C">				
+						<img src="/img/post_cover/cover12.jpg" class="relateImg" alt="Codeforces Round 559.2-C">
 					</a>
 				</li>											
 		
@@ -725,6 +725,25 @@ $n = p_1^{e_1} ...
 
 					<a href="/2019/05/15/数论-因子/" title="数论 - 因子">				
 						<img src="/img/post_cover/cover11.jpg" class="relateImg" alt="数论 - 因子">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/04/25/Codeforces Round #554 (Div. 2)-B/" title="Codeforces Round 554.2-B">
+							Codeforces Round 554.2-B
+						</a>
+						<p>
+							先不说了，贴个代码
+/*-------------------------------------------------------------------------------------------*/
+
+int er[40]...
+						</p>
+					</div>
+
+					<a href="/2019/04/25/Codeforces Round #554 (Div. 2)-B/" title="Codeforces Round 554.2-B">				
+						<img src="/img/post_cover/cover10.jpg" class="relateImg" alt="Codeforces Round 554.2-B">
 					</a>
 				</li>											
 		
@@ -798,24 +817,6 @@ P1091：让每一个人做最中间人...
 
 					<a href="/2019/04/18/Codeforces Round 552.3-E/" title="Codeforces Round 552.3-E">				
 						<img src="/img/post_cover/cover5.jpg" class="relateImg" alt="Codeforces Round 552.3-E">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/04/16/乘法逆元/" title="乘法逆元">
-							乘法逆元
-						</a>
-						<p>
-							乘法逆元什么是乘法逆元？那么存在一个b，使得假设$gcd(a,p) = 1​$,则有$a*b ≡ 1 (mod p) ​$ 即  $ab=pk+1​$
-b就叫做a关于模p的乘法逆元
-怎么求乘法逆元一.费马小定理费马小定理：当a,p满足...
-						</p>
-					</div>
-
-					<a href="/2019/04/16/乘法逆元/" title="乘法逆元">				
-						<img src="/img/post_cover/cover6.jpg" class="relateImg" alt="乘法逆元">
 					</a>
 				</li>											
 		
@@ -1150,20 +1151,5 @@ b就叫做a关于模p的乘法逆元
 <script src="/js/vibrant.js"></script>
 <script src="/js/chinese.js"></script>
 <script src="/js/main.js"></script>
-	<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-</body>
+	</body>
 	</html>
