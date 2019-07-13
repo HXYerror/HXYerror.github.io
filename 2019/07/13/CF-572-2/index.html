@@ -329,7 +329,7 @@ bi=(a^4i−kai) mod  p</script><p>把每一个bi求出来，相同的配对就�
 <p>ans处理：每算出来一个数字，加一下之前算这个值的个数就好了，相当于和那些每个配对一次</p>
 <p>求bi的处理：减法，先求模在做减法可能造成结果的模是负数，如果是负数，再加上一个mod就好了</p>
 <p><img src="\img\post_blog\2019713-1.jpg" alt></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*-------------------------------------------------------------------------------------------*/</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; b;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/* ------------------------------------------------------------------------------------------*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">power4</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> p,<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    LL m = (<span class="number">1L</span>L * n * n) % p;</span><br><span class="line">    m = (m * n) % p;</span><br><span class="line">    m = (m * n) % p;</span><br><span class="line">    m = m - (<span class="number">1L</span>L * k * n) % p;</span><br><span class="line">    m = m%p;</span><br><span class="line">    <span class="keyword">if</span>(m &lt; <span class="number">0</span>) m += p;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">int</span>)m;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">//freopen("input.in","r",stdin);</span></span><br><span class="line">    <span class="comment">//freopen("output.out","w",stdout);</span></span><br><span class="line"><span class="comment">/* --------------------------------------------------------------------------------------*/</span></span><br><span class="line">    <span class="keyword">int</span> p,k;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N &gt;&gt; p &gt;&gt; k;</span><br><span class="line">    <span class="keyword">int</span> m;</span><br><span class="line">    LL ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; m;</span><br><span class="line">        <span class="keyword">int</span> n =  power4(m,p,k);</span><br><span class="line">        <span class="keyword">if</span>(b.find(n) != b.end())</span><br><span class="line">        &#123;</span><br><span class="line">            ans += (<span class="keyword">int</span>)b[n];</span><br><span class="line">            b[n]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> b[n] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*-------------------------------------------------------------------------------------------*/</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; b;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/* ------------------------------------------------------------------------------------------*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">power4</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> p,<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    LL m = (<span class="number">1L</span>L * n * n) % p;</span><br><span class="line">    m = (m * n) % p;</span><br><span class="line">    m = (m * n) % p;</span><br><span class="line">    m = m - (<span class="number">1L</span>L * k * n) % p;</span><br><span class="line">    m = m%p;</span><br><span class="line">    <span class="keyword">if</span>(m &lt; <span class="number">0</span>) m += p;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">int</span>)m;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">//freopen("input.in","r",stdin);</span></span><br><span class="line">    <span class="comment">//freopen("output.out","w",stdout);</span></span><br><span class="line"><span class="comment">/* --------------------------------------------------------------------------------------*/</span></span><br><span class="line">    <span class="keyword">int</span> p,k;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N &gt;&gt; p &gt;&gt; k;</span><br><span class="line">    <span class="keyword">int</span> m;</span><br><span class="line">    LL ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; m;</span><br><span class="line">        <span class="keyword">int</span> n =  power4(m,p,k);</span><br><span class="line">        <span class="keyword">if</span>(b.find(n) != b.end())</span><br><span class="line">        &#123;</span><br><span class="line">            ans += (<span class="keyword">int</span>)b[n];</span><br><span class="line">            b[n]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> b[n] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 	
 	</div>
 	
@@ -376,9 +376,9 @@ bi=(a^4i−kai) mod  p</script><p>把每一个bi求出来，相同的配对就�
 						<p>
 							传送门
 A：就是他
-while (N)&#123;    printf("%d ", N % 10);    N /= 10;&#125;
+12345while (N)&#123;    printf("%d ", N % 10);    N /= 10;&#125;
 B：只要找到最大的数和最小的数，比较一下就可以
-C:全用低功率模式，看剩下多少电，能换几次的高...
+C:全用低功率模式，看剩下多少电，能...
 						</p>
 					</div>
 
@@ -438,7 +438,7 @@ B：1191-B这个也是分类就三种情况
 						<p>
 							就学了一个lower把，先放在这里
 还要学习读题23333
-//#include&lt;bits/stdc++.h&gt;#include &lt;iostream&gt;#include &lt;cstdio&gt;#include...
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748...
 						</p>
 					</div>
 
@@ -454,7 +454,7 @@ B：1191-B这个也是分类就三种情况
 							Codeforces Round 554.2-B
 						</a>
 						<p>
-							先不说了，贴个代码/*-------------------------------------------------------------------------------------------*/int er[40];in...
+							先不说了，贴个代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585...
 						</p>
 					</div>
 
@@ -886,20 +886,5 @@ B：1191-B这个也是分类就三种情况
 <script src="/js/vibrant.js"></script>
 <script src="/js/chinese.js"></script>
 <script src="/js/main.js"></script>
-	<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-</body>
+	</body>
 	</html>
