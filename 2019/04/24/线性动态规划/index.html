@@ -34,8 +34,7 @@
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 	<body>
 		<!-- Preloader -->
 
@@ -321,174 +320,24 @@
 <p><a href="https://www.luogu.org/problemnew/show/P1020" target="_blank" rel="noopener"><a href="https://www.luogu.org/problemnew/show/P1020" target="_blank" rel="noopener">https://www.luogu.org/problemnew/show/P1020</a></a></p>
 <h4 id="P1091："><a href="#P1091：" class="headerlink" title="P1091："></a>P1091：</h4><p>让每一个人做最中间人，然后分别求到俩边的最长下降子序列</p>
 <p>注意要选取中间人为最高的对比</p>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">/*-------------------------------------------------------*/
-
-int a[MAX];
-int dp[MAX];
-
-/* --------------------------------------------------------------*/
-
-
-
-int main()
-{
-    std::ios::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-/* --------------------------------------------------------------*/
-    cin >>N;
-    for(int i = 1;i <= n;i++) { cin>> a[i];
-    }
-    int mi = INF;
-    for(int k = 1;k <= n;k++) { fill(dp,dp+max,0); int ans="0;" dp[0]="a[k];" for(int i="k-1;i">= 1;i--)
-        {
-            for(int j = k-1;j >= 1;j--)
-            {
-                if(dp[j-1] > a[i])
-                {
-                    dp[j] = max(a[i],dp[j]);
-                }
-                if(dp[j] != 0 && j > ans) ans = j;
-            }
-        }
-        int x = k - 1 - ans;
-
-        fill(dp,dp+MAX,0);
-        dp[0] = a[k];
-        ans = 0;
-        for(int i = k+1;i <= n;i++) { for(int j="N-k;j">= 1;j--)
-            {
-                if(dp[j-1] > a[i])
-                {
-                    dp[j] = max(a[i],dp[j]);
-                }
-                if(dp[j] != 0 && j > ans) ans = j;
-            }
-        }
-        int y = N - k - ans;
-
-        if(mi > x + y)
-        {
-            mi = x + y;
-        }
-    }
-    cout << mi;
-    return 0;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></=></=></=></code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*-------------------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[MAX];</span><br><span class="line"><span class="keyword">int</span> dp[MAX];</span><br><span class="line"></span><br><span class="line"><span class="comment">/* --------------------------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line"><span class="comment">/* --------------------------------------------------------------*/</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt;N;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mi = INF;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">1</span>;k &lt;= N;k++)</span><br><span class="line">    &#123;</span><br><span class="line">        fill(dp,dp+MAX,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> ans =<span class="number">0</span>;</span><br><span class="line">        dp[<span class="number">0</span>] = a[k];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = k<span class="number">-1</span>;i &gt;= <span class="number">1</span>;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = k<span class="number">-1</span>;j &gt;= <span class="number">1</span>;j--)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(dp[j<span class="number">-1</span>] &gt; a[i])</span><br><span class="line">                &#123;</span><br><span class="line">                    dp[j] = max(a[i],dp[j]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(dp[j] != <span class="number">0</span> &amp;&amp; j &gt; ans) ans = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> x = k - <span class="number">1</span> - ans;</span><br><span class="line"></span><br><span class="line">        fill(dp,dp+MAX,<span class="number">0</span>);</span><br><span class="line">        dp[<span class="number">0</span>] = a[k];</span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = k+<span class="number">1</span>;i &lt;= N;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = N-k;j &gt;= <span class="number">1</span>;j--)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(dp[j<span class="number">-1</span>] &gt; a[i])</span><br><span class="line">                &#123;</span><br><span class="line">                    dp[j] = max(a[i],dp[j]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(dp[j] != <span class="number">0</span> &amp;&amp; j &gt; ans) ans = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> y = N - k - ans;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(mi &gt; x + y)</span><br><span class="line">        &#123;</span><br><span class="line">            mi = x + y;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; mi;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="P1020"><a href="#P1020" class="headerlink" title="P1020"></a>P1020</h4><p>状态转移方程和上面一样</p>
 <p>dp[i]代表的是截拦i个火箭的时候的最高高度，不能截拦的时候为0</p>
 <p>关键语句：</p>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">        if(dp[j-1] >= a[i])
-        {
-            dp[j] = max(a[i],dp[j]);
-        }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">/*-------------------------------------------------------*/
-
-int a[MAX];
-int dp[MAX];
-vector<int> b;
-/* --------------------------------------------------------------*/
-
-
-
-int main()
-{
-    std::ios::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-
-    N= 1;
-    int x;
-    int cnt = 0;
-    while(cin >> x)
-    {
-        a[N++] = x;
-        if(b.size() == 0)
-        {
-            b.push_back(x);
-            cnt++;
-        }
-        else
-        {
-            int i= 0;
-            for(i = 0;i < cnt;i++)
-            {
-                if(b[i] >= x)
-                {
-                    b[i] = x;
-                    break;
-                }
-            }
-            if(i == cnt)
-            {
-                b.push_back(x);
-                cnt++;
-            }
-        }
-        sort(b.begin(),b.end());
-    }
-    N--;
-
-    dp[0] = INF;
-    for(int i = 1;i <= n;i++) { if(dp[i-1]>= a[i])
-        {
-            dp[i] = a[i];
-        }
-        for(int j = i-1;j >= 1 ;j--)
-        {
-            if(dp[j-1] >= a[i])
-            {
-                dp[j] = max(a[i],dp[j]);
-            }
-        }
-    }
-
-    for(int i = N;i >= 1;i--)
-    {
-        if(dp[i] != 0)
-        {
-            cout << i <<"\n"; break; } cout << cnt ; return 0; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></"\n";></=></int></code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(dp[j<span class="number">-1</span>] &gt;= a[i])</span><br><span class="line">&#123;</span><br><span class="line">    dp[j] = max(a[i],dp[j]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*-------------------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[MAX];</span><br><span class="line"><span class="keyword">int</span> dp[MAX];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; b;</span><br><span class="line"><span class="comment">/* --------------------------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    N= <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; x)</span><br><span class="line">    &#123;</span><br><span class="line">        a[N++] = x;</span><br><span class="line">        <span class="keyword">if</span>(b.size() == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            b.push_back(x);</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> i= <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; cnt;i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(b[i] &gt;= x)</span><br><span class="line">                &#123;</span><br><span class="line">                    b[i] = x;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(i == cnt)</span><br><span class="line">            &#123;</span><br><span class="line">                b.push_back(x);</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(b.begin(),b.end());</span><br><span class="line">    &#125;</span><br><span class="line">    N--;</span><br><span class="line"></span><br><span class="line">    dp[<span class="number">0</span>] = INF;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(dp[i<span class="number">-1</span>] &gt;= a[i])</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i] = a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = i<span class="number">-1</span>;j &gt;= <span class="number">1</span> ;j--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(dp[j<span class="number">-1</span>] &gt;= a[i])</span><br><span class="line">            &#123;</span><br><span class="line">                dp[j] = max(a[i],dp[j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = N;i &gt;= <span class="number">1</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(dp[i] != <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i &lt;&lt;<span class="string">"\n"</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; cnt ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="二-区间dp"><a href="#二-区间dp" class="headerlink" title="二.区间dp"></a>二.区间dp</h3><p><a href="https://www.luogu.org/problemnew/show/P1880" target="_blank" rel="noopener"><a href="https://www.luogu.org/problemnew/show/P1880" target="_blank" rel="noopener">https://www.luogu.org/problemnew/show/P1880</a></a></p>
 <h4 id="p1880："><a href="#p1880：" class="headerlink" title="p1880："></a>p1880：</h4><p>首先这个题是环，我们要把环化为链</p>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">for(int i = 1;i <= n;i++) { cin>> a[i];
-    a[i+N] = a[i];
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></=></code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= N;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    a[i+N] = a[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>还有做一下前缀和的处理，前缀和就是前面的数组元素的和</p>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">for(int i = 1;i <= 2*n;i++) { sum[i]="sum[i-1]" + a[i]; } <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></=></code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= <span class="number">2</span>*N;i++)</span><br><span class="line">&#123;</span><br><span class="line">    sum[i] = sum[i<span class="number">-1</span>] + a[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>dp[i][j]</code> 代表的是区间（i，j）的最大和or小</p>
 <p>首先我们枚举的是区间的长度，而不是（i，j）</p>
 <p>一旦区间长度l确定了，枚举i，j是固定的</p>
 <p>然后通过k，把俩堆堆到一起</p>
 <p>关键代码：<code>dpa[i][k] + dpa[k+1][j]</code> 注意后面是k+1不是k</p>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">            dpa[i][j] = max(dpa[i][j],dpa[i][k] + dpa[k+1][j] + sum[j] - sum[i-1]);
-            dpi[i][j] = min(dpi[i][j],dpi[i][k] + dpi[k+1][j] + sum[j] - sum[i-1]);
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">/*-------------------------------------------------------*/
-
-int a[2*MAX];
-int dpa[2*MAX][2*MAX];
-int dpi[2*MAX][2*MAX];
-int sum[2*MAX];
-
-/* --------------------------------------------------------------*/
-
-
-
-int main()
-{
-    std::ios::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-/* --------------------------------------------------------------*/
-    cin >> N;
-    for(int i = 1;i <= n;i++) { cin>> a[i];
-        a[i+N] = a[i];
-    }
-    sum[0] = 0;
-    for(int i = 0;i <= n;i++) { fill(dpa[i],dpa[i]+n+1,0); fill(dpi[i],dpi[i]+n+1,0); } for(int i="1;i" <="2*N;i++)" sum[i]="sum[i-1]" + a[i]; l="2;l" int j="i" - 1; dpi[i][j]="INF;//why?why?why?" k="i;k" j;k++) dpa[i][j]="max(dpa[i][j],dpa[i][k]" dpa[k+1][j] sum[j] sum[i-1]); dpi[k+1][j] cout << " <<endl; <<dpa[i][j] ma="0;" mi="INF;" "\n" "\n"; return 0; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></=></=></code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dpa[i][j] = max(dpa[i][j],dpa[i][k] + dpa[k+<span class="number">1</span>][j] + sum[j] - sum[i<span class="number">-1</span>]);</span><br><span class="line">dpi[i][j] = min(dpi[i][j],dpi[i][k] + dpi[k+<span class="number">1</span>][j] + sum[j] - sum[i<span class="number">-1</span>]);</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*-------------------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">2</span>*MAX];</span><br><span class="line"><span class="keyword">int</span> dpa[<span class="number">2</span>*MAX][<span class="number">2</span>*MAX];</span><br><span class="line"><span class="keyword">int</span> dpi[<span class="number">2</span>*MAX][<span class="number">2</span>*MAX];</span><br><span class="line"><span class="keyword">int</span> sum[<span class="number">2</span>*MAX];</span><br><span class="line"></span><br><span class="line"><span class="comment">/* --------------------------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line"><span class="comment">/* --------------------------------------------------------------*/</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">        a[i+N] = a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    sum[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt;= N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        fill(dpa[i],dpa[i]+N+<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">        fill(dpi[i],dpi[i]+N+<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= <span class="number">2</span>*N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        sum[i] = sum[i<span class="number">-1</span>] + a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> l = <span class="number">2</span>;l &lt;= N;l++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i+l<span class="number">-1</span> &lt;= <span class="number">2</span>*N;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> j = i + l - <span class="number">1</span>;</span><br><span class="line">            dpi[i][j] = INF;<span class="comment">//why?why?why?</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k = i;k &lt; j;k++)</span><br><span class="line">            &#123;</span><br><span class="line">                dpa[i][j] = max(dpa[i][j],dpa[i][k] + dpa[k+<span class="number">1</span>][j] + sum[j] - sum[i<span class="number">-1</span>]);</span><br><span class="line">                dpi[i][j] = min(dpi[i][j],dpi[i][k] + dpi[k+<span class="number">1</span>][j] + sum[j] - sum[i<span class="number">-1</span>]);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//cout &lt;&lt; i &lt;&lt; " " &lt;&lt; j &lt;&lt; " " &lt;&lt; k &lt;&lt;endl;</span></span><br><span class="line">                <span class="comment">//cout &lt;&lt;dpa[i][j] &lt;&lt; " " &lt;&lt; dpi[i][j] &lt;&lt;endl;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ma = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> mi = INF;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ma = max(ma,dpa[i][i+N<span class="number">-1</span>]);</span><br><span class="line">        mi = min(mi,dpi[i][i+N<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; mi &lt;&lt; <span class="string">"\n"</span> &lt;&lt; ma &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 	
 	</div>
 	
@@ -575,14 +424,9 @@ C:题解的方法还没搞懂
 						<p>
 							传送门
 A：就是他
-    while (N)
-    {
-        printf("%d ", N % 10);
-        N /= 10;
-    }
-
+12345while (N)&#123;    printf("%d ", N % 10);    N /= 10;&#125;
 B：只要找到最大的数和最小的数，比较一下就可以
-C:全用低功率模...
+C:全用低功率模式，看剩下多少电，能...
 						</p>
 					</div>
 
@@ -695,15 +539,7 @@ B：1191-B这个也是分类就三种情况
 						<p>
 							就学了一个lower把，先放在这里
 还要学习读题23333
-//#include
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
-#inclu...
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748...
 						</p>
 					</div>
 
@@ -719,14 +555,7 @@ B：1191-B这个也是分类就三种情况
 							矩阵快速幂
 						</a>
 						<p>
-							普通的快速幂LL MODe(LL a,LL b)
-{
-    LL sum = 1;
-    a %= MOD;
-    while(b)
-    {
-        if(b & 1)
-            sum = (sum ...
+							普通的快速幂12345678910111213LL MODe(LL a,LL b)&#123;    LL sum = 1;    a %= MOD;    while(b)    &#123;        if(b &amp; 1...
 						</p>
 					</div>
 
@@ -1066,5 +895,20 @@ B：1191-B这个也是分类就三种情况
 <script src="/js/vibrant.js"></script>
 <script src="/js/chinese.js"></script>
 <script src="/js/main.js"></script>
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 	</html>

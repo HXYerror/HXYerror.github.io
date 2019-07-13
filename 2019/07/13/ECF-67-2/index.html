@@ -34,8 +34,7 @@
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 	<body>
 		<!-- Preloader -->
 
@@ -322,183 +321,23 @@
 <h3 id="B"><a href="#B" class="headerlink" title="B:"></a>B:</h3><p>开个二维数组，记录每一种字母的位置</p>
 <p>扫描字符串找到位置最靠后的字母</p>
 <h3 id="C"><a href="#C" class="headerlink" title="C:"></a>C:</h3><p>题解的方法还没搞懂</p>
-<h1 id="设置一个数组，保存俩个数之间的关系，需要排序，没有要求，要不排序"><a href="#设置一个数组，保存俩个数之间的关系，需要排序，没有要求，要不排序" class="headerlink" title="设置一个数组，保存俩个数之间的关系，需要排序，没有要求，要不排序"></a>设置一个数组，保存俩个数之间的关系，需要排序，没有要求，要不排序</h1><p>1.把需要排序的区间范围从小到大排序，保证所有要排序的区间是增的</p>
+<p>设置一个数组，保存俩个数之间的关系，需要排序，没有要求，要不排序</p>
+<p>1.把需要排序的区间范围从小到大排序，保证所有要排序的区间是增的</p>
 <p>2.处理不需要排序区间，如果有一个不排序区间完全位于排序区间=&gt;NO</p>
 <p>3.已经有了一对非排序，跳出，可以变为非排序的，变化，同时看他前面和他是什么关系</p>
 <p>？？？Cmp比较函数出现了问题？？为啥下面的不行</p>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">bool Cmp1(Pos a,Pos b)//这是正确的排序
-{
-    if(a.l < b.l) return true;
-    else if(a.l == b.l)
-    {
-        if(a.r <= b.r) return false; else true; } bool cmp2(pos a,pos b) 这是错的 { if(a.l <="b.l)" <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></=></code></pre>
-<h4 id="题目代码："><a href="#题目代码：" class="headerlink" title="题目代码："></a>题目代码：</h4><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">/*-------------------------------------------------------------------------------------------*/
-struct Pos
-{
-    int l,r;
-};
-Pos a1[MAX];
-Pos a0[MAX];
-int a[MAX];
-int book[MAX][MAX];
-/* ------------------------------------------------------------------------------------------*/
-
-bool Cmp(Pos a,Pos b)
-{
-    if(a.l < b.l) return true;
-    else if(a.l == b.l)
-    {
-        if(a.r <= b.r) return true; else false; } int main() { std::ios::sync_with_stdio(false); cin.tie(0); cout.tie(0); freopen("input.in","r",stdin); freopen("output.out","w",stdout); * --------------------------------------------------------------------------------------* cin>> N >> M;
-    Pos temp;
-    int t,l,r;
-    int cnt1 = 0;
-    int cnt0 = 0;
-    while(M--)
-    {
-        cin >> t >> l >> r;
-        temp.l = l;
-        temp.r = r;
-        if(t == 1)
-        {
-            a1[cnt1] = temp;
-            cnt1++;
-        }
-        else
-        {
-            a0[cnt0] = temp;
-            cnt0++;
-        }
-    }
-
-    sort(a1,a1+cnt1,Cmp);
-    fill(a+1,a+N+1,1);
-    for(int i = 0;i < cnt1;++i)
-    {
-        //cout << a1[i].l << " " << a1[i].r <<endl; for(int j="a1[i].l;j" <="a1[i].r;j++)" { if(!book[j][j+1]) a[j]="a[j-1]+1;" if(j !="a1[i].r)" book[j][j+1]="1;" } int flag="1;" i="0;i" cnt0;++i) for(j="a0[i].l;j" a0[i].r;++j) if(a[j]> a[j+1])
-            {
-                book[j][j+1] = 2;
-                break;
-            }
-            else if(book[j][j+1] == 0 && book[j-1][j] != 2)
-            {
-                a[j] = a[j+1]+1;
-                book[j][j+1] = 2;
-                break;
-            }
-            else if(book[j][j+1] == 0 && book[j-1][j] == 2)
-            {
-                int k = j;
-                book[j][j+1] = 2;
-                a[k] = a[k+1]+1;
-                while(k--)
-                {
-                    if(k == 0) break;
-                    a[k] = max(a[k+1]+1,a[k]);
-                    if(book[k-1][k] != 2)
-                        break;
-                }
-                break;
-            }
-        }
-        if(j == a0[i].r)
-        {
-            flag = 0;
-            break;
-        }
-    }
-    if(flag)
-    {
-        cout << "YES" <<endl; for(int i="1;i" <="N;i++)" { cout << a[i]; if(i !="N)" " "; else <<endl; } "no" return 0; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></endl;></endl;></=></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Cmp1</span><span class="params">(Pos a,Pos b)</span><span class="comment">//这是正确的排序</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.l &lt; b.l) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(a.l == b.l)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a.r &lt;= b.r) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Cmp2</span><span class="params">(Pos a,Pos b)</span><span class="comment">//这是错的</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.l &lt;= b.l) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="题目代码："><a href="#题目代码：" class="headerlink" title="题目代码："></a>题目代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*-------------------------------------------------------------------------------------------*/</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Pos</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> l,r;</span><br><span class="line">&#125;;</span><br><span class="line">Pos a1[MAX];</span><br><span class="line">Pos a0[MAX];</span><br><span class="line"><span class="keyword">int</span> a[MAX];</span><br><span class="line"><span class="keyword">int</span> book[MAX][MAX];</span><br><span class="line"><span class="comment">/* ------------------------------------------------------------------------------------------*/</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Cmp</span><span class="params">(Pos a,Pos b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.l &lt; b.l) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(a.l == b.l)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a.r &lt;= b.r) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">//freopen("input.in","r",stdin);</span></span><br><span class="line">    <span class="comment">//freopen("output.out","w",stdout);</span></span><br><span class="line"><span class="comment">/* --------------------------------------------------------------------------------------*/</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N &gt;&gt; M;</span><br><span class="line">    Pos temp;</span><br><span class="line">    <span class="keyword">int</span> t,l,r;</span><br><span class="line">    <span class="keyword">int</span> cnt1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> cnt0 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(M--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; t &gt;&gt; l &gt;&gt; r;</span><br><span class="line">        temp.l = l;</span><br><span class="line">        temp.r = r;</span><br><span class="line">        <span class="keyword">if</span>(t == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            a1[cnt1] = temp;</span><br><span class="line">            cnt1++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            a0[cnt0] = temp;</span><br><span class="line">            cnt0++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    sort(a1,a1+cnt1,Cmp);</span><br><span class="line">    fill(a+<span class="number">1</span>,a+N+<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; cnt1;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//cout &lt;&lt; a1[i].l &lt;&lt; " " &lt;&lt; a1[i].r &lt;&lt;endl;</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = a1[i].l;j &lt;= a1[i].r;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!book[j][j+<span class="number">1</span>]) a[j] = a[j<span class="number">-1</span>]+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(j != a1[i].r) book[j][j+<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; cnt0;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j = a0[i].l;j &lt; a0[i].r;++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j] &gt; a[j+<span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                book[j][j+<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(book[j][j+<span class="number">1</span>] == <span class="number">0</span> &amp;&amp; book[j<span class="number">-1</span>][j] != <span class="number">2</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                a[j] = a[j+<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">                book[j][j+<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(book[j][j+<span class="number">1</span>] == <span class="number">0</span> &amp;&amp; book[j<span class="number">-1</span>][j] == <span class="number">2</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> k = j;</span><br><span class="line">                book[j][j+<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">                a[k] = a[k+<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span>(k--)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(k == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">                    a[k] = max(a[k+<span class="number">1</span>]+<span class="number">1</span>,a[k]);</span><br><span class="line">                    <span class="keyword">if</span>(book[k<span class="number">-1</span>][k] != <span class="number">2</span>)</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(j == a0[i].r)</span><br><span class="line">        &#123;</span><br><span class="line">            flag = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(flag)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"YES"</span> &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= N;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; a[i];</span><br><span class="line">            <span class="keyword">if</span>(i != N) <span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"NO"</span> &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="E："><a href="#E：" class="headerlink" title="E："></a>E：</h3><h4 id="题目代码"><a href="#题目代码" class="headerlink" title="题目代码:"></a>题目代码:</h4><p>tsize：节点对于ans的贡献值，包括自己</p>
 <p>dp：节点的ans</p>
 <script type="math/tex; mode=display">
 dp_n = tsize_n + \sum dp_i (i \in n的子树)</script><p>那么我们每次dp过程可以把root换到n的一个儿子节点to上面</p>
 <p>1：先把to儿子从n上砍掉</p>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">        dp[n] -= dp[to];
-        dp[n] -= tsize[to];//因为dp[to]是由俩部分组成的
-        tsize[n] -= tsize[to];
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dp[n] -= dp[to];</span><br><span class="line">dp[n] -= tsize[to];<span class="comment">//因为dp[to]是由俩部分组成的</span></span><br><span class="line">tsize[n] -= tsize[to];</span><br></pre></td></tr></table></figure>
 <p>2：在to这个root上添加n这个儿子</p>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">        tsize[to] += tsize[n];
-        dp[to] += dp[n];
-        dp[to] += tsize[n];
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tsize[to] += tsize[n];</span><br><span class="line">dp[to] += dp[n];</span><br><span class="line">dp[to] += tsize[n];</span><br></pre></td></tr></table></figure>
 <p>所有的节点当一次root就算出来了</p>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">/*-------------------------------------------------------------------------------------------*/
-vector<int> edge[MAX];
-LL tsize[MAX];
-LL dp[MAX];
-LL ans = 0;
-/* ------------------------------------------------------------------------------------------*/
-
-LL caculatesize(int n,int v)
-{
-    tsize[n] = 1;
-    for(int i = 0;i < edge[n].size();i++)
-    {
-        if(edge[n][i] == v) continue;
-        tsize[n] += caculatesize(edge[n][i],n);
-    }
-    return tsize[n];
-}
-
-LL firstdp(int n,int v)
-{
-    dp[n] = tsize[n];//mine
-    for(int i = 0;i < edge[n].size();i++)//son
-    {
-        if(edge[n][i] == v) continue;
-        dp[n] += firstdp(edge[n][i],n);
-    }
-    return dp[n];
-}
-
-void dfs(int n,int v)
-{
-    ans = max(ans,dp[n]);
-    for(int i = 0;i < edge[n].size();i++)//to
-    {
-        if(edge[n][i] == v) continue;
-        int to = edge[n][i];
-        dp[n] -= dp[to];
-        dp[n] -= tsize[to];
-        tsize[n] -= tsize[to];
-        tsize[to] += tsize[n];
-        dp[to] += dp[n];
-        dp[to] += tsize[n];
-
-        dfs(to,n);
-
-        dp[to] -= tsize[n];
-        dp[to] -= dp[n];
-        tsize[to] -= tsize[n];
-        tsize[n] += tsize[to];
-        dp[n] += tsize[to];
-        dp[n] += dp[to];
-    }
-}
-
-int main()
-{
-    std::ios::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-    //freopen("input.in","r",stdin);
-    //freopen("output.out","w",stdout);
-/* --------------------------------------------------------------------------------------*/
-    cin >> N;
-    M = N - 1;
-    int l,r;
-    while(M--)
-    {
-        cin >> l >> r;
-        edge[l].push_back(r);
-        edge[r].push_back(l);
-    }
-    caculatesize(1,-1);
-    ans = firstdp(1,-1);
-    dfs(1,-1);
-    cout << ans <<endl; return 0; } <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></endl;></int></code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*-------------------------------------------------------------------------------------------*/</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; edge[MAX];</span><br><span class="line">LL tsize[MAX];</span><br><span class="line">LL dp[MAX];</span><br><span class="line">LL ans = <span class="number">0</span>;</span><br><span class="line"><span class="comment">/* ------------------------------------------------------------------------------------------*/</span></span><br><span class="line"> </span><br><span class="line"><span class="function">LL <span class="title">caculatesize</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    tsize[n] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; edge[n].size();i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(edge[n][i] == v) <span class="keyword">continue</span>;</span><br><span class="line">        tsize[n] += caculatesize(edge[n][i],n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> tsize[n];</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function">LL <span class="title">firstdp</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    dp[n] = tsize[n];<span class="comment">//mine</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; edge[n].size();i++)<span class="comment">//son</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(edge[n][i] == v) <span class="keyword">continue</span>;</span><br><span class="line">        dp[n] += firstdp(edge[n][i],n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[n];</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ans = max(ans,dp[n]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; edge[n].size();i++)<span class="comment">//to</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(edge[n][i] == v) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">int</span> to = edge[n][i];</span><br><span class="line">        dp[n] -= dp[to];</span><br><span class="line">        dp[n] -= tsize[to];</span><br><span class="line">        tsize[n] -= tsize[to];</span><br><span class="line">        tsize[to] += tsize[n];</span><br><span class="line">        dp[to] += dp[n];</span><br><span class="line">        dp[to] += tsize[n];</span><br><span class="line"> </span><br><span class="line">        dfs(to,n);</span><br><span class="line"> </span><br><span class="line">        dp[to] -= tsize[n];</span><br><span class="line">        dp[to] -= dp[n];</span><br><span class="line">        tsize[to] -= tsize[n];</span><br><span class="line">        tsize[n] += tsize[to];</span><br><span class="line">        dp[n] += tsize[to];</span><br><span class="line">        dp[n] += dp[to];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">//freopen("input.in","r",stdin);</span></span><br><span class="line">    <span class="comment">//freopen("output.out","w",stdout);</span></span><br><span class="line"><span class="comment">/* --------------------------------------------------------------------------------------*/</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">    M = N - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> l,r;</span><br><span class="line">    <span class="keyword">while</span>(M--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; l &gt;&gt; r;</span><br><span class="line">        edge[l].push_back(r);</span><br><span class="line">        edge[r].push_back(l);</span><br><span class="line">    &#125;</span><br><span class="line">    caculatesize(<span class="number">1</span>,<span class="number">-1</span>);</span><br><span class="line">    ans = firstdp(<span class="number">1</span>,<span class="number">-1</span>);</span><br><span class="line">    dfs(<span class="number">1</span>,<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 	
 	</div>
 	
@@ -545,14 +384,9 @@ int main()
 						<p>
 							传送门
 A：就是他
-    while (N)
-    {
-        printf("%d ", N % 10);
-        N /= 10;
-    }
-
+12345while (N)&#123;    printf("%d ", N % 10);    N /= 10;&#125;
 B：只要找到最大的数和最小的数，比较一下就可以
-C:全用低功率模...
+C:全用低功率模式，看剩下多少电，能...
 						</p>
 					</div>
 
@@ -612,15 +446,7 @@ B：1191-B这个也是分类就三种情况
 						<p>
 							就学了一个lower把，先放在这里
 还要学习读题23333
-//#include
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
-#inclu...
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748...
 						</p>
 					</div>
 
@@ -636,10 +462,7 @@ B：1191-B这个也是分类就三种情况
 							Codeforces Round 554.2-B
 						</a>
 						<p>
-							先不说了，贴个代码
-/*-------------------------------------------------------------------------------------------*/
-
-int er[40]...
+							先不说了，贴个代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585...
 						</p>
 					</div>
 
@@ -1069,5 +892,20 @@ P1091：让每一个人做最中间人...
 <script src="/js/vibrant.js"></script>
 <script src="/js/chinese.js"></script>
 <script src="/js/main.js"></script>
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 	</html>

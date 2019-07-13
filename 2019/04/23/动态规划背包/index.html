@@ -34,8 +34,7 @@
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 	<body>
 		<!-- Preloader -->
 
@@ -316,38 +315,10 @@
 <p>dp(i,j)表示拿到i件物品时，j容量下价值的最大值</p>
 <p>空间够用：判断价值决定拿不拿 <code>dp[j][i] = max(dp[j-1][i],dp[j-1][i - th[j].m]+th[j].m*th[j].v);</code></p>
 <p>空间不够用：只有不拿 <code>dp[j][i] = dp[j-1][i];</code></p>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">/*-------------------------------------------------------------------------------------------*/
-struct BAG
-{
-    int m;
-    int v;
-}th[25];
-int dp[25][MAX];
-/* ------------------------------------------------------------------------------------------*/
-
-int main()
-{
-    //std::ios::sync_with_stdio(false);
-    cin >> M >> N;
-    for(int i =1;i <= n;i++) { cin>> th[i].m >> th[i].v;
-    }
-    for(int j = 1;j <= n;j++) { for(int i="1;i" <="M;i++)" if(th[j].m dp[j][i]="max(dp[j-1][i],dp[j-1][i" - th[j].m]+th[j].m*th[j].v); } else cout << dp[n][m] "\n"; return 0; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></=></=></code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*-------------------------------------------------------------------------------------------*/</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BAG</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> m;</span><br><span class="line">    <span class="keyword">int</span> v;</span><br><span class="line">&#125;th[<span class="number">25</span>];</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">25</span>][MAX];</span><br><span class="line"><span class="comment">/* ------------------------------------------------------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//std::ios::sync_with_stdio(false);</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; M &gt;&gt; N;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span>;i &lt;= N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; th[i].m &gt;&gt; th[i].v;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= N;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= M;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(th[j].m &lt;= i)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[j][i] = max(dp[j<span class="number">-1</span>][i],dp[j<span class="number">-1</span>][i - th[j].m]+th[j].m*th[j].v);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                dp[j][i] = dp[j<span class="number">-1</span>][i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; dp[N][M] &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="优化空间："><a href="#优化空间：" class="headerlink" title="优化空间："></a>优化空间：</h5><p>（不是这个题的，只是空间优化了，没有加权值而已，一毛一样）</p>
 <p><a href="https://www.luogu.org/problemnew/show/P1049" target="_blank" rel="noopener"><a href="https://www.luogu.org/problemnew/show/P1049" target="_blank" rel="noopener">https://www.luogu.org/problemnew/show/P1049</a></a></p>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">/*-------------------------------------------------------------------------------------------*/
-int a[MAX_1];
-int dp[MAX];
-/* ------------------------------------------------------------------------------------------*/
-
-int main()
-{
-    //std::ios::sync_with_stdio(false);
-    cin >> M >> N;
-    for(int i = 0;i <= max;i++) { dp[i]="i;" } for(int i="1;i" <="N;i++)" cin>> a[i];
-    }
-    for(int j = 1;j <= n;j++) { for(int i="M;i">= 1;i--)
-        {
-            if(a[j] <= i) { dp[i]="min(dp[i],dp[i-a[j]]);" cout << i ":" dp[i-a[j]] " <<endl; } dp[m] "\n"; return 0; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></=></=></=></code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*-------------------------------------------------------------------------------------------*/</span></span><br><span class="line"><span class="keyword">int</span> a[MAX_1];</span><br><span class="line"><span class="keyword">int</span> dp[MAX];</span><br><span class="line"><span class="comment">/* ------------------------------------------------------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//std::ios::sync_with_stdio(false);</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; M &gt;&gt; N;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt;= MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        dp[i] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span>;i &lt;= N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= N;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = M;i &gt;= <span class="number">1</span>;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j] &lt;= i)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i] = min(dp[i],dp[i-a[j]]);</span><br><span class="line">                <span class="comment">//cout &lt;&lt; i &lt;&lt; ":" &lt;&lt; dp[i-a[j]] &lt;&lt; " " &lt;&lt; dp[i] &lt;&lt;endl;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; dp[M] &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="例题2："><a href="#例题2：" class="headerlink" title="例题2："></a>例题2：</h4><p><a href="喵"><a href="https://www.luogu.org/problemnew/show/P1164" target="_blank" rel="noopener">https://www.luogu.org/problemnew/show/P1164</a></a></p>
 <p>这个题需要背包恰好装满</p>
 <p>把dp初始化为INF，当 当前的物品不能恰好装满的时候，就为非法值</p>
@@ -356,41 +327,12 @@ int main()
 <p>1.装不下不装</p>
 <p>2.装下但不是恰好装满，不装</p>
 <p>3.恰好装满</p>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">/*-------------------------------------------------------------------------------------------*/
-int a[MAX_1];
-int dp[MAX];
-/* ------------------------------------------------------------------------------------------*/
-
-int main()
-{
-    //std::ios::sync_with_stdio(false);
-    cin >> N >> M;
-    for(int i = 1;i <= max;i++) { dp[i]="INF;" } dp[0]="1;" for(int i="1;i" <="N;i++)" cin>> a[i];
-    }
-    //dp[a[1]] = 1;
-    for(int j = 1;j <= n;j++) { for(int i="M;i">= 1;i--)
-        {
-            if(a[j] <= i) { if(dp[i - a[j]] !="INF)" if(dp[i]="=" inf) dp[i]="dp[i" a[j]]; } else +="dp[i" cout << dp[m] "\n"; return 0; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></=></=></=></code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*-------------------------------------------------------------------------------------------*/</span></span><br><span class="line"><span class="keyword">int</span> a[MAX_1];</span><br><span class="line"><span class="keyword">int</span> dp[MAX];</span><br><span class="line"><span class="comment">/* ------------------------------------------------------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//std::ios::sync_with_stdio(false);</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N &gt;&gt; M;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        dp[i] = INF;</span><br><span class="line">    &#125;</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span>;i &lt;= N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//dp[a[1]] = 1;</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= N;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = M;i &gt;= <span class="number">1</span>;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j] &lt;= i)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(dp[i - a[j]] != INF)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(dp[i] == INF)</span><br><span class="line">                    &#123;</span><br><span class="line">                        dp[i] = dp[i - a[j]];</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> dp[i] += dp[i - a[j]];</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; dp[M] &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>此题有待寻找更好的递推</p>
 <h3 id="二-完全背包"><a href="#二-完全背包" class="headerlink" title="二.完全背包"></a>二.完全背包</h3><p><strong>容量正走</strong></p>
 <p><a href="https://www.luogu.org/problemnew/show/P1049" target="_blank" rel="noopener"><a href="https://www.luogu.org/problemnew/show/P1616" target="_blank" rel="noopener">https://www.luogu.org/problemnew/show/P1616</a></a></p>
 <p>没什么不同啊，就是把容量正的走而已了，一件物品放一次放一次放一次</p>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">/*-------------------------------------------------------------------------------------------*/
-struct YAO
-{
-    int t;
-    int v;
-}a[MAX_1];
-int dp[MAX];
-/* ------------------------------------------------------------------------------------------*/
-
-int main()
-{
-    //std::ios::sync_with_stdio(false);
-    cin >> M >> N;
-    for(int i =1;i <= n;i++) { cin>> a[i].t >> a[i].v;
-    }
-    for(int i = 1;i <= m;i++) { for(int j="1;j" <="N;j++)" if(a[j].t dp[i]="max(dp[i],dp[i-a[j].t]+a[j].v);" } cout << dp[m] "\n"; return 0; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></=></=></code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*-------------------------------------------------------------------------------------------*/</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">YAO</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="keyword">int</span> v;</span><br><span class="line">&#125;a[MAX_1];</span><br><span class="line"><span class="keyword">int</span> dp[MAX];</span><br><span class="line"><span class="comment">/* ------------------------------------------------------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//std::ios::sync_with_stdio(false);</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; M &gt;&gt; N;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span>;i &lt;= N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i].t &gt;&gt; a[i].v;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= M;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= N;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j].t &lt;= i)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i] = max(dp[i],dp[i-a[j].t]+a[j].v);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; dp[M] &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="三-多重背包"><a href="#三-多重背包" class="headerlink" title="三.多重背包"></a>三.多重背包</h3><p>听说是：三重循环</p>
 <p>还没做题呢，等着吧</p>
 <p>完全背包的恰好装满</p>
@@ -406,63 +348,7 @@ int main()
 <p>一主一副2</p>
 <p>一主俩副</p>
 <p>转移就完事了</p>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">/*-------------------------------------------------------------------------------------------*/
-struct YAO
-{
-    int m;
-    int v;
-    YAO(int mm,int vv) : m(mm),v(vv){}
-};
-vector<vector<yao> > a(MAX_1);
-int dp[MAX];
-/* ------------------------------------------------------------------------------------------*/
-
-int main()
-{
-    //std::ios::sync_with_stdio(false);
-    cin >> M >> N;
-    M /= 10;
-    for(int i =1;i <= n;i++) { int x,y,z; cin>>x >>y>>z;
-        if(z == 0)
-        {
-            a[i].push_back(YAO(x/10,y));
-        }
-        else
-        {
-            a[z].push_back(YAO(x/10,y));
-        }
-    }
-
-    for(int i = 1;i <= n;i++) { if(a[i].size()="=" 0) continue; for(int j="M;j">= 1;j--)
-        {
-            if(j >= a[i][0].m)
-            {
-                dp[j] = max(dp[j],dp[j - a[i][0].m]+a[i][0].m*a[i][0].v);
-            }
-            if(a[i].size() > 1)
-            {
-                if(j >= a[i][0].m + a[i][1].m)
-                {
-                    dp[j] = max(dp[j],dp[j - a[i][0].m - a[i][1].m]+a[i][0].m*a[i][0].v+a[i][1].m*a[i][1].v);
-                }
-                if(a[i].size() > 2)
-                {
-                    if(j >= a[i][0].m + a[i][2].m)
-                    {
-                        dp[j] = max(dp[j],dp[j - a[i][0].m - a[i][2].m]+a[i][0].m*a[i][0].v+a[i][2].m*a[i][2].v);
-                    }
-                    if(j >= a[i][0].m + a[i][1].m +a[i][2].m)
-                    {
-                        dp[j] = max(dp[j],dp[j - a[i][0].m - a[i][1].m - a[i][2].m]+a[i][0].m*a[i][0].v+a[i][2].m*a[i][2].v + a[i][1].m*a[i][1].v);
-                    }
-                }
-            }
-        }
-    }
-    cout << dp[M]*10 << "\n";
-    return 0;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></=></=></vector<yao></code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*-------------------------------------------------------------------------------------------*/</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">YAO</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> m;</span><br><span class="line">    <span class="keyword">int</span> v;</span><br><span class="line">    YAO(<span class="keyword">int</span> mm,<span class="keyword">int</span> vv) : m(mm),v(vv)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;YAO&gt; &gt; a(MAX_1);</span><br><span class="line"><span class="keyword">int</span> dp[MAX];</span><br><span class="line"><span class="comment">/* ------------------------------------------------------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//std::ios::sync_with_stdio(false);</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; M &gt;&gt; N;</span><br><span class="line">    M /= <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span>;i &lt;= N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> x,y,z;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt;x &gt;&gt;y&gt;&gt;z;</span><br><span class="line">        <span class="keyword">if</span>(z == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            a[i].push_back(YAO(x/<span class="number">10</span>,y));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            a[z].push_back(YAO(x/<span class="number">10</span>,y));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i].size() == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = M;j &gt;= <span class="number">1</span>;j--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(j &gt;= a[i][<span class="number">0</span>].m)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[j] = max(dp[j],dp[j - a[i][<span class="number">0</span>].m]+a[i][<span class="number">0</span>].m*a[i][<span class="number">0</span>].v);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(a[i].size() &gt; <span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(j &gt;= a[i][<span class="number">0</span>].m + a[i][<span class="number">1</span>].m)</span><br><span class="line">                &#123;</span><br><span class="line">                    dp[j] = max(dp[j],dp[j - a[i][<span class="number">0</span>].m - a[i][<span class="number">1</span>].m]+a[i][<span class="number">0</span>].m*a[i][<span class="number">0</span>].v+a[i][<span class="number">1</span>].m*a[i][<span class="number">1</span>].v);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(a[i].size() &gt; <span class="number">2</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(j &gt;= a[i][<span class="number">0</span>].m + a[i][<span class="number">2</span>].m)</span><br><span class="line">                    &#123;</span><br><span class="line">                        dp[j] = max(dp[j],dp[j - a[i][<span class="number">0</span>].m - a[i][<span class="number">2</span>].m]+a[i][<span class="number">0</span>].m*a[i][<span class="number">0</span>].v+a[i][<span class="number">2</span>].m*a[i][<span class="number">2</span>].v);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span>(j &gt;= a[i][<span class="number">0</span>].m + a[i][<span class="number">1</span>].m +a[i][<span class="number">2</span>].m)</span><br><span class="line">                    &#123;</span><br><span class="line">                        dp[j] = max(dp[j],dp[j - a[i][<span class="number">0</span>].m - a[i][<span class="number">1</span>].m - a[i][<span class="number">2</span>].m]+a[i][<span class="number">0</span>].m*a[i][<span class="number">0</span>].v+a[i][<span class="number">2</span>].m*a[i][<span class="number">2</span>].v + a[i][<span class="number">1</span>].m*a[i][<span class="number">1</span>].v);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; dp[M]*<span class="number">10</span> &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 	
 	</div>
 	
@@ -548,14 +434,9 @@ C:题解的方法还没搞懂
 						<p>
 							传送门
 A：就是他
-    while (N)
-    {
-        printf("%d ", N % 10);
-        N /= 10;
-    }
-
+12345while (N)&#123;    printf("%d ", N % 10);    N /= 10;&#125;
 B：只要找到最大的数和最小的数，比较一下就可以
-C:全用低功率模...
+C:全用低功率模式，看剩下多少电，能...
 						</p>
 					</div>
 
@@ -668,15 +549,7 @@ B：1191-B这个也是分类就三种情况
 						<p>
 							就学了一个lower把，先放在这里
 还要学习读题23333
-//#include
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
-#inclu...
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748...
 						</p>
 					</div>
 
@@ -692,14 +565,7 @@ B：1191-B这个也是分类就三种情况
 							矩阵快速幂
 						</a>
 						<p>
-							普通的快速幂LL MODe(LL a,LL b)
-{
-    LL sum = 1;
-    a %= MOD;
-    while(b)
-    {
-        if(b & 1)
-            sum = (sum ...
+							普通的快速幂12345678910111213LL MODe(LL a,LL b)&#123;    LL sum = 1;    a %= MOD;    while(b)    &#123;        if(b &amp; 1...
 						</p>
 					</div>
 
@@ -1039,5 +905,20 @@ B：1191-B这个也是分类就三种情况
 <script src="/js/vibrant.js"></script>
 <script src="/js/chinese.js"></script>
 <script src="/js/main.js"></script>
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 	</html>
