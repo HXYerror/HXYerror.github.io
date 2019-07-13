@@ -373,7 +373,7 @@ A:Stickers and Toys三种情况，没有重叠，有重叠，都重叠
 B:开个二维数组，记录每一种字母的位置
 扫描字符串找到位置最靠后的字母
 C:题解的方法还没搞懂
-#设置一个数组，保存俩个数之间的关系，需要排序，没有要求...
+设置一个数组，保存俩个数之间的关系，需要排序，没有要求，...
 						</p>
 					</div>
 
@@ -470,10 +470,15 @@ B：1191-B这个也是分类就三种情况
 						<p>
 							就学了一个lower把，先放在这里
 还要学习读题23333
-//#include&lt;bits/stdc++.h>
-#include &lt;iostream>
-#include &lt;cstdio>
-#include &lt;c...
+//#include
+#include 
+#include 
+#include 
+#include 
+#include 
+#include 
+#include 
+#inclu...
 						</p>
 					</div>
 
@@ -495,8 +500,8 @@ B：1191-B这个也是分类就三种情况
     a %= MOD;
     while(b)
     {
-        if(b &amp; 1)
-            sum = (...
+        if(b & 1)
+            sum = (sum ...
 						</p>
 					</div>
 
@@ -867,5 +872,20 @@ int er[40]...
 <script src="/js/vibrant.js"></script>
 <script src="/js/chinese.js"></script>
 <script src="/js/main.js"></script>
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 	</html>

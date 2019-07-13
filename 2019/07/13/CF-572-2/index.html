@@ -324,54 +324,54 @@
 <h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><p>然后。。其实。。题直接求区间内sum/10就是答案</p>
 <h3 id="D1：Add-on-a-Tree"><a href="#D1：Add-on-a-Tree" class="headerlink" title="D1：Add on a Tree"></a>D1：Add on a Tree</h3><p>画图寻找规律</p>
 <p>不能有度为2的顶点，完事</p>
-<h3 id="E-Count-Pairs"><a href="#E-Count-Pairs" class="headerlink" title="E. Count Pairs"></a>E. Count Pairs</h3><p>$$<br>(ai−aj)(ai+aj)(a^2i+a^2j)≡(ai−aj)k⇔a^4i−a^4j≡kai−kaj⇔a^4i−kai≡a^4j−kaj<br>$$</p>
-<p>$$<br>bi=(a^4i−kai) mod  p<br>$$</p>
-<p>把每一个bi求出来，相同的配对就好了</p>
+<h3 id="E-Count-Pairs"><a href="#E-Count-Pairs" class="headerlink" title="E. Count Pairs"></a>E. Count Pairs</h3><script type="math/tex; mode=display">
+(ai−aj)(ai+aj)(a^2i+a^2j)≡(ai−aj)k⇔a^4i−a^4j≡kai−kaj⇔a^4i−kai≡a^4j−kaj</script><script type="math/tex; mode=display">
+bi=(a^4i−kai) mod  p</script><p>把每一个bi求出来，相同的配对就好了</p>
 <p>ans处理：每算出来一个数字，加一下之前算这个值的个数就好了，相当于和那些每个配对一次</p>
 <p>求bi的处理：减法，先求模在做减法可能造成结果的模是负数，如果是负数，再加上一个mod就好了</p>
 <p><img src="\img\post_blog\2019713-1.jpg" alt></p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*-------------------------------------------------------------------------------------------*/</span>
-map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">></span> b<span class="token punctuation">;</span>
+<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">/*-------------------------------------------------------------------------------------------*/
+map<int,int> b;
 
-<span class="token comment" spellcheck="true">/* ------------------------------------------------------------------------------------------*/</span>
-<span class="token keyword">int</span> <span class="token function">power4</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span><span class="token keyword">int</span> p<span class="token punctuation">,</span><span class="token keyword">int</span> k<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    LL m <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1LL</span> <span class="token operator">*</span> n <span class="token operator">*</span> n<span class="token punctuation">)</span> <span class="token operator">%</span> p<span class="token punctuation">;</span>
-    m <span class="token operator">=</span> <span class="token punctuation">(</span>m <span class="token operator">*</span> n<span class="token punctuation">)</span> <span class="token operator">%</span> p<span class="token punctuation">;</span>
-    m <span class="token operator">=</span> <span class="token punctuation">(</span>m <span class="token operator">*</span> n<span class="token punctuation">)</span> <span class="token operator">%</span> p<span class="token punctuation">;</span>
-    m <span class="token operator">=</span> m <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token number">1LL</span> <span class="token operator">*</span> k <span class="token operator">*</span> n<span class="token punctuation">)</span> <span class="token operator">%</span> p<span class="token punctuation">;</span>
-    m <span class="token operator">=</span> m<span class="token operator">%</span>p<span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>m <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> m <span class="token operator">+</span><span class="token operator">=</span> p<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>m<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+/* ------------------------------------------------------------------------------------------*/
+int power4(int n,int p,int k)
+{
+    LL m = (1LL * n * n) % p;
+    m = (m * n) % p;
+    m = (m * n) % p;
+    m = m - (1LL * k * n) % p;
+    m = m%p;
+    if(m < 0) m += p;
+    return (int)m;
+}
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    std<span class="token operator">::</span>ios<span class="token operator">::</span><span class="token function">sync_with_stdio</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    cin<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    cout<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//freopen("input.in","r",stdin);</span>
-    <span class="token comment" spellcheck="true">//freopen("output.out","w",stdout);</span>
-<span class="token comment" spellcheck="true">/* --------------------------------------------------------------------------------------*/</span>
-    <span class="token keyword">int</span> p<span class="token punctuation">,</span>k<span class="token punctuation">;</span>
-    cin <span class="token operator">>></span> N <span class="token operator">>></span> p <span class="token operator">>></span> k<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> m<span class="token punctuation">;</span>
-    LL ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        cin <span class="token operator">>></span> m<span class="token punctuation">;</span>
-        <span class="token keyword">int</span> n <span class="token operator">=</span>  <span class="token function">power4</span><span class="token punctuation">(</span>m<span class="token punctuation">,</span>p<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token operator">!=</span> b<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            ans <span class="token operator">+</span><span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>b<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
-            b<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">else</span> b<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    cout <span class="token operator">&lt;&lt;</span> ans <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+int main()
+{
+    std::ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    //freopen("input.in","r",stdin);
+    //freopen("output.out","w",stdout);
+/* --------------------------------------------------------------------------------------*/
+    int p,k;
+    cin >> N >> p >> k;
+    int m;
+    LL ans = 0;
+    for(int i = 0;i < N;i++)
+    {
+        cin >> m;
+        int n =  power4(m,p,k);
+        if(b.find(n) != b.end())
+        {
+            ans += (int)b[n];
+            b[n]++;
+        }
+        else b[n] = 1;
+    }
+    cout << ans << endl;
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></int,int></code></pre>
 	
 	</div>
 	
@@ -446,7 +446,7 @@ A:Stickers and Toys三种情况，没有重叠，有重叠，都重叠
 B:开个二维数组，记录每一种字母的位置
 扫描字符串找到位置最靠后的字母
 C:题解的方法还没搞懂
-#设置一个数组，保存俩个数之间的关系，需要排序，没有要求...
+设置一个数组，保存俩个数之间的关系，需要排序，没有要求，...
 						</p>
 					</div>
 
@@ -485,10 +485,15 @@ B：1191-B这个也是分类就三种情况
 						<p>
 							就学了一个lower把，先放在这里
 还要学习读题23333
-//#include&lt;bits/stdc++.h>
-#include &lt;iostream>
-#include &lt;cstdio>
-#include &lt;c...
+//#include
+#include 
+#include 
+#include 
+#include 
+#include 
+#include 
+#include 
+#inclu...
 						</p>
 					</div>
 
@@ -939,5 +944,20 @@ int er[40]...
 <script src="/js/vibrant.js"></script>
 <script src="/js/chinese.js"></script>
 <script src="/js/main.js"></script>
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 	</html>
