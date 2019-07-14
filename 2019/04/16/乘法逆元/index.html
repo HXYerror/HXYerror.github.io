@@ -320,9 +320,9 @@
 <h4 id="乘法逆元的性质"><a href="#乘法逆元的性质" class="headerlink" title="乘法逆元的性质"></a>乘法逆元的性质</h4><p>1.存在唯一性</p>
 <p>2.完全积性函数</p>
 <p>把 a 的逆元表示为 inv[a]</p>
-<p>两个数的逆元的积等于这两个数积的逆元，  inv[a]  <em>  inv[b]=inv[a </em> b]</p>
+<p>两个数的逆元的积等于这两个数积的逆元，  inv[a]  *  inv[b]=inv[a * b]</p>
 <p>3.费马小定理得$a^{p-2} = 1/a(mod\ p)​$</p>
-<p>$b/a = b <em> a^{p-2}​$ 即 b </em> inv[a] = b / a (mod p)</p>
+<p>$b/a = b * a^{p-2}​$ 即 b * inv[a] = b / a (mod p)</p>
 	
 	</div>
 	
@@ -389,8 +389,9 @@ $n = p_1^{e_1} ...
 							传送门
 A：就是他
 12345while (N)&#123;    printf("%d ", N % 10);    N /= 10;&#125;
+
 B：只要找到最大的数和最小的数，比较一下就可以
-C:全用低功率模式，看剩下多少电，能...
+C:全用低功率模式，看剩下多少电，...
 						</p>
 					</div>
 
@@ -471,9 +472,8 @@ B：1191-B这个也是分类就三种情况
 						<p>
 							题目链接：http://acm.hdu.edu.cn/showproblem.php?pid=5510
 题目思路：1.ac自动机多个串匹配咱也不会
-2.kmp一个个搜会tle -&gt; 500  500  4000​
-3.参考博客
-...
+2.kmp一个个搜会tle -&gt; 500 * 500 * 4000​
+3.参考博...
 						</p>
 					</div>
 
@@ -880,20 +880,5 @@ B：1191-B这个也是分类就三种情况
 <script src="/js/vibrant.js"></script>
 <script src="/js/chinese.js"></script>
 <script src="/js/main.js"></script>
-	<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-</body>
+	</body>
 	</html>

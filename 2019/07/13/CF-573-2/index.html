@@ -316,12 +316,14 @@
 <p>我写的代码是个锤子，判断三个连续的出现了问题</p>
 <h4 id="题解代码："><a href="#题解代码：" class="headerlink" title="题解代码："></a>题解代码：</h4><p>枚举判断，读入处理</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> idx[<span class="number">257</span>] = &#123;&#125;, c[<span class="number">3</span>][<span class="number">9</span>] = &#123;&#125;, ans = <span class="number">2</span>;</span><br><span class="line">	idx[<span class="string">'m'</span>] = <span class="number">1</span>;</span><br><span class="line">	idx[<span class="string">'p'</span>] = <span class="number">2</span>;</span><br><span class="line">	idx[<span class="string">'s'</span>] = <span class="number">3</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; ++i) &#123;</span><br><span class="line">		<span class="keyword">char</span> buf[<span class="number">3</span>];</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>, buf);</span><br><span class="line">		++c[idx[buf[<span class="number">1</span>]] - <span class="number">1</span>][buf[<span class="number">0</span>] - <span class="string">'1'</span>];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; ++i)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">9</span>; ++j) &#123;</span><br><span class="line">			ans = min(ans, <span class="number">3</span> - c[i][j]);</span><br><span class="line">			<span class="keyword">if</span>(j + <span class="number">2</span> &lt; <span class="number">9</span>)</span><br><span class="line">				ans = min(ans, <span class="number">3</span> - !!c[i][j] - !!c[i][j + <span class="number">1</span>] - !!c[i][j + <span class="number">2</span>]);</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="C：1191-C-1190-A"><a href="#C：1191-C-1190-A" class="headerlink" title="C：1191-C/1190-A"></a>C：1191-C/1190-A</h3><p>一页一页的删除元素，记住删除了几个元素</p>
 <p>（用原坐标-删除数量 ）/ 每页的元素 = 现在的页数；</p>
 <p>算出现在页数的右坐标，while找到所有小于等于右坐标未删除元素</p>
 <p>删去，ans++，重复此过程</p>
 <p>注意数据范围Long Long</p>
 <h4 id="ac代码："><a href="#ac代码：" class="headerlink" title="ac代码："></a>ac代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">LL T,N,M;</span><br><span class="line"><span class="comment">/*-------------------------------------------------------------------------------------------*/</span></span><br><span class="line"><span class="built_in">vector</span>&lt;LL&gt; a;</span><br><span class="line"><span class="comment">/* ------------------------------------------------------------------------------------------*/</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">//freopen("input.in","r",stdin);</span></span><br><span class="line">    <span class="comment">//freopen("output.out","w",stdout);</span></span><br><span class="line"><span class="comment">/* --------------------------------------------------------------------------------------*/</span></span><br><span class="line">    LL k;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N &gt;&gt; M &gt;&gt; k;</span><br><span class="line">    LL x;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; M;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">        a.push_back(x);</span><br><span class="line">    &#125;</span><br><span class="line">    LL ans = <span class="number">0</span>;</span><br><span class="line">    LL pianyi = <span class="number">0</span>;</span><br><span class="line">    LL page = k;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; M;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        LL n = (a[i] - pianyi) / k;</span><br><span class="line">        <span class="keyword">if</span>((a[i] - pianyi) % k == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            pianyi++;</span><br><span class="line">            ans++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            page = (n+<span class="number">1</span>)*k;</span><br><span class="line">            <span class="keyword">int</span> j =i+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(;j &lt; M;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>((a[j] - pianyi) &gt; page)</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ans++;</span><br><span class="line">            pianyi += j - i;</span><br><span class="line">            i = j<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h4 id="D：-1190-B-1191-D"><a href="#D：-1190-B-1191-D" class="headerlink" title="D： 1190-B/1191-D"></a>D： 1190-B/1191-D</h4><p>看什么看，我还不会</p>
 	
 	</div>
@@ -370,8 +372,9 @@
 							传送门
 A：就是他
 12345while (N)&#123;    printf("%d ", N % 10);    N /= 10;&#125;
+
 B：只要找到最大的数和最小的数，比较一下就可以
-C:全用低功率模式，看剩下多少电，能...
+C:全用低功率模式，看剩下多少电，...
 						</p>
 					</div>
 
@@ -537,9 +540,8 @@ B：Number Circle1.数组排序
 						<p>
 							题目链接：http://acm.hdu.edu.cn/showproblem.php?pid=5510
 题目思路：1.ac自动机多个串匹配咱也不会
-2.kmp一个个搜会tle -&gt; 500  500  4000​
-3.参考博客
-...
+2.kmp一个个搜会tle -&gt; 500 * 500 * 4000​
+3.参考博...
 						</p>
 					</div>
 
@@ -879,20 +881,5 @@ B：Number Circle1.数组排序
 <script src="/js/vibrant.js"></script>
 <script src="/js/chinese.js"></script>
 <script src="/js/main.js"></script>
-	<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-</body>
+	</body>
 	</html>

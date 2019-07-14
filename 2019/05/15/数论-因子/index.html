@@ -267,7 +267,7 @@
 	更新于
 	<a href="/2019/05/15/数论-因子/" itemprop="url">
 		<time datetime="2019-05-15T12:48:00.000Z" itemprop="dateUpdated">
-	  		2019-07-13
+	  		2019-07-14
 	  </time>
 	</a> 	
 
@@ -312,11 +312,15 @@
 <p>$n = p_1p_2p_3…p_k$</p>
 <p>这里的素数并不要求是不一样的，所以可以将相同的素数进行合并，采用素数幂的乘积进行表示</p>
 <p>$n = p_1^{e_1} p_2^{e_2} …p_k^{e_k}$</p>
-<h3 id="素数拆分："><a href="#素数拆分：" class="headerlink" title="素数拆分："></a>素数拆分：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> prime[MAX_1];</span><br><span class="line"><span class="keyword">int</span> visit[MAX_1];</span><br><span class="line"><span class="keyword">int</span> flag[MAX_1];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Prime</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!visit[i])</span><br><span class="line">        &#123;</span><br><span class="line">            prime[++prime[<span class="number">0</span>]] = i;<span class="comment">//素数个数以及素数的值</span></span><br><span class="line">            flag[i] = <span class="number">1</span>;<span class="comment">//记录素数，可以改用map</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= prime[<span class="number">0</span>] &amp;&amp; i*prime[j] &lt;= n;j++)<span class="comment">//素数筛精华</span></span><br><span class="line">        &#123;</span><br><span class="line">            visit[i*prime[j]] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(i % prime[j] == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="素数拆分："><a href="#素数拆分：" class="headerlink" title="素数拆分："></a>素数拆分：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> prime[MAX_1];</span><br><span class="line"><span class="keyword">int</span> visit[MAX_1];</span><br><span class="line"><span class="keyword">int</span> flag[MAX_1];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Prime</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!visit[i])</span><br><span class="line">        &#123;</span><br><span class="line">            prime[++prime[<span class="number">0</span>]] = i;<span class="comment">//素数个数以及素数的值</span></span><br><span class="line">            flag[i] = <span class="number">1</span>;<span class="comment">//记录素数，可以改用map</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= prime[<span class="number">0</span>] &amp;&amp; i*prime[j] &lt;= n;j++)<span class="comment">//素数筛精华</span></span><br><span class="line">        &#123;</span><br><span class="line">            visit[i*prime[j]] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(i % prime[j] == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h4 id="（需要素数筛）："><a href="#（需要素数筛）：" class="headerlink" title="（需要素数筛）："></a>（需要素数筛）：</h4><h4 id="因子："><a href="#因子：" class="headerlink" title="因子："></a>因子：</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; cnt;</span><br><span class="line"><span class="keyword">while</span>(k != <span class="number">1</span>)<span class="comment">//k为要求的数</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//prime 和 flag 均为素数筛提供</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; prime[<span class="number">0</span>];i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(flag[k])<span class="comment">//分解完成</span></span><br><span class="line">        &#123;</span><br><span class="line">            cnt[k]++;</span><br><span class="line">            k=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(k % prime[i] == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            cnt[prime[i]]++;</span><br><span class="line">            k /= prime[i];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="因子个数："><a href="#因子个数：" class="headerlink" title="因子个数："></a>因子个数：</h3><p>$cntx = (e_1 + 1)(e_1+1)…(e_k+1)$</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;::iterator it;</span><br><span class="line"><span class="keyword">int</span> cntx = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(it = cnt.begin();it != cnt.end();it++)</span><br><span class="line">&#123;</span><br><span class="line">    cntx *= (it-&gt;second + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="因子和："><a href="#因子和：" class="headerlink" title="因子和："></a>因子和：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;::iterator it;</span><br><span class="line"><span class="keyword">for</span>(it = cnt.begin();it != cnt.end();it++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt;= it-&gt;second;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        k *= it-&gt;first;</span><br><span class="line">    &#125;</span><br><span class="line">    ans *= (k<span class="number">-1</span>) / (it-&gt;first <span class="number">-1</span>);<span class="comment">//包括本身和1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 	
 	</div>
 	
@@ -382,8 +386,9 @@ b就叫做a关于模p的乘法逆元
 							传送门
 A：就是他
 12345while (N)&#123;    printf("%d ", N % 10);    N /= 10;&#125;
+
 B：只要找到最大的数和最小的数，比较一下就可以
-C:全用低功率模式，看剩下多少电，能...
+C:全用低功率模式，看剩下多少电，...
 						</p>
 					</div>
 
@@ -464,9 +469,8 @@ B：1191-B这个也是分类就三种情况
 						<p>
 							题目链接：http://acm.hdu.edu.cn/showproblem.php?pid=5510
 题目思路：1.ac自动机多个串匹配咱也不会
-2.kmp一个个搜会tle -&gt; 500  500  4000​
-3.参考博客
-...
+2.kmp一个个搜会tle -&gt; 500 * 500 * 4000​
+3.参考博...
 						</p>
 					</div>
 
@@ -884,20 +888,5 @@ B：1191-B这个也是分类就三种情况
 <script src="/js/vibrant.js"></script>
 <script src="/js/chinese.js"></script>
 <script src="/js/main.js"></script>
-	<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-</body>
+	</body>
 	</html>
