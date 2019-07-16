@@ -12,7 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      Codeforces Global Round 2-F | ACMer-HXYerror
+      CFGR-2 | ACMer-HXYerror
     
   </title>
   <meta name="author" content="HXYerror">
@@ -105,7 +105,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《Codeforces Global Round 2-F》
+						当前文章&nbsp;:&nbsp;《CFGR-2》
 					
 				</p>
 				<!-- Progress bar -->
@@ -246,8 +246,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/04/12/Codeforces Global Round 2-F/" itemprop="url">
-		Codeforces Global Round 2-F
+	<a href="/2019/04/11/CFGR-2/" itemprop="url">
+		CFGR-2
 	</a>
 
 	</div>
@@ -256,17 +256,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/04/12/Codeforces Global Round 2-F/" itemprop="url">
-		<time datetime="2019-04-12T13:32:52.000Z" itemprop="datePublished">
-	  		2019-04-12
+	<a href="/2019/04/11/CFGR-2/" itemprop="url">
+		<time datetime="2019-04-11T14:15:55.000Z" itemprop="datePublished">
+	  		2019-04-11
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/04/12/Codeforces Global Round 2-F/" itemprop="url">
-		<time datetime="2019-04-12T13:32:52.000Z" itemprop="dateUpdated">
-	  		2019-04-12
+	<a href="/2019/04/11/CFGR-2/" itemprop="url">
+		<time datetime="2019-04-11T14:15:55.000Z" itemprop="dateUpdated">
+	  		2019-07-16
 	  </time>
 	</a> 	
 
@@ -289,7 +289,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/04/12/Codeforces Global Round 2-F/_visitors" data-url="/2019/04/12/Codeforces Global Round 2-F/" data-title="Codeforces Global Round 2-F">
+    <span class="leancloud_visitors" id="/2019/04/11/CFGR-2/_visitors" data-url="/2019/04/11/CFGR-2/" data-title="CFGR-2">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -298,7 +298,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/04/12/Codeforces Global Round 2-F/_likes" data-url="/2019/04/12/Codeforces Global Round 2-F/" data-title="Codeforces Global Round 2-F" rel="unlike">
+    <span class="leancloud_likes" id="/2019/04/11/CFGR-2/_likes" data-url="/2019/04/11/CFGR-2/" data-title="CFGR-2" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -307,8 +307,68 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h3 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h3><p><a href="/img/post_cover/cover3.jpg"><a href="http://codeforces.com/contest/1119/problem/E" target="_blank" rel="noopener">http://codeforces.com/contest/1119/problem/E</a></a></p>
-<h3 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h3><p>​    这题吧比赛的时候因为B题做了好久其实就没怎么看，我也不知道会不会，啊哈哈哈</p>
+		<h4 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h4><p><a href><a href="http://codeforces.com/contest/1119/problem/B" target="_blank" rel="noopener">http://codeforces.com/contest/1119/problem/B</a></a></p>
+<h3 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h3><p>比赛的时候这个题写了好久，主要是就想着按照俩个间距最小放一起，然后就想着放一个把前面的优化一次就写不出来</p>
+<p>然后看了这个豁然开朗，排完序相邻的就是间距最小了，嗯，就是这样</p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cmath></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iomanip></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;set></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;map></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;queue></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stack></span></span>
+<span class="token macro property">#<span class="token directive keyword">define</span> LL long long</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> MAX <span class="token operator">=</span> <span class="token number">10010</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> INF <span class="token operator">=</span> <span class="token number">0xfffffff</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//268435455,2e8;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> MOD <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> T<span class="token punctuation">,</span>N<span class="token punctuation">,</span>M<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//std::ios::sync_with_stdio(false);</span>
+<span class="token comment" spellcheck="true">/*-------------------------------------------------------*/</span>
+
+vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> bottle<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/* --------------------------------------------------------------*/</span>
+
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cin <span class="token operator">>></span> N <span class="token operator">>></span> M<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> flag<span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> x<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> height <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        cin <span class="token operator">>></span> x<span class="token punctuation">;</span>
+        bottle<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">sort</span><span class="token punctuation">(</span>bottle<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>bottle<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> bottle<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">-</span><span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">>=</span> <span class="token number">1</span><span class="token punctuation">)</span> height <span class="token operator">+</span><span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>bottle<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>bottle<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span> height <span class="token operator">+</span><span class="token operator">=</span> bottle<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>height <span class="token operator">></span> M<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>N<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">int</span> x<span class="token punctuation">;</span>
+                cin <span class="token operator">>></span> x<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            cout <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+            flag <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span>cout <span class="token operator">&lt;&lt;</span> N <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="题目链接：-1"><a href="#题目链接：-1" class="headerlink" title="题目链接："></a>题目链接：</h3><p><a href="/img/post_cover/cover3.jpg"><a href="http://codeforces.com/contest/1119/problem/E" target="_blank" rel="noopener">http://codeforces.com/contest/1119/problem/E</a></a></p>
+<h3 id="题目思路：-1"><a href="#题目思路：-1" class="headerlink" title="题目思路："></a>题目思路：</h3><p>​    这题吧比赛的时候因为B题做了好久其实就没怎么看，我也不知道会不会，啊哈哈哈</p>
 <p>​    看了题解发现挺简单的吧，比D要简单</p>
 <p>​    就是能构成三角形的只有三个相同边。或者是俩大一小（三个不同，俩小一大都可以证明不能构成三角形）</p>
 <p>​    然后就是贪心吧，优先俩大一小，然后三边相同</p>
@@ -414,7 +474,7 @@
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post_cover/cover3.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/post_cover/cover2.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -433,7 +493,7 @@
 			</a>
 		
 		
-			<a href="/2019/04/11/Codeforces Global Round 2-B/" title="Codeforces Global Round 2-B" rel="next">
+			<a href="/2019/04/10/HelloWorld/" title="HelloWorld" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -467,7 +527,7 @@
 		
 				<li>
 					<div>
-						<a href="/2019/07/14/CF-559-2/" title="CF-559-2（未完待续）">
+						<a href="/2019/07/14/CF-559-2 补/" title="CF-559-2（未完待续）">
 							CF-559-2（未完待续）
 						</a>
 						<p>
@@ -480,7 +540,7 @@
 						</p>
 					</div>
 
-					<a href="/2019/07/14/CF-559-2/" title="CF-559-2（未完待续）">				
+					<a href="/2019/07/14/CF-559-2 补/" title="CF-559-2（未完待续）">				
 						<img src="/img/post_cover/cover12.jpg" class="relateImg" alt="CF-559-2（未完待续）">
 					</a>
 				</li>											
@@ -488,7 +548,7 @@
 		
 				<li>
 					<div>
-						<a href="/2019/07/14/CF-554-2/" title="CF-554-2（未完待续）">
+						<a href="/2019/07/14/CF-554-2 补/" title="CF-554-2（未完待续）">
 							CF-554-2（未完待续）
 						</a>
 						<p>
@@ -500,7 +560,7 @@ int ans...
 						</p>
 					</div>
 
-					<a href="/2019/07/14/CF-554-2/" title="CF-554-2（未完待续）">				
+					<a href="/2019/07/14/CF-554-2 补/" title="CF-554-2（未完待续）">				
 						<img src="/img/post_cover/cover10.jpg" class="relateImg" alt="CF-554-2（未完待续）">
 					</a>
 				</li>											
@@ -532,21 +592,20 @@ C:全用低功率模式...
 		
 				<li>
 					<div>
-						<a href="/2019/07/13/ECF-67-2/" title="ECF-67.2（看我，有问题没解决）">
-							ECF-67.2（看我，有问题没解决）
+						<a href="/2019/07/13/ECF-67-2/" title="ECF-67.2">
+							ECF-67.2
 						</a>
 						<p>
-							传送门
+							题目传送门
 A:Stickers and Toys三种情况，没有重叠，有重叠，都重叠
-B:开个二维数组，记录每一种字母的位置
+B:Letters Shop开个二维数组，记录每一种字母的位置
 扫描字符串找到位置最靠后的字母
-C:题解的方法还没搞懂
-设置一个数组，保存俩个数之间的关系，需要排序，没有要求，...
+C:Vasya And Array题解的方法还没搞懂...
 						</p>
 					</div>
 
-					<a href="/2019/07/13/ECF-67-2/" title="ECF-67.2（看我，有问题没解决）">				
-						<img src="/img/post_cover/cover19.jpg" class="relateImg" alt="ECF-67.2（看我，有问题没解决）">
+					<a href="/2019/07/13/ECF-67-2/" title="ECF-67.2">				
+						<img src="/img/post_cover/cover19.jpg" class="relateImg" alt="ECF-67.2">
 					</a>
 				</li>											
 		
@@ -595,8 +654,8 @@ B：1191-B这个也是分类就三种情况
 		
 				<li>
 					<div>
-						<a href="/2019/04/24/Educational Codeforces Round 63 (Rated for Div. 2)-C/" title="Educational Codeforces Round 63 (Rated for Div. 2)-C">
-							Educational Codeforces Round 63 (Rated for Div. 2)-C
+						<a href="/2019/04/24/ECF-63-2-C/" title="ECF-63-2-C">
+							ECF-63-2-C
 						</a>
 						<p>
 							题目链接：http://codeforces.com/contest/1155/problem/C
@@ -605,16 +664,16 @@ B：1191-B这个也是分类就三种情况
 						</p>
 					</div>
 
-					<a href="/2019/04/24/Educational Codeforces Round 63 (Rated for Div. 2)-C/" title="Educational Codeforces Round 63 (Rated for Div. 2)-C">				
-						<img src="/img/post_cover/cover9.jpg" class="relateImg" alt="Educational Codeforces Round 63 (Rated for Div. 2)-C">
+					<a href="/2019/04/24/ECF-63-2-C/" title="ECF-63-2-C">				
+						<img src="/img/post_cover/cover9.jpg" class="relateImg" alt="ECF-63-2-C">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/04/18/Codeforces Round 552.3-E/" title="Codeforces Round 552.3-E">
-							Codeforces Round 552.3-E
+						<a href="/2019/04/18/CF-552-3-E/" title="CF-552-3-E">
+							CF-552-3-E
 						</a>
 						<p>
 							题目链接http://codeforces.com/contest/1154/problem/E
@@ -623,26 +682,24 @@ B：1191-B这个也是分类就三种情况
 						</p>
 					</div>
 
-					<a href="/2019/04/18/Codeforces Round 552.3-E/" title="Codeforces Round 552.3-E">				
-						<img src="/img/post_cover/cover5.jpg" class="relateImg" alt="Codeforces Round 552.3-E">
+					<a href="/2019/04/18/CF-552-3-E/" title="CF-552-3-E">				
+						<img src="/img/post_cover/cover5.jpg" class="relateImg" alt="CF-552-3-E">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/04/11/Codeforces Global Round 2-B/" title="Codeforces Global Round 2-B">
-							Codeforces Global Round 2-B
+						<a href="/2019/07/16/15ICPC上海/" title="15ICPC上海">
+							15ICPC上海
 						</a>
 						<p>
-							题目链接：http://codeforces.com/contest/1119/problem/B
-题目思路：比赛的时候这个题写了好久，主要是就想着按照俩个间距最小放一起，然后就想着放一个把前面的优化一次就写不出来
-然后看了这个豁然开...
+							
 						</p>
 					</div>
 
-					<a href="/2019/04/11/Codeforces Global Round 2-B/" title="Codeforces Global Round 2-B">				
-						<img src="/img/post_cover/cover2.jpg" class="relateImg" alt="Codeforces Global Round 2-B">
+					<a href="/2019/07/16/15ICPC上海/" title="15ICPC上海">				
+						<img src="/img/post_cover/cover19.jpg" class="relateImg" alt="15ICPC上海">
 					</a>
 				</li>											
 		

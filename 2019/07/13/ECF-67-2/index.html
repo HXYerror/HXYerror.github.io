@@ -12,7 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      ECF-67.2（看我，有问题没解决） | ACMer-HXYerror
+      ECF-67.2 | ACMer-HXYerror
     
   </title>
   <meta name="author" content="HXYerror">
@@ -105,7 +105,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《ECF-67.2（看我，有问题没解决）》
+						当前文章&nbsp;:&nbsp;《ECF-67.2》
 					
 				</p>
 				<!-- Progress bar -->
@@ -247,7 +247,7 @@
 	<div class="article-title">
 		
 	<a href="/2019/07/13/ECF-67-2/" itemprop="url">
-		ECF-67.2（看我，有问题没解决）
+		ECF-67.2
 	</a>
 
 	</div>
@@ -266,7 +266,7 @@
 	更新于
 	<a href="/2019/07/13/ECF-67-2/" itemprop="url">
 		<time datetime="2019-07-13T04:07:00.000Z" itemprop="dateUpdated">
-	  		2019-07-15
+	  		2019-07-16
 	  </time>
 	</a> 	
 
@@ -280,16 +280,20 @@
 			cf
 		</a>
 	
-		<a href="/tags/cmp/" class=" ">
-			cmp
+		<a href="/tags/dp/" class=" ">
+			dp
 		</a>
 	
 		<a href="/tags/树换根rerooting/" class=" ">
 			树换根rerooting
 		</a>
 	
-		<a href="/tags/dp/" class=" ">
-			dp
+		<a href="/tags/sort误区/" class=" ">
+			sort误区
+		</a>
+	
+		<a href="/tags/严格弱序/" class=" ">
+			严格弱序
 		</a>
 	
 		
@@ -297,7 +301,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/07/13/ECF-67-2/_visitors" data-url="/2019/07/13/ECF-67-2/" data-title="ECF-67.2（看我，有问题没解决）">
+    <span class="leancloud_visitors" id="/2019/07/13/ECF-67-2/_visitors" data-url="/2019/07/13/ECF-67-2/" data-title="ECF-67.2">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -306,7 +310,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/07/13/ECF-67-2/_likes" data-url="/2019/07/13/ECF-67-2/" data-title="ECF-67.2（看我，有问题没解决）" rel="unlike">
+    <span class="leancloud_likes" id="/2019/07/13/ECF-67-2/_likes" data-url="/2019/07/13/ECF-67-2/" data-title="ECF-67.2" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -315,16 +319,28 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<p><a href="https://codeforces.com/contest/1187" target="_blank" rel="noopener">传送门</a></p>
-<h3 id="A-Stickers-and-Toys"><a href="#A-Stickers-and-Toys" class="headerlink" title="A:Stickers and Toys"></a>A:Stickers and Toys</h3><p>三种情况，没有重叠，有重叠，都重叠</p>
-<h3 id="B"><a href="#B" class="headerlink" title="B:"></a>B:</h3><p>开个二维数组，记录每一种字母的位置</p>
+		<p><a href="https://codeforces.com/contest/1187" target="_blank" rel="noopener">题目传送门</a></p>
+<h3 id="A-Stickers-and-Toys"><a href="#A-Stickers-and-Toys" class="headerlink" title="A:Stickers and Toys"></a>A:<a href="https://codeforces.com/contest/1187/problem/A" target="_blank" rel="noopener">Stickers and Toys</a></h3><p>三种情况，没有重叠，有重叠，都重叠</p>
+<h3 id="B-Letters-Shop"><a href="#B-Letters-Shop" class="headerlink" title="B:Letters Shop"></a>B:<a href="https://codeforces.com/contest/1187/problem/B" target="_blank" rel="noopener">Letters Shop</a></h3><p>开个二维数组，记录每一种字母的位置</p>
 <p>扫描字符串找到位置最靠后的字母</p>
-<h3 id="C"><a href="#C" class="headerlink" title="C:"></a>C:</h3><p>题解的方法还没搞懂</p>
+<h3 id="C-Vasya-And-Array"><a href="#C-Vasya-And-Array" class="headerlink" title="C:Vasya And Array"></a>C:<a href="https://codeforces.com/contest/1187/problem/C" target="_blank" rel="noopener">Vasya And Array</a></h3><p>题解的方法还没搞懂</p>
 <p>设置一个数组，保存俩个数之间的关系，需要排序，没有要求，要不排序</p>
 <p>1.把需要排序的区间范围从小到大排序，保证所有要排序的区间是增的</p>
 <p>2.处理不需要排序区间，如果有一个不排序区间完全位于排序区间=&gt;NO</p>
 <p>3.已经有了一对非排序，跳出，可以变为非排序的，变化，同时看他前面和他是什么关系</p>
 <p>？？？Cmp比较函数出现了问题？？为啥下面的不行</p>
+<p><a href="https://blog.csdn.net/River_Lethe/article/details/78618788" target="_blank" rel="noopener">stl sort严格弱序传送门</a></p>
+<h4 id="严格弱序："><a href="#严格弱序：" class="headerlink" title="严格弱序："></a>严格弱序：</h4><p>C++都定义了 <strong>“&lt;”</strong>操作符，这就是一个严格弱序，而<strong>“&lt;=”</strong>就不是一个严格弱序</p>
+<p>对于内置类型我们自然可以有&lt;、&gt;、=来判断两个值的大小关系，而对于自定义的类类型，为它定义三种比较操作符是没有必要的，只用一个<strong>严格弱序</strong>（这里就用&lt;为例）就可以表示两个元素三种大小关系</p>
+<p>a 小于 b   $a &lt; b$</p>
+<p>a 大于 b   $b &lt; a​$</p>
+<p>a 等于 b  $!(a &lt; b) $&amp;&amp;$ !(b &lt; a)$</p>
+<h5 id="严格弱序的三条要求"><a href="#严格弱序的三条要求" class="headerlink" title="严格弱序的三条要求"></a>严格弱序的三条要求</h5><ol>
+<li>两个关键字不能同时“严格弱序”于对方</li>
+<li>如果a“严格弱序”于b，且b“严格弱序”于c，则a必须“严格弱序”于c</li>
+<li>如果存在两个关键字，<strong>任何一个都不“严格弱序”于另一个</strong>，则这两个关键字是相等的。</li>
+</ol>
+<p>1.两个关键字不能同时“&lt;=”于对方<br><strong>显然有a&lt;=b,b&lt;=a，a，b相等时成立</strong>(不满足弱序的第一条)<br>2.如果存在两个关键字，<strong>任何一个都不“&lt;=”于另一个</strong>，则这两个关键字是相等的。<br><strong>a不小于等于b，且b也不小于等于a，也就是a&gt;b且b&gt;a，这明显是一个伪命题</strong></p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">Cmp1</span><span class="token punctuation">(</span>Pos a<span class="token punctuation">,</span>Pos b<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//这是正确的排序</span>
 <span class="token punctuation">{</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>l <span class="token operator">&lt;</span> b<span class="token punctuation">.</span>l<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
@@ -341,6 +357,10 @@
     <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>l <span class="token operator">&lt;=</span> b<span class="token punctuation">.</span>l<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
     <span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p> <a href="https://blog.csdn.net/u013212754/article/details/81605838" target="_blank" rel="noopener">sort排序误区 传送门</a></p>
+<p>  1.sort需要迭代器是随机访问迭代器。如果使用list容器，可以使用list容器自带的sort成员函数，而不要使用使用这个泛型算法的sort。</p>
+<p>  2.sort的加比较函数的重载版本：sort（begin,end,comp），需要comp编译时不能被改变符号名。类成员函数无法作为比较函数，但是可以使用比较类或者重载类的比较运算符。一般采用的方法时定义comp为全局的函数，或者C++ 11可以使用lambda表达式。详情可以参考[1].</p>
+<p>  3.comp函数的书写需要注意严格弱序规则。所谓严格弱序规则，简单来讲就是只用一个严格弱序就能区分两个关键字的大小。比如 x大于y可以用y&lt;x来表示，x小于y可以用x&lt;y来表示,x等于y可以用 !(x&lt;y) &amp;&amp; !(y&lt;x) 来表示。x和y的三种大小关系可以只用一个&lt;就能区分了 。但是如果只使用&lt;=,就x等于y就无法表示。</p>
 <h4 id="题目代码："><a href="#题目代码：" class="headerlink" title="题目代码："></a>题目代码：</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*-------------------------------------------------------------------------------------------*/</span>
 <span class="token keyword">struct</span> Pos
 <span class="token punctuation">{</span>
@@ -455,7 +475,7 @@ Pos a0<span class="token punctuation">[</span>MAX<span class="token punctuation"
     <span class="token keyword">else</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"NO"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="E："><a href="#E：" class="headerlink" title="E："></a>E：</h3><h4 id="题目代码"><a href="#题目代码" class="headerlink" title="题目代码:"></a>题目代码:</h4><p>tsize：节点对于ans的贡献值，包括自己</p>
+<h3 id="E：Tree-Painting"><a href="#E：Tree-Painting" class="headerlink" title="E：Tree Painting"></a>E：<a href="https://codeforces.com/contest/1187/problem/E" target="_blank" rel="noopener">Tree Painting</a></h3><h4 id="题目代码"><a href="#题目代码" class="headerlink" title="题目代码:"></a>题目代码:</h4><p>tsize：节点对于ans的贡献值，包括自己</p>
 <p>dp：节点的ans<br>$$<br>dp_n = tsize_n + \sum dp_i (i \in n的子树)<br>$$<br>那么我们每次dp过程可以把root换到n的一个儿子节点to上面</p>
 <p>1：先把to儿子从n上砍掉</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp">        dp<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">-</span><span class="token operator">=</span> dp<span class="token punctuation">[</span>to<span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -599,7 +619,7 @@ LL <span class="token function">firstdp</span><span class="token punctuation">(<
 		
 				<li>
 					<div>
-						<a href="/2019/07/14/CF-559-2/" title="CF-559-2（未完待续）">
+						<a href="/2019/07/14/CF-559-2 补/" title="CF-559-2（未完待续）">
 							CF-559-2（未完待续）
 						</a>
 						<p>
@@ -612,7 +632,7 @@ LL <span class="token function">firstdp</span><span class="token punctuation">(<
 						</p>
 					</div>
 
-					<a href="/2019/07/14/CF-559-2/" title="CF-559-2（未完待续）">				
+					<a href="/2019/07/14/CF-559-2 补/" title="CF-559-2（未完待续）">				
 						<img src="/img/post_cover/cover12.jpg" class="relateImg" alt="CF-559-2（未完待续）">
 					</a>
 				</li>											
@@ -620,7 +640,7 @@ LL <span class="token function">firstdp</span><span class="token punctuation">(<
 		
 				<li>
 					<div>
-						<a href="/2019/07/14/CF-554-2/" title="CF-554-2（未完待续）">
+						<a href="/2019/07/14/CF-554-2 补/" title="CF-554-2（未完待续）">
 							CF-554-2（未完待续）
 						</a>
 						<p>
@@ -632,7 +652,7 @@ int ans...
 						</p>
 					</div>
 
-					<a href="/2019/07/14/CF-554-2/" title="CF-554-2（未完待续）">				
+					<a href="/2019/07/14/CF-554-2 补/" title="CF-554-2（未完待续）">				
 						<img src="/img/post_cover/cover10.jpg" class="relateImg" alt="CF-554-2（未完待续）">
 					</a>
 				</li>											
@@ -706,8 +726,8 @@ B：1191-B这个也是分类就三种情况
 		
 				<li>
 					<div>
-						<a href="/2019/04/24/Educational Codeforces Round 63 (Rated for Div. 2)-C/" title="Educational Codeforces Round 63 (Rated for Div. 2)-C">
-							Educational Codeforces Round 63 (Rated for Div. 2)-C
+						<a href="/2019/04/24/ECF-63-2-C/" title="ECF-63-2-C">
+							ECF-63-2-C
 						</a>
 						<p>
 							题目链接：http://codeforces.com/contest/1155/problem/C
@@ -716,16 +736,16 @@ B：1191-B这个也是分类就三种情况
 						</p>
 					</div>
 
-					<a href="/2019/04/24/Educational Codeforces Round 63 (Rated for Div. 2)-C/" title="Educational Codeforces Round 63 (Rated for Div. 2)-C">				
-						<img src="/img/post_cover/cover9.jpg" class="relateImg" alt="Educational Codeforces Round 63 (Rated for Div. 2)-C">
+					<a href="/2019/04/24/ECF-63-2-C/" title="ECF-63-2-C">				
+						<img src="/img/post_cover/cover9.jpg" class="relateImg" alt="ECF-63-2-C">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/04/18/Codeforces Round 552.3-E/" title="Codeforces Round 552.3-E">
-							Codeforces Round 552.3-E
+						<a href="/2019/04/18/CF-552-3-E/" title="CF-552-3-E">
+							CF-552-3-E
 						</a>
 						<p>
 							题目链接http://codeforces.com/contest/1154/problem/E
@@ -734,34 +754,16 @@ B：1191-B这个也是分类就三种情况
 						</p>
 					</div>
 
-					<a href="/2019/04/18/Codeforces Round 552.3-E/" title="Codeforces Round 552.3-E">				
-						<img src="/img/post_cover/cover5.jpg" class="relateImg" alt="Codeforces Round 552.3-E">
+					<a href="/2019/04/18/CF-552-3-E/" title="CF-552-3-E">				
+						<img src="/img/post_cover/cover5.jpg" class="relateImg" alt="CF-552-3-E">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/04/12/Codeforces Global Round 2-F/" title="Codeforces Global Round 2-F">
-							Codeforces Global Round 2-F
-						</a>
-						<p>
-							题目链接：http://codeforces.com/contest/1119/problem/E
-题目思路：​    这题吧比赛的时候因为B题做了好久其实就没怎么看，我也不知道会不会，啊哈哈哈
-​    看了题解发现挺简单的吧，比D...
-						</p>
-					</div>
-
-					<a href="/2019/04/12/Codeforces Global Round 2-F/" title="Codeforces Global Round 2-F">				
-						<img src="/img/post_cover/cover3.jpg" class="relateImg" alt="Codeforces Global Round 2-F">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/04/11/Codeforces Global Round 2-B/" title="Codeforces Global Round 2-B">
-							Codeforces Global Round 2-B
+						<a href="/2019/04/11/CFGR-2/" title="CFGR-2">
+							CFGR-2
 						</a>
 						<p>
 							题目链接：http://codeforces.com/contest/1119/problem/B
@@ -770,8 +772,26 @@ B：1191-B这个也是分类就三种情况
 						</p>
 					</div>
 
-					<a href="/2019/04/11/Codeforces Global Round 2-B/" title="Codeforces Global Round 2-B">				
-						<img src="/img/post_cover/cover2.jpg" class="relateImg" alt="Codeforces Global Round 2-B">
+					<a href="/2019/04/11/CFGR-2/" title="CFGR-2">				
+						<img src="/img/post_cover/cover2.jpg" class="relateImg" alt="CFGR-2">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/04/24/线性动态规划/" title="线性动态规划">
+							线性动态规划
+						</a>
+						<p>
+							一.最长上升（下降）子序列https://www.luogu.org/problemnew/show/P1091
+https://www.luogu.org/problemnew/show/P1020
+P1091：让每一个人做最中间人...
+						</p>
+					</div>
+
+					<a href="/2019/04/24/线性动态规划/" title="线性动态规划">				
+						<img src="/img/post_cover/cover7.jpg" class="relateImg" alt="线性动态规划">
 					</a>
 				</li>											
 		
