@@ -311,8 +311,7 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h3 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h3><p><a href="2015ACM/ICPC亚洲区沈阳站"><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5510" target="_blank" rel="noopener">http://acm.hdu.edu.cn/showproblem.php?pid=5510</a></a></p>
-<h3 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h3><p>1.ac自动机多个串匹配咱也不会</p>
+		<h3 id="B-Bazinga"><a href="#B-Bazinga" class="headerlink" title="B - Bazinga"></a><a href="https://vjudge.net/problem/HDU-5510" target="_blank" rel="noopener">B - Bazinga</a></h3><h4 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h4><p>1.ac自动机多个串匹配咱也不会</p>
 <p>2.kmp一个个搜会tle -&gt; 500 * 500 * 4000​</p>
 <p>3.<a href="https://blog.csdn.net/weixin_39453270/article/details/80141690" target="_blank" rel="noopener">参考博客</a></p>
 <p>进一步分析我们可以发现，对于第ｊ串字符串，倘若前ｊ串都是ｊ的字串，那么我们下一步只需要判断ｊ是否是ｊ＋１的字串即可（因为如果ｊ是ｊ＋１的字串，而前ｊ串又是ｊ的字串，易得ｊ＋１串也是前ｊ串的字串，进而得出前ｊ＋１串是ｊ＋１串的字串。）</p>
@@ -335,9 +334,9 @@
 <span class="token number">5</span> f <span class="token function">6</span>
 <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span>可以用<span class="token number">6</span>表示
 所以不会缺<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a><strong>KMP</strong></h3><p>啥是kmp呢？</p>
+<h4 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a><strong>KMP</strong></h4><p>啥是kmp呢？</p>
 <p>复杂度为O(m + n)</p>
-<h4 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a><a href="https://blog.csdn.net/gao506440410/article/details/81812163" target="_blank" rel="noopener">参考博客</a></h4><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">KmpSearch</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span> s<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token operator">*</span> p<span class="token punctuation">)</span>
+<h4 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a><a href="https://blog.csdn.net/gao506440410/article/details/81812163" target="_blank" rel="noopener">参考博客</a></h4><h5 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h5><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">KmpSearch</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span> s<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token operator">*</span> p<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
@@ -363,14 +362,14 @@
     <span class="token keyword">else</span>
         <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="解释："><a href="#解释：" class="headerlink" title="解释："></a>解释：</h4><p>假设现在文本串S匹配到 i 位置，模式串P匹配到 j 位置</p>
+<h5 id="解释："><a href="#解释：" class="headerlink" title="解释："></a>解释：</h5><p>假设现在文本串S匹配到 i 位置，模式串P匹配到 j 位置</p>
 <ul>
 <li>如果j = -1，或者当前字符匹配成功（即S[i] == P[j]），都令i++，j++，继续匹配下一个字符；</li>
 <li>如果j != -1，且当前字符匹配失败（即S[i] != P[j]），则令 i 不变，j = next[j]。此举意味着失配时，模式串P相对于文本串S向右移动了j - next [j] 位。</li>
 <li>next 数组各值的含义：代表当前字符之前的字符串中，有多大长度的相同前缀后缀。例如如果next [j] = k，代表j 之前的字符串中有最大长度为<em>k</em> 的相同前缀后缀。</li>
 </ul>
 <p>next 数组各值的含义：代表当前字符之前的字符串中，有多大长度的相同前缀后缀。例如如果next [j] = k，代表j 之前的字符串中有最大长度为k 的相同前缀后缀。</p>
-<h4 id="next："><a href="#next：" class="headerlink" title="next："></a>next：</h4><h5 id="next的原理："><a href="#next的原理：" class="headerlink" title="next的原理："></a>next的原理：</h5><p>什么是前缀后缀：<img src="%5Cimg%5Cpost_blog%5C2019710-1.png" alt="\img\post_blog\2019710-1.png"></p>
+<h5 id="next："><a href="#next：" class="headerlink" title="next："></a>next：</h5><h6 id="next的原理："><a href="#next的原理：" class="headerlink" title="next的原理："></a>next的原理：</h6><p>什么是前缀后缀：<img src="%5Cimg%5Cpost_blog%5C2019710-1.png" alt="\img\post_blog\2019710-1.png"></p>
 <ol>
 <li><p>寻找前缀后缀最长公共元素长度</p>
 <p>比如对于字符串aba来说，它有长度为1的相同前缀后缀a；而对于字符串abab来说，它有长度为2的相同前缀后缀ab（相同前缀后缀的长度为k + 1，k + 1 = 2）。</p>
@@ -380,7 +379,7 @@
 <p>比如对于aba来说，第3个字符a之前的字符串ab中有长度为0的相同前缀后缀，所以第3个字符a对应的next值为0；而对于abab来说，第4个字符b之前的字符串aba中有长度为1的相同前缀后缀a，所以第4个字符b对应的next值为1（相同前缀后缀的长度为k，k = 1）。</p>
 </li>
 </ol>
-<h5 id="如何求next："><a href="#如何求next：" class="headerlink" title="如何求next："></a>如何求next：</h5><p><strong>next[j] = k 代表p[j] 之前的模式串子串中，有长度为k 的相同前缀和后缀</strong>。有了这个next 数组，在KMP匹配中，当模式串中j 处的字符失配时，下一步用next[j]处的字符继续跟文本串匹配，相当于模式串向右移动j - next[j] 位。</p>
+<h6 id="如何求next："><a href="#如何求next：" class="headerlink" title="如何求next："></a>如何求next：</h6><p><strong>next[j] = k 代表p[j] 之前的模式串子串中，有长度为k 的相同前缀和后缀</strong>。有了这个next 数组，在KMP匹配中，当模式串中j 处的字符失配时，下一步用next[j]处的字符继续跟文本串匹配，相当于模式串向右移动j - next[j] 位。</p>
 <p>下面的问题是：已知next [0, …, j]，如何求出next [j + 1]呢？</p>
 <p> 对于P的前j+1个序列字符：</p>
 <ul>
@@ -470,7 +469,7 @@
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="优化next："><a href="#优化next：" class="headerlink" title="优化next："></a>优化next：</h5><p>问题出在不该出现p[j] = p[ next[j] ]。为什么呢？理由是：当p[j] != s[i] 时，下次匹配必然是p[ next [j]] 跟s[i]匹配，如果p[j] = p[ next[j] ]，必然导致后一步匹配失败（因为p[j]已经跟s[i]失配，然后你还用跟p[j]等同的值p[next[j]]去跟s[i]匹配，很显然，必然失配），所以不能允许p[j] = p[ next[j ]]。如果出现了p[j] = p[ next[j] ]咋办呢？如果出现了，则需要再次递归，即令next[j] = next[ next[j] ]。</p>
+<h6 id="优化next："><a href="#优化next：" class="headerlink" title="优化next："></a>优化next：</h6><p>问题出在不该出现p[j] = p[ next[j] ]。为什么呢？理由是：当p[j] != s[i] 时，下次匹配必然是p[ next [j]] 跟s[i]匹配，如果p[j] = p[ next[j] ]，必然导致后一步匹配失败（因为p[j]已经跟s[i]失配，然后你还用跟p[j]等同的值p[next[j]]去跟s[i]匹配，很显然，必然失配），所以不能允许p[j] = p[ next[j ]]。如果出现了p[j] = p[ next[j] ]咋办呢？如果出现了，则需要再次递归，即令next[j] = next[ next[j] ]。</p>
 <p>代码：</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//优化过后的next 数组求法</span>
 <span class="token keyword">void</span> <span class="token function">GetNextval</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span> p<span class="token punctuation">,</span> <span class="token keyword">int</span> next<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
@@ -499,7 +498,7 @@
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="题目代码："><a href="#题目代码：" class="headerlink" title="题目代码："></a>题目代码：</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*-------------------------------------------------------------------------------------------*/</span>
+<h4 id="题目代码："><a href="#题目代码：" class="headerlink" title="题目代码："></a>题目代码：</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*-------------------------------------------------------------------------------------------*/</span>
 <span class="token keyword">int</span> mynext<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">[</span>MAX_1<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">char</span> str<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">[</span>MAX_1<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">/* ------------------------------------------------------------------------------------------*/</span>
@@ -590,6 +589,9 @@
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Pagodas-D"><a href="#Pagodas-D" class="headerlink" title="Pagodas-D"></a><a href="https://vjudge.net/problem/HDU-5512" target="_blank" rel="noopener">Pagodas-D</a></h3><h4 id="题目思路"><a href="#题目思路" class="headerlink" title="题目思路"></a>题目思路</h4><p>可以发现，只要是M，N gcd 的数就可以达到</p>
+<p>所以算出gcd 算出范围内可取的数的个数</p>
+<p>分奇偶讨论</p>
 	
 	</div>
 	
@@ -634,7 +636,11 @@
 							15ICPC上海
 						</a>
 						<p>
-							
+							F - Friendship of Frog题目思路：就循环找一下每俩个相同字母之间的距离就好了
+K - Kingdom of Black and White题目思路：
+计算出每一段的数量
+
+计算出初始的每一段的平方和sqsum以及初...
 						</p>
 					</div>
 
@@ -670,7 +676,8 @@ Educational Codeforc...
 							ECF-68-2
 						</a>
 						<p>
-							
+							Educational Codeforces Round 68 (Rated for Div. 2)Remove a Progression找到规律，隔一个删一个
+Yet Another Crosses Problem这个气死了，存的...
 						</p>
 					</div>
 

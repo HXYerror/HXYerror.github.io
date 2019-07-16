@@ -266,7 +266,7 @@
 	更新于
 	<a href="/2019/07/13/CF-573-2/" itemprop="url">
 		<time datetime="2019-07-13T02:29:33.000Z" itemprop="dateUpdated">
-	  		2019-07-13
+	  		2019-07-16
 	  </time>
 	</a> 	
 
@@ -391,7 +391,90 @@ vector<span class="token operator">&lt;</span>LL<span class="token operator">></
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="D：-1190-B-1191-D"><a href="#D：-1190-B-1191-D" class="headerlink" title="D： 1190-B/1191-D"></a>D： 1190-B/1191-D</h4><p>看什么看，我还不会</p>
+<h4 id="D：-1190-B-1191-D"><a href="#D：-1190-B-1191-D" class="headerlink" title="D： 1190-B/1191-D"></a>D： 1190-B/1191-D</h4><p>如果s起手不会输的话，那么最终石头的数量一定会是0 - n-1的一个序列，然后下一个人移动完就会输</p>
+<p>首先我先去除掉s起手就会输的情况</p>
+<ol>
+<li>数量为n的堆数超过了2</li>
+<li>数量为n的堆数等于2，但是n-1有一堆</li>
+<li>数量为0的堆超过了2</li>
+<li>数量为m，n的堆大于1</li>
+</ol>
+<p>当堆不满足上述的条件之后，经过重新排序，一定可以变成一个上升序列</p>
+<p>为了使元素在减小的过程中不会相等后面的元素只能减小到比前一个元素大一位</p>
+<p>所以最后就会形成0 - n-1的一个序列</p>
+<p>我们只需要计算出从原序列到最后的等差序列走了多少步</p>
+<p>然后奇偶讨论就可以</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">LL T<span class="token punctuation">,</span>N<span class="token punctuation">,</span>M<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*-------------------------------------------------------------------------------------------*/</span>
+map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">></span> a<span class="token punctuation">;</span>
+vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> b<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/* ------------------------------------------------------------------------------------------*/</span>
+
+<span class="token keyword">int</span> <span class="token function">mycoutans</span><span class="token punctuation">(</span><span class="token keyword">bool</span> flag<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"cslnb"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword">else</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"sjfnb"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    std<span class="token operator">::</span>ios<span class="token operator">::</span><span class="token function">sync_with_stdio</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cin<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//freopen("input.in","r",stdin);</span>
+    <span class="token comment" spellcheck="true">//freopen("output.out","w",stdout);</span>
+<span class="token comment" spellcheck="true">/* --------------------------------------------------------------------------------------*/</span>
+    cin <span class="token operator">>></span> N<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> x<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        cin <span class="token operator">>></span>x<span class="token punctuation">;</span>
+        a<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+        b<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">!=</span> a<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">mycoutans</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> cnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> it <span class="token operator">=</span> a<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>it <span class="token operator">!=</span> a<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>it<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>it<span class="token operator">-</span><span class="token operator">></span>second <span class="token operator">></span> <span class="token number">2</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">mycoutans</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>it <span class="token operator">-</span><span class="token operator">></span> second <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            cnt<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>cnt <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token function">mycoutans</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>it<span class="token operator">-</span><span class="token operator">></span>first <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">!=</span> a<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token function">mycoutans</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    LL sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    LL cmt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">sort</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>b<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        sum <span class="token operator">+</span><span class="token operator">=</span> b<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> cmt<span class="token punctuation">;</span>
+        cmt<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>sum <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token function">mycoutans</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token function">mycoutans</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 	
 	</div>
 	
@@ -436,7 +519,8 @@ vector<span class="token operator">&lt;</span>LL<span class="token operator">></
 							ECF-68-2
 						</a>
 						<p>
-							
+							Educational Codeforces Round 68 (Rated for Div. 2)Remove a Progression找到规律，隔一个删一个
+Yet Another Crosses Problem这个气死了，存的...
 						</p>
 					</div>
 
@@ -612,7 +696,11 @@ B：Number Circle1.数组排序
 							15ICPC上海
 						</a>
 						<p>
-							
+							F - Friendship of Frog题目思路：就循环找一下每俩个相同字母之间的距离就好了
+K - Kingdom of Black and White题目思路：
+计算出每一段的数量
+
+计算出初始的每一段的平方和sqsum以及初...
 						</p>
 					</div>
 
