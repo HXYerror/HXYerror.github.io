@@ -307,8 +307,77 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h3 id="F-Friendship-of-Frog"><a href="#F-Friendship-of-Frog" class="headerlink" title="F - Friendship of Frog"></a><a href="https://vjudge.net/problem/HDU-5578" target="_blank" rel="noopener">F - Friendship of Frog</a></h3><h4 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h4><p>就循环找一下每俩个相同字母之间的距离就好了</p>
-<h3 id="K-Kingdom-of-Black-and-White"><a href="#K-Kingdom-of-Black-and-White" class="headerlink" title="K - Kingdom of Black and White"></a><a href="https://vjudge.net/problem/HDU-5583" target="_blank" rel="noopener">K - Kingdom of Black and White</a></h3><h4 id="题目思路：-1"><a href="#题目思路：-1" class="headerlink" title="题目思路："></a>题目思路：</h4><ol>
+		<h3 id="B-Binary-Tree"><a href="#B-Binary-Tree" class="headerlink" title="B - Binary Tree"></a><a href="https://vjudge.net/problem/HDU-5573" target="_blank" rel="noopener">B - Binary Tree</a></h3><h4 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h4><p>我们可以想到每个数字都一可以用二进制表示</p>
+<p>那么就是由1，2，4，8，······可以发现正好是二叉树一直走左支</p>
+<p>题目中的N &lt;= 2^k，所以保证题目有解</p>
+<p>但是这道题并不是选和不选，而是加还是减</p>
+<p>1.一直走左儿子，加起来为sum。sum一定为奇数</p>
+<p>2.如果N为偶数，我们在最后走右儿子</p>
+<p>3.用cha = sum - N，这时我们能保证cha是一个偶数</p>
+<p>4.易知减去一个节点n，就相当于sum-2*n</p>
+<p>5.所以我们cha/2（cha是偶数，可以整除），这样减去 cha/2 节点值就可以了</p>
+<p>6.cha/2一定比sum小，所以用节点一定可以表示出来cha/2，同样转化二进制表示就可以找到改变的节点</p>
+<h4 id="题目代码："><a href="#题目代码：" class="headerlink" title="题目代码："></a>题目代码：</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*-------------------------------------------------------------------------------------------*/</span>
+LL tpow<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> ans<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/* ------------------------------------------------------------------------------------------*/</span>
+<span class="token keyword">void</span> <span class="token function">mycase</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Case #"</span> <span class="token operator">&lt;&lt;</span> n <span class="token operator">&lt;&lt;</span><span class="token string">":"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    std<span class="token operator">::</span>ios<span class="token operator">::</span><span class="token function">sync_with_stdio</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//cin.tie(0);</span>
+    <span class="token comment" spellcheck="true">//cout.tie(0);</span>
+    <span class="token comment" spellcheck="true">//freopen("input.in","r",stdin);</span>
+    <span class="token comment" spellcheck="true">//freopen("output.out","w",stdout);</span>
+<span class="token comment" spellcheck="true">/* --------------------------------------------------------------------------------------*/</span>
+    cin <span class="token operator">>></span> T<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> CNT <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> MAX<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        tpow<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> i<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>T<span class="token operator">--</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        CNT<span class="token operator">++</span><span class="token punctuation">;</span>
+        cin <span class="token operator">>></span> N <span class="token operator">>></span> M<span class="token punctuation">;</span>
+        LL sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> flag <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> M<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            sum <span class="token operator">+</span><span class="token operator">=</span> tpow<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            ans<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>N<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> flag <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        sum <span class="token operator">+</span><span class="token operator">=</span> flag<span class="token punctuation">;</span>
+        LL cha <span class="token operator">=</span> sum <span class="token operator">-</span> N<span class="token punctuation">;</span>
+        cha <span class="token operator">>>=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>cha<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> x <span class="token operator">=</span> cha<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">;</span>
+            ans<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> ans<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span>x<span class="token punctuation">;</span>
+            i<span class="token operator">++</span><span class="token punctuation">;</span>
+            cha<span class="token operator">>>=</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">mycase</span><span class="token punctuation">(</span>CNT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>j <span class="token operator">&lt;</span> M<span class="token number">-1</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            cout <span class="token operator">&lt;&lt;</span> tpow<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>ans<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"+"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+            <span class="token keyword">else</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"-"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        cout <span class="token operator">&lt;&lt;</span> tpow<span class="token punctuation">[</span>M<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">+</span> flag<span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>ans<span class="token punctuation">[</span>M<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"+"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+        <span class="token keyword">else</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"-"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="F-Friendship-of-Frog"><a href="#F-Friendship-of-Frog" class="headerlink" title="F - Friendship of Frog"></a><a href="https://vjudge.net/problem/HDU-5578" target="_blank" rel="noopener">F - Friendship of Frog</a></h3><h4 id="题目思路：-1"><a href="#题目思路：-1" class="headerlink" title="题目思路："></a>题目思路：</h4><p>就循环找一下每俩个相同字母之间的距离就好了</p>
+<h3 id="K-Kingdom-of-Black-and-White"><a href="#K-Kingdom-of-Black-and-White" class="headerlink" title="K - Kingdom of Black and White"></a><a href="https://vjudge.net/problem/HDU-5583" target="_blank" rel="noopener">K - Kingdom of Black and White</a></h3><h4 id="题目思路：-2"><a href="#题目思路：-2" class="headerlink" title="题目思路："></a>题目思路：</h4><ol>
 <li><p>计算出每一段的数量</p>
 </li>
 <li><p>计算出初始的每一段的平方和sqsum以及初始的ans</p>
@@ -323,7 +392,7 @@
 <p><code>if(i+1&gt;=cnt) sqsum[i+1] = sum[i+1] = 0;</code></p>
 </li>
 </ol>
-<h4 id="题目代码："><a href="#题目代码：" class="headerlink" title="题目代码："></a>题目代码：</h4><pre class="line-numbers language-cpp"><code class="language-cpp">LL T<span class="token punctuation">,</span>N<span class="token punctuation">,</span>M<span class="token punctuation">;</span>
+<h4 id="题目代码：-1"><a href="#题目代码：-1" class="headerlink" title="题目代码："></a>题目代码：</h4><pre class="line-numbers language-cpp"><code class="language-cpp">LL T<span class="token punctuation">,</span>N<span class="token punctuation">,</span>M<span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">/*-------------------------------------------------------------------------------------------*/</span>
 LL sum<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span>
 LL sqsum<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -416,7 +485,7 @@ LL <span class="token function">befores</span><span class="token punctuation">(<
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="L-LCM-Walk"><a href="#L-LCM-Walk" class="headerlink" title="L - LCM Walk"></a><a href="https://vjudge.net/problem/HDU-5584" target="_blank" rel="noopener">L - LCM Walk</a></h3><h4 id="题目思路：-2"><a href="#题目思路：-2" class="headerlink" title="题目思路："></a>题目思路：</h4><ol>
+<h3 id="L-LCM-Walk"><a href="#L-LCM-Walk" class="headerlink" title="L - LCM Walk"></a><a href="https://vjudge.net/problem/HDU-5584" target="_blank" rel="noopener">L - LCM Walk</a></h3><h4 id="题目思路：-3"><a href="#题目思路：-3" class="headerlink" title="题目思路："></a>题目思路：</h4><ol>
 <li>只能由max(x,y)走到下一步，所以路径是唯一的</li>
 <li>gcd(x,y) = k ,x = nk,y = mk ,lcm(x,y) = nmk（假设x&gt;y)<ol>
 <li>所以下一步走到（n(m+1)k,mk)</li>
@@ -427,7 +496,7 @@ LL <span class="token function">befores</span><span class="token punctuation">(<
 <li>终止条件我还是有一点没搞懂，就是x中必须要有:(m+1)*k这个因子</li>
 </ol>
 <p><a href="https://blog.csdn.net/codeswarrior/article/details/82379219" target="_blank" rel="noopener">论证比较全 传送门</a></p>
-<h4 id="题目代码：-1"><a href="#题目代码：-1" class="headerlink" title="题目代码："></a>题目代码：</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">mycase</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<h4 id="题目代码：-2"><a href="#题目代码：-2" class="headerlink" title="题目代码："></a>题目代码：</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">mycase</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Case #"</span> <span class="token operator">&lt;&lt;</span> n <span class="token operator">&lt;&lt;</span><span class="token string">": "</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -563,7 +632,7 @@ Vus the Cossack and Strings通过观察可以发现当字符串中’1’的数�
 					</div>
 
 					<a href="/2019/07/17/CF-571-2/" title="CF-571-2">				
-						<img src="/img/post_cover/cover22.jpg" class="relateImg" alt="CF-571-2">
+						<img src="/img/post_cover/cover23.jpg" class="relateImg" alt="CF-571-2">
 					</a>
 				</li>											
 		
