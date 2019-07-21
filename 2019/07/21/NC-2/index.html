@@ -12,7 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      乘法逆元 | ACMer-HXYerror
+      NC-2 | ACMer-HXYerror
     
   </title>
   <meta name="author" content="HXYerror">
@@ -105,7 +105,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《乘法逆元》
+						当前文章&nbsp;:&nbsp;《NC-2》
 					
 				</p>
 				<!-- Progress bar -->
@@ -246,8 +246,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/04/16/乘法逆元/" itemprop="url">
-		乘法逆元
+	<a href="/2019/07/21/NC-2/" itemprop="url">
+		NC-2
 	</a>
 
 	</div>
@@ -256,17 +256,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/04/16/乘法逆元/" itemprop="url">
-		<time datetime="2019-04-16T08:23:21.000Z" itemprop="datePublished">
-	  		2019-04-16
+	<a href="/2019/07/21/NC-2/" itemprop="url">
+		<time datetime="2019-07-21T02:14:11.000Z" itemprop="datePublished">
+	  		2019-07-21
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/04/16/乘法逆元/" itemprop="url">
-		<time datetime="2019-04-16T08:23:21.000Z" itemprop="dateUpdated">
-	  		2019-07-15
+	<a href="/2019/07/21/NC-2/" itemprop="url">
+		<time datetime="2019-07-21T02:14:11.000Z" itemprop="dateUpdated">
+	  		2019-07-21
 	  </time>
 	</a> 	
 
@@ -274,22 +274,12 @@
 		/
 		<span>
 			<i class="fa fa-tags"></i>
-			
-	
-		<a href="/tags/数论/" class=" ">
-			数论
-		</a>
-	
-		<a href="/tags/乘法逆元/" class=" ">
-			乘法逆元
-		</a>
-	
-		
+					
 		</span>
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/04/16/乘法逆元/_visitors" data-url="/2019/04/16/乘法逆元/" data-title="乘法逆元">
+    <span class="leancloud_visitors" id="/2019/07/21/NC-2/_visitors" data-url="/2019/07/21/NC-2/" data-title="NC-2">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -298,7 +288,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/04/16/乘法逆元/_likes" data-url="/2019/04/16/乘法逆元/" data-title="乘法逆元" rel="unlike">
+    <span class="leancloud_likes" id="/2019/07/21/NC-2/_likes" data-url="/2019/07/21/NC-2/" data-title="NC-2" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -307,25 +297,10 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h3 id="乘法逆元"><a href="#乘法逆元" class="headerlink" title="乘法逆元"></a>乘法逆元</h3><h4 id="什么是乘法逆元？"><a href="#什么是乘法逆元？" class="headerlink" title="什么是乘法逆元？"></a>什么是乘法逆元？</h4><p>那么存在一个b，使得假设$gcd(a,p) = 1​$,则有$a*b ≡ 1 (mod p) ​$ 即  $ab=pk+1​$</p>
-<p>b就叫做a关于模p的乘法逆元</p>
-<h4 id="怎么求乘法逆元"><a href="#怎么求乘法逆元" class="headerlink" title="怎么求乘法逆元"></a>怎么求乘法逆元</h4><h6 id="一-费马小定理"><a href="#一-费马小定理" class="headerlink" title="一.费马小定理"></a>一.费马小定理</h6><p>费马小定理：当a,p满足$gcd(a,p) = 1​$ 则有$a^p≡a(modp)​$</p>
-<p>变一下形：$a⋅a ^{p-2}≡1(mod\ p)$。是不是和上面的乘法逆元的定义是相似的？</p>
-<p>所以，我们可以使用快速幂求出$a^{p - 2}$，即求出a的逆元</p>
-<h6 id="二-扩展欧几里得"><a href="#二-扩展欧几里得" class="headerlink" title="二.扩展欧几里得"></a>二.扩展欧几里得</h6><p>扩展欧几里得：找出整数对（x，y），使得$ax+by = gcd(a,b)$</p>
-<p>$ab=pk+1$ 移项得到 $ab-pk=1$ </p>
-<p>b就对应x，-k对应y</p>
-<h6 id="三-递推计算阶乘的逆元"><a href="#三-递推计算阶乘的逆元" class="headerlink" title="三.递推计算阶乘的逆元"></a>三.递推计算阶乘的逆元</h6><p>空。没看懂</p>
-<h4 id="乘法逆元的性质"><a href="#乘法逆元的性质" class="headerlink" title="乘法逆元的性质"></a>乘法逆元的性质</h4><p>1.存在唯一性</p>
-<p>2.完全积性函数</p>
-<p>把 a 的逆元表示为 inv[a]</p>
-<p>两个数的逆元的积等于这两个数积的逆元，  inv[a]  *  inv[b]=inv[a * b]</p>
-<p>3.费马小定理得$a^{p-2} = 1/a(mod\ p)​$</p>
-<p>$b/a = b * a^{p-2}​$ 即 b * inv[a] = b / a (mod p)</p>
-	
+			
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post_cover/cover6.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/cart_cover.png"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -339,12 +314,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/04/18/CF-552-3-E/" title="CF-552-3-E" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/04/14/pass-CET4/" title="PASS-CET4" rel="next">
+			<a href="/2019/07/19/NC-1/" title="NC-1" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -359,41 +330,6 @@
 
 <div class="relate-post">
 	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/05/15/数论-因子/" title="数论 - 因子">
-							数论 - 因子
-						</a>
-						<p>
-							因数分解：算术基本定理可以描述为：对于每个整数n，都可以唯一分解成素数的乘积
-$n = p_1p_2p_3…p_k$
-这里的素数并不要求是不一样的，所以可以将相同的素数进行合并，采用素数幂的乘积进行表示
-$n = p_1^{e_1} ...
-						</p>
-					</div>
-
-					<a href="/2019/05/15/数论-因子/" title="数论 - 因子">				
-						<img src="/img/post_cover/cover11.jpg" class="relateImg" alt="数论 - 因子">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/07/21/NC-2/" title="NC-2">
-							NC-2
-						</a>
-						<p>
-							
-						</p>
-					</div>
-
-					<a href="/2019/07/21/NC-2/" title="NC-2">				
-						<img src="/img/cart_cover.png" class="relateImg" alt="NC-2">
-					</a>
-				</li>											
-		
 		
 				<li>
 					<div>
@@ -543,6 +479,50 @@ int ans...
 				</li>											
 		
 		
+				<li>
+					<div>
+						<a href="/2019/07/13/CF-570-3/" title="CF-570.3">
+							CF-570.3
+						</a>
+						<p>
+							传送门
+A：就是他
+    while (N)
+    {
+        printf("%d ", N % 10);
+        N /= 10;
+    }
+B：只要找到最大的数和最小的数，比较一下就可以
+C:全用低功率模式...
+						</p>
+					</div>
+
+					<a href="/2019/07/13/CF-570-3/" title="CF-570.3">				
+						<img src="/img/post_cover/cover20.jpg" class="relateImg" alt="CF-570.3">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/07/13/ECF-67-2/" title="ECF-67.2">
+							ECF-67.2
+						</a>
+						<p>
+							题目传送门
+A:Stickers and Toys三种情况，没有重叠，有重叠，都重叠
+B:Letters Shop开个二维数组，记录每一种字母的位置
+扫描字符串找到位置最靠后的字母
+C:Vasya And Array题解的方法还没搞懂...
+						</p>
+					</div>
+
+					<a href="/2019/07/13/ECF-67-2/" title="ECF-67.2">				
+						<img src="/img/post_cover/cover19.jpg" class="relateImg" alt="ECF-67.2">
+					</a>
+				</li>											
+		
+		
 	</ul>
 </div>	
 			</div>
@@ -665,17 +645,6 @@ int ans...
 
 <!-- show math formula -->
 
-	<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-	<script type="text/x-mathjax-config">
-		MathJax.Hub.Config(
-			{ 
-				tex2jax: {
-					inlineMath: [['$','$'], ['\\(','\\)']]
-				} 
-			}
-		);
-	</script>
-
 
 
 
@@ -709,13 +678,6 @@ int ans...
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
-
-		
-
-		<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
-		<script src="/plugin/toc/katelog.min.js"></script>
-
-		
 	
 		</main>
 		
