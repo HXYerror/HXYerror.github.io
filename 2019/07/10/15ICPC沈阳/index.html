@@ -369,7 +369,7 @@
 <li>next 数组各值的含义：代表当前字符之前的字符串中，有多大长度的相同前缀后缀。例如如果next [j] = k，代表j 之前的字符串中有最大长度为<em>k</em> 的相同前缀后缀。</li>
 </ul>
 <p>next 数组各值的含义：代表当前字符之前的字符串中，有多大长度的相同前缀后缀。例如如果next [j] = k，代表j 之前的字符串中有最大长度为k 的相同前缀后缀。</p>
-<h5 id="next："><a href="#next：" class="headerlink" title="next："></a>next：</h5><h6 id="next的原理："><a href="#next的原理：" class="headerlink" title="next的原理："></a>next的原理：</h6><p>什么是前缀后缀：<img src="%5Cimg%5Cpost_blog%5C2019710-1.jpg" alt="\img\post_blog\2019710-1.jpg"></p>
+<h5 id="next："><a href="#next：" class="headerlink" title="next："></a>next：</h5><h6 id="next的原理："><a href="#next的原理：" class="headerlink" title="next的原理："></a>next的原理：</h6><p>什么是前缀后缀：<img src="/img/post_blog/2019710-1.jpg" alt="/img/post_blog/2019710-1.jpg"></p>
 <ol>
 <li><p>寻找前缀后缀最长公共元素长度</p>
 <p>比如对于字符串aba来说，它有长度为1的相同前缀后缀a；而对于字符串abab来说，它有长度为2的相同前缀后缀ab（相同前缀后缀的长度为k + 1，k + 1 = 2）。</p>
@@ -445,7 +445,7 @@
 <td align="center">0</td>
 </tr>
 </tbody></table>
-<p><img src="%5Cimg%5Cpost_blog%5C2019710-2.jpg" alt="\img\post_blog\2019710-1.jpg"></p>
+<p><img src="/img/post_blog/2019710-2.jpg" alt="/img/post_blog/2019710-1.jpg"></p>
 <p>代码：</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp">
 <span class="token keyword">void</span> <span class="token function">GetNext</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span> p<span class="token punctuation">,</span><span class="token keyword">int</span> next<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
@@ -1148,5 +1148,20 @@ C:全用低功率模式...
 <script src="/js/vibrant.js"></script>
 <script src="/js/chinese.js"></script>
 <script src="/js/main.js"></script>
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 	</html>
