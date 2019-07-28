@@ -498,12 +498,7 @@ LL pow2<span class="token punctuation">[</span>MAX_1<span class="token punctuati
 <p>更新答案</p>
 <p>当我们遇到0的时候，因为0本身满足条件，<code>ans++</code></p>
 <p>当我们遇到2个以上的0时就要就 <code>ans += dp[0]//能整除300的个数</code></p>
-<h4 id="题目代码：-1"><a href="#题目代码：-1" class="headerlink" title="题目代码："></a>题目代码：</h4><pre class="line-numbers language-cpp"><code class="language-cpp">LL <span class="token function">add</span><span class="token punctuation">(</span>LL n<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span>n <span class="token operator">*</span> <span class="token punctuation">(</span>n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<h4 id="题目代码：-1"><a href="#题目代码：-1" class="headerlink" title="题目代码："></a>题目代码：</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     std<span class="token operator">::</span>ios<span class="token operator">::</span><span class="token function">sync_with_stdio</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     cin<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -557,7 +552,7 @@ LL pow2<span class="token punctuation">[</span>MAX_1<span class="token punctuati
     <span class="token punctuation">}</span>
     cout <span class="token operator">&lt;&lt;</span> ans <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 	
 	</div>
 	
@@ -595,6 +590,41 @@ LL pow2<span class="token punctuation">[</span>MAX_1<span class="token punctuati
 
 <div class="relate-post">
 	<ul>
+		
+				<li>
+					<div>
+						<a href="/2019/07/27/NC-3/" title="NC-3">
+							NC-3
+						</a>
+						<p>
+							2019牛客暑期多校训练营（第三场）Crazy Binary String题目思路：定义1为+1，0为-1
+扫一遍数组，计算出前缀和，并将每个数字出现的index记录下来
+然后逆序往回找，想要区间0和1的个数相等，就要区间和为0
+所以...
+						</p>
+					</div>
+
+					<a href="/2019/07/27/NC-3/" title="NC-3">				
+						<img src="/img/post_cover/cover30.jpg" class="relateImg" alt="NC-3">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/07/21/NC-2 补/" title="NC-2">
+							NC-2
+						</a>
+						<p>
+							2019牛客暑期多校训练营（第二场）
+						</p>
+					</div>
+
+					<a href="/2019/07/21/NC-2 补/" title="NC-2">				
+						<img src="/img/post_cover/cover29.jpg" class="relateImg" alt="NC-2">
+					</a>
+				</li>											
+		
 		
 				<li>
 					<div>
@@ -733,41 +763,6 @@ P1091：让每一个人做最中间人...
 
 					<a href="/2019/07/27/HD-MUTC-1/" title="HD-MUTC-1">				
 						<img src="/img/cart_cover.png" class="relateImg" alt="HD-MUTC-1">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/07/27/NC-3/" title="NC-3">
-							NC-3
-						</a>
-						<p>
-							
-						</p>
-					</div>
-
-					<a href="/2019/07/27/NC-3/" title="NC-3">				
-						<img src="/img/cart_cover.png" class="relateImg" alt="NC-3">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/07/24/19XZCPC-女生赛 补/" title="19XZCPC(女生赛) 补表">
-							19XZCPC(女生赛) 补表
-						</a>
-						<p>
-							2019中国大学生程序设计竞赛-女生专场（重现赛）-感谢南京晓庄学院1001.Ticket顺序选择循环结构
-1002.Gcd转化一下就是俩队中的共同因子n要尽量大
-每一堆必然是n * q,n * p
-那么p+q（&gt;1）就要尽量的...
-						</p>
-					</div>
-
-					<a href="/2019/07/24/19XZCPC-女生赛 补/" title="19XZCPC(女生赛) 补表">				
-						<img src="/img/post_cover/cover28.jpg" class="relateImg" alt="19XZCPC(女生赛) 补表">
 					</a>
 				</li>											
 		
