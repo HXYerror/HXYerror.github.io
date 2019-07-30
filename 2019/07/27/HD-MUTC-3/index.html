@@ -266,7 +266,7 @@
 	更新于
 	<a href="/2019/07/27/HD-MUTC-3/" itemprop="url">
 		<time datetime="2019-07-27T11:46:48.000Z" itemprop="dateUpdated">
-	  		2019-07-27
+	  		2019-07-30
 	  </time>
 	</a> 	
 
@@ -274,7 +274,17 @@
 		/
 		<span>
 			<i class="fa fa-tags"></i>
-					
+			
+	
+		<a href="/tags/hd/" class=" ">
+			hd
+		</a>
+	
+		<a href="/tags/multiset/" class=" ">
+			multiset
+		</a>
+	
+		
 		</span>
 		/
 		
@@ -297,10 +307,87 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-			
+		<h2 id="2019-Multi-University-Training-Contest-3"><a href="#2019-Multi-University-Training-Contest-3" class="headerlink" title=" 2019 Multi-University Training Contest 3"></a><a href="http://acm.hdu.edu.cn/contests/contest_show.php?cid=850" target="_blank" rel="noopener"> 2019 Multi-University Training Contest 3</a></h2><h3 id="1007-Find-the-answer"><a href="#1007-Find-the-answer" class="headerlink" title="1007.Find the answer"></a>1007.<a href="http://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1007&cid=850" target="_blank" rel="noopener">Find the answer</a></h3><p>题意是：把最少的序列（1 - i）中的树变为0使得序列和小于M</p>
+<h4 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h4><p>有一点贪心的思想，如果和大于M，我们总是把序列中大的值变为0，我们用一个multiset（下降序）来获取到区间的大值，然后用一个迭代器表示当前前几大变为了0</p>
+<p>当区间往后扩展一位n的时候，n是不能变0的</p>
+<p>所以我们要判断一下加上他的sum和M的关系</p>
+<p>sum &gt; M 的时候，我们就要继续把大的值变0</p>
+<p>sum  &lt; M的时候，我们就要看能不能少变0</p>
+<p>然后把这个n添加到multiset里，看一下他是不是比已经变0的数m大，如果是，就把n变为0，把m加到sum里</p>
+<p>总之我们保证了当前变0的数一定是前k大的，在数量不变的情况下，sum是最小的</p>
+<h4 id="题目代码："><a href="#题目代码：" class="headerlink" title="题目代码："></a>题目代码：</h4><pre class="line-numbers language-cpp"><code class="language-cpp">LL T<span class="token punctuation">,</span>N<span class="token punctuation">,</span>M<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*-------------------------------------------------------------------------------------------*/</span>
+
+<span class="token comment" spellcheck="true">/* ------------------------------------------------------------------------------------------*/</span>
+
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    std<span class="token operator">::</span>ios<span class="token operator">::</span><span class="token function">sync_with_stdio</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cin<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//freopen("input.in","r",stdin);</span>
+    <span class="token comment" spellcheck="true">//freopen("output.out","w",stdout);</span>
+<span class="token comment" spellcheck="true">/* --------------------------------------------------------------------------------------*/</span>
+    cin <span class="token operator">>></span> T<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>T<span class="token operator">--</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        cin <span class="token operator">>></span> N <span class="token operator">>></span> M<span class="token punctuation">;</span>
+        multiset<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span>greater<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">>></span> a<span class="token punctuation">;</span>
+        LL sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> cnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> x<span class="token punctuation">;</span>
+        cin <span class="token operator">>></span> x<span class="token punctuation">;</span>
+        a<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token number">0</span> <span class="token operator">&lt;&lt;</span><span class="token string">" "</span><span class="token punctuation">;</span>
+        sum <span class="token operator">+</span><span class="token operator">=</span> x<span class="token punctuation">;</span>
+        multiset<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span>greater<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">>></span> <span class="token operator">::</span>iterator  it<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> flag <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            cin <span class="token operator">>></span> x<span class="token punctuation">;</span>
+            sum <span class="token operator">+</span><span class="token operator">=</span> x<span class="token punctuation">;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>sum <span class="token operator">></span> M<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    flag <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                    it <span class="token operator">=</span> a<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">else</span> it<span class="token operator">++</span><span class="token punctuation">;</span>
+                sum <span class="token operator">-</span><span class="token operator">=</span> <span class="token operator">*</span>it<span class="token punctuation">;</span>
+                cnt<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>sum <span class="token operator">&lt;</span> M<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>cnt <span class="token operator">></span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> sum <span class="token operator">+</span> <span class="token operator">*</span>it <span class="token operator">&lt;=</span> M<span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    sum <span class="token operator">+</span><span class="token operator">=</span> <span class="token operator">*</span>it<span class="token punctuation">;</span>
+                    it<span class="token operator">--</span><span class="token punctuation">;</span>
+                    cnt<span class="token operator">--</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">else</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            cout <span class="token operator">&lt;&lt;</span> cnt <span class="token operator">&lt;&lt;</span><span class="token string">" "</span><span class="token punctuation">;</span>
+
+            a<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>cnt <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> x <span class="token operator">></span> <span class="token operator">*</span>it<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                sum <span class="token operator">+</span><span class="token operator">=</span> <span class="token operator">*</span>it<span class="token punctuation">;</span>
+                sum <span class="token operator">-</span><span class="token operator">=</span> x<span class="token punctuation">;</span>
+                it<span class="token operator">--</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span>
+        cout <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/cart_cover.png"></div>
+	<div id="current-post-cover" data-scr="/img/post_cover/cover31.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -334,6 +421,23 @@
 
 <div class="relate-post">
 	<ul>
+		
+				<li>
+					<div>
+						<a href="/2019/07/30/ECF-69-2/" title="ECF-69-2">
+							ECF-69-2
+						</a>
+						<p>
+							Educational Codeforces Round 69 (Rated for Div. 2)A.DIY Wooden Ladder找最长的的俩个，然后看是能放的木板多，还是给的木板多
+B.Pillars观察发现这个序列有三种情...
+						</p>
+					</div>
+
+					<a href="/2019/07/30/ECF-69-2/" title="ECF-69-2">				
+						<img src="/img/post_cover/cover32.jpg" class="relateImg" alt="ECF-69-2">
+					</a>
+				</li>											
+		
 		
 				<li>
 					<div>
@@ -495,24 +599,6 @@ B.Odd Sum Segments一个序列里只有奇数个奇数时和才是奇数
 				</li>											
 		
 		
-				<li>
-					<div>
-						<a href="/2019/07/19/CF-574-2/" title="CF-574-2">
-							CF-574-2
-						</a>
-						<p>
-							Codeforces Round #574 (Div. 2)A.Drinks Choosing就把可以凑对的凑在一起，不能的俩俩组合
-B.Sport Mafia题目思路：算出全放糖果的sum，算出与留下糖果的差cha
-可知，每少放一次...
-						</p>
-					</div>
-
-					<a href="/2019/07/19/CF-574-2/" title="CF-574-2">				
-						<img src="/img/post_cover/cover24.jpg" class="relateImg" alt="CF-574-2">
-					</a>
-				</li>											
-		
-		
 	</ul>
 </div>	
 			</div>
@@ -668,6 +754,13 @@ B.Sport Mafia题目思路：算出全放糖果的sum，算出与留下糖果的�
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
+
+		
+
+		<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
 	
 		</main>
 		
@@ -836,20 +929,5 @@ B.Sport Mafia题目思路：算出全放糖果的sum，算出与留下糖果的�
 <script src="/js/vibrant.js"></script>
 <script src="/js/chinese.js"></script>
 <script src="/js/main.js"></script>
-	<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-</body>
+	</body>
 	</html>
