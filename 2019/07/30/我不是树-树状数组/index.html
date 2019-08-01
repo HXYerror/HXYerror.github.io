@@ -1,0 +1,934 @@
+<!--
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+	<!DOCTYPE html>
+	<html class="scrollbar">
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      我不是树-树状数组 | ACMer-HXYerror
+    
+  </title>
+  <meta name="author" content="HXYerror">
+  <meta name="keywords" content="ACM">
+  <meta name="description" content="miao~">
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.png">
+
+  <!-- css -->
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+    <!-- jquery -->
+	<script src="/js/jquery-2.1.1.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+<link rel="stylesheet" href="/css/prism-dracula.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="transition">
+					<div class="three-bounce1"></div>
+					<div class="three-bounce2"></div>
+					<div class="three-bounce3"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="random" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://hxyerror.github.io/Random-img/">
+	<div class="mask">
+		<div class="h-header">
+			<div id="logo-S">
+				
+					<a href="/">
+						<img src="/img/logo.png" alt="Logo">
+					</a>
+				
+			</div>
+			<!-- Navigation in header(id="navigation-S") -->
+			<div id="navigation-S">
+				<ul>
+					
+						<li class="menu-home">
+							<a href="/" class="menu-item-home">主页</a>
+						</li>
+					
+						<li class="menu-archive">
+							<a href="/archives" class="menu-item-archive">归档</a>
+						</li>
+					
+						<li class="menu-categories">
+							<a href="/categories" class="menu-item-categories">分类</a>
+						</li>
+					
+						<li class="menu-tags">
+							<a href="/tags" class="menu-item-tags">标签</a>
+						</li>
+					
+
+					
+						<li class="menu-search">
+							<a href="javascript:;" class="popup-trigger" title="Search">搜索</a>
+						</li>
+					
+				</ul>			
+			</div>				
+		</div>
+
+		<div class="h-body">	
+			<!-- motto -->
+			
+				<div id="page-motto">
+					<p class="motto">
+						
+					</p>
+				</div>
+			
+
+			<div id="navigation-H">
+				<!-- Page title -->
+				<p>
+					
+						当前文章&nbsp;:&nbsp;《我不是树-树状数组》
+					
+				</p>
+				<!-- Progress bar -->
+				<div id="progress-bar"></div>
+
+				<!-- Progress percent -->
+				<div id="progress-percentage">
+					<h1>0.0%</h1>
+				</div>
+			</div>
+		</div>
+	
+		
+		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
+<style type="text/css">
+	.header-date {
+		position: absolute;
+		left: 40px;
+		bottom: 30px;
+		writing-mode: tb-rl;
+		font-size: 18px;
+	}	
+	.header-date a {
+		border-bottom: none;
+	}
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			position: absolute;
+			left: 40px;
+			bottom: 30px;
+			writing-mode: tb-rl;
+			font-size: 10px;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow"></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+</div></header>
+
+<!-- Navigation in div(id="navigation-H") -->
+<a class="nav-trigger">
+	<span></span>
+</a>
+
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+			
+				<li class="menu-home">
+					<a href="/" class="menu-item-home">主页</a>
+				</li>
+			
+				<li class="menu-archive">
+					<a href="/archives" class="menu-item-archive">归档</a>
+				</li>
+			
+				<li class="menu-categories">
+					<a href="/categories" class="menu-item-categories">分类</a>
+				</li>
+			
+				<li class="menu-tags">
+					<a href="/tags" class="menu-item-tags">标签</a>
+				</li>
+			
+
+			
+				<li class="menu-search">
+					<a href="javascript:;" class="popup-trigger" title="Search">搜索</a>
+				</li>
+			
+		</ul>
+	</div>
+
+	<div class="nav-footer">
+		<ul>
+	
+		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://weibo.com/u/3155549480/home" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://mail.qq.com" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="https://user.qzone.qq.com/841985525/infocenter" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+</nav>
+
+		
+		<!--main-->
+		<main>
+			<div class="layout-post">
+	
+	
+	<div class="article-title">
+		
+	<a href="/2019/07/30/我不是树-树状数组/" itemprop="url">
+		我不是树-树状数组
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			
+	发布于
+	<a href="/2019/07/30/我不是树-树状数组/" itemprop="url">
+		<time datetime="2019-07-30T09:24:54.000Z" itemprop="datePublished">
+	  		2019-07-30
+	  </time>
+	</a> 
+
+	/
+	更新于
+	<a href="/2019/07/30/我不是树-树状数组/" itemprop="url">
+		<time datetime="2019-07-30T09:24:54.000Z" itemprop="dateUpdated">
+	  		2019-07-30
+	  </time>
+	</a> 	
+
+		</span>
+		/
+		<span>
+			<i class="fa fa-tags"></i>
+			
+	
+		<a href="/tags/数据结构/" class=" ">
+			数据结构
+		</a>
+	
+		<a href="/tags/树状数组/" class=" ">
+			树状数组
+		</a>
+	
+		
+		</span>
+		/
+		
+
+    <span class="leancloud_visitors" id="/2019/07/30/我不是树-树状数组/_visitors" data-url="/2019/07/30/我不是树-树状数组/" data-title="我不是树-树状数组">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2019/07/30/我不是树-树状数组/_likes" data-url="/2019/07/30/我不是树-树状数组/" data-title="我不是树-树状数组" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<h2 id="树状数组"><a href="#树状数组" class="headerlink" title="树状数组"></a>树状数组</h2><p><a href="https://blog.csdn.net/WhereIsHeroFrom/article/details/78922383" target="_blank" rel="noopener">我是一个无情的博客搬运工</a></p>
+<h3 id="1-树-or-数组？"><a href="#1-树-or-数组？" class="headerlink" title="1.树 or 数组？"></a>1.树 or 数组？</h3><p>​    名曰树状数组，那么究竟它是树还是数组呢？数组在物理空间上是连续的，而树是通过父子关系关联起来的，而树状数组正是这两种关系的结合，首先在存储空间上它是以数组的形式存储的，即下标连续；其次，对于两个数组下标x，y(x &lt; y)，如果x + 2^k = y (k等于x的二进制表示中末尾0的个数)，那么定义(y, x)为一组树上的父子关系，其中y为父结点，x为子结点。</p>
+<p><img src="/img/post_blog/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84-1.png" alt></p>
+<p>其中A为普通数组，C为树状数组（C在物理空间上和A一样都是连续存储的）。树状数组的第4个元素C4的父结点为C8 (4的二进制表示为”100”，所以k=2，那么4 + 2^2 = 8)，C6和C7同理。C2和C3的父结点为C4，同样也是可以用上面的关系得出的，那么从定义出发，奇数下标一定是叶子结点。</p>
+<h3 id="2-节点的含义"><a href="#2-节点的含义" class="headerlink" title="2.节点的含义"></a>2.节点的含义</h3><p>​    然后我们来看树状数组上的结点Ci具体表示什么，这时候就需要利用树的递归性质了。我们定义Ci的值为它的所有子结点的值 和 Ai 的总和，之前提到当i为奇数时Ci一定为叶子结点，所以有Ci = Ai  ( i为奇数 )。从图中可以得出：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">  C1 <span class="token operator">=</span> A1
+  C2 <span class="token operator">=</span> C1 <span class="token operator">+</span> A2 <span class="token operator">=</span> A1 <span class="token operator">+</span> A2
+  C3 <span class="token operator">=</span> A3
+  C4 <span class="token operator">=</span> C2 <span class="token operator">+</span> C3 <span class="token operator">+</span> A4 <span class="token operator">=</span> A1 <span class="token operator">+</span> A2 <span class="token operator">+</span> A3 <span class="token operator">+</span> A4
+  C5 <span class="token operator">=</span> A5
+  C6 <span class="token operator">=</span> C5 <span class="token operator">+</span> A6 <span class="token operator">=</span> A5 <span class="token operator">+</span> A6
+  C7 <span class="token operator">=</span> A7
+  C8 <span class="token operator">=</span> C4 <span class="token operator">+</span> C6 <span class="token operator">+</span> C7 <span class="token operator">+</span> A8 <span class="token operator">=</span> A1 <span class="token operator">+</span> A2 <span class="token operator">+</span> A3 <span class="token operator">+</span> A4 <span class="token operator">+</span> A5 <span class="token operator">+</span> A6 <span class="token operator">+</span> A7 <span class="token operator">+</span> A8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>​    我们从中可以发现，其实Ci还有一种更加普适的定义，它表示的其实是一段原数组A的连续区间和。根据定义，右区间是很明显的，一定是i，即Ci表示的区间的最后一个元素一定是Ai，那么接下来就是要求Ci表示的第一个元素是什么。从图上可以很容易的清楚，其实就是顺着Ci的最左儿子一直找直到找到叶子结点，那个叶子结点就是Ci表示区间的第一个元素。</p>
+<p>​    更加具体的，如果i的二进制表示为 ABCDE1000，那么它最左边的儿子就是 ABCDE0100，这一步是通过结点父子关系的定义进行逆推得到，并且这条路径可以表示如下：<br>​    ABCDE1000 =&gt; ABCDE0100 =&gt; ABCDE0010 =&gt; ABCDE0001</p>
+<p>其实ABCDE1000 的所有儿子就是 ABCDE0100， ABCDE0110， ABCDE0111，所以最左儿子就是ABCDE0100</p>
+<p>​    这时候，ABCDE0001已经是叶子结点了，所以它就是Ci能够表示的第一个元素的下标，那么我们发现，如果用k来表示i的二进制末尾0的个数，Ci能够表示的A数组的区间的元素个数为2^k，又因为区间和的最后一个数一定是Ai，所以有如下公式：</p>
+<p>$Ci  =  \sum A[j]  |  (i - 2^k + 1) &lt;= j &lt;= i   $ （帮助理解：将j的两个端点相减+1 等于2^k）</p>
+<h3 id="3-求和操作"><a href="#3-求和操作" class="headerlink" title="3.求和操作"></a>3.求和操作</h3><pre><code>  sum(i) = sum{ A[j] | 1 &lt;= j &lt;= i }
+            = A[1] + A[2] + ... + A[i] 
+            = A[1] + A[2] + A[i-2^k] + A[i-2^k+1] + ... + A[i]
+            = A[1] + A[2] + A[i-2^k] + C[i]
+            = sum(i - 2^k) + C[i]
+            = sum( i - lowbit(i) ) + C[i]</code></pre><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><pre class="line-numbers language-cpp"><code class="language-cpp">    <span class="token keyword">int</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> s <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> x<span class="token punctuation">;</span> i <span class="token punctuation">;</span> i <span class="token operator">-</span><span class="token operator">=</span> <span class="token function">lowbit</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            s <span class="token operator">+</span><span class="token operator">=</span> c<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> s<span class="token punctuation">;</span>    
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-更新操作"><a href="#4-更新操作" class="headerlink" title="4.更新操作"></a>4.更新操作</h3><p>​    更新操作就是之前提到的add(i, 1) 和 add(i, -1)，更加具体得，可以推广到add(i, v)，表示的其实就是 A[i] = A[i] + v。但是我们不能在原数组A上操作，而是要像求和操作一样，在树状数组C上进行操作。<br>​    那么其实就是求在Ai改变的时候会影响哪些Ci，看图的树形结构就一目了然了，Ai的改变只会影响Ci及其祖先结点，即A5的改变影响的是C5、C6、C8；而A1的改变影响的是C1、C2、C4、C8。<br>​    也就是每次add(i, v)，我们只要更新Ci以及它的祖先结点，之前已经讨论过两个结点父子关系是如何建立的，所以给定一个x，一定能够在最多log(n) (这里的n是之前提到的值域) 次内更新完所有x的祖先结点，add(i, v)的主体代码（去除边界判断）也只有一行代码：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">    <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> v<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>x <span class="token operator">&lt;=</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            C<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">+</span><span class="token operator">=</span> v<span class="token punctuation">,</span> <span class="token function">add</span><span class="token punctuation">(</span> x <span class="token operator">+</span> <span class="token function">lowbit</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> v <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+     <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>​    和求和操作类似，递归的时候常数开销比较大，所以一般写成迭代的形式更好。写成迭代形式的代码如下：</p>
+<h4 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h4><pre class="line-numbers language-cpp"><code class="language-cpp">    <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> v<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> x<span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i <span class="token operator">+</span><span class="token operator">=</span> <span class="token function">lowbit</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            C<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span><span class="token operator">=</span> v<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="5-lowbit"><a href="#5-lowbit" class="headerlink" title="5.lowbit"></a>5.lowbit</h3><p>上文提到的两个函数sum(x)和add(x, v)都是用递归实现的，并且都用到了一个函数叫lowbit(x)，表示的是$2^k$，其中k为x的二进制表示末尾0的个数</p>
+<p><img src="/img/post_blog/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84-2.png" alt></p>
+<h4 id="代码：-2"><a href="#代码：-2" class="headerlink" title="代码："></a>代码：</h4><pre class="line-numbers language-cpp"><code class="language-cpp">   <span class="token keyword">int</span> <span class="token function">lowbit</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token keyword">return</span> x <span class="token operator">&amp;</span> <span class="token operator">-</span>x<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="6-小结"><a href="#6-小结" class="headerlink" title="6.小结"></a>6.小结</h3><p>​    至此，树状数组的基础内容就到此结束了，三个函数就诠释了树状数组的所有内容，并且都只需要一行代码实现，单次操作的时间复杂度为O( log(n) )，空间复杂度为O(n)，所以它是一种性价比非常高的轻量级数据结构。</p>
+<p>​    树状数组解决的基本问题是 单点更新，成端求和。上文中的sum(x)求的是[1, x]的和，如果需要求[x, y]的和，只需要求两次sum函数，然后相减得到，即sum(y) - sum(x-1)。</p>
+<h3 id="7-板子"><a href="#7-板子" class="headerlink" title="7.板子"></a>7.板子</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> c<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> a<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">lowbit</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//要取的数</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> x <span class="token operator">&amp;</span> <span class="token operator">-</span>x<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> v<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//更新的数，更新的值</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> x<span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i <span class="token operator">+</span><span class="token operator">=</span> <span class="token function">lowbit</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        c<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span><span class="token operator">=</span> v<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//求和的右坐标</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> s <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> x<span class="token punctuation">;</span> i <span class="token punctuation">;</span> i <span class="token operator">-</span><span class="token operator">=</span> <span class="token function">lowbit</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        s <span class="token operator">+</span><span class="token operator">=</span> c<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> s<span class="token punctuation">;</span>    
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/post_cover/cover8.jpg"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">相关文章</div>
+				<div>评论</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
+		
+			<a href="/2019/07/30/我是树-线段树/" title="我是树-线段树" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="/2019/07/30/ECF-69-2/" title="ECF-69-2" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	<ul>
+		
+				<li>
+					<div>
+						<a href="/2019/07/30/我是树-主席树/" title="我是树-主席树">
+							我是树-主席树
+						</a>
+						<p>
+							
+						</p>
+					</div>
+
+					<a href="/2019/07/30/我是树-主席树/" title="我是树-主席树">				
+						<img src="/img/post_cover/cover38.jpg" class="relateImg" alt="我是树-主席树">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/07/30/我是树-线段树/" title="我是树-线段树">
+							我是树-线段树
+						</a>
+						<p>
+							线段树
+						</p>
+					</div>
+
+					<a href="/2019/07/30/我是树-线段树/" title="我是树-线段树">				
+						<img src="/img/post_cover/cover9.jpg" class="relateImg" alt="我是树-线段树">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/08/01/NC-5/" title="NC-5">
+							NC-5
+						</a>
+						<p>
+							2019牛客暑期多校训练营（第五场）A.digits 2输出N个N即可
+
+						</p>
+					</div>
+
+					<a href="/2019/08/01/NC-5/" title="NC-5">				
+						<img src="/img/post_cover/cover42.jpg" class="relateImg" alt="NC-5">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/08/01/CF-569-2/" title="CF-569-2">
+							CF-569-2
+						</a>
+						<p>
+							吹爆这一场，第一次打到这么前，虽然赛后打得
+Codeforces Round #569 (Div. 2)A.Alex and a Rhombus每次增多（i-1）*4个
+B.Nick and Array他的操作真正的意思就是，变负数绝...
+						</p>
+					</div>
+
+					<a href="/2019/08/01/CF-569-2/" title="CF-569-2">				
+						<img src="/img/post_cover/cover9.jpg" class="relateImg" alt="CF-569-2">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/08/01/HD-MUTC-4/" title="HD-MUTC-4">
+							HD-MUTC-4
+						</a>
+						<p>
+							 2019 Multi-University Training Contest 41001.AND Minimum Spanning Tree题目思路：完全图，边的权值是点 &amp; 点，求最小生成树，且与2-N连接的点的字典序最小...
+						</p>
+					</div>
+
+					<a href="/2019/08/01/HD-MUTC-4/" title="HD-MUTC-4">				
+						<img src="/img/post_cover/cover40.jpg" class="relateImg" alt="HD-MUTC-4">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/07/31/CF-576-2/" title="CF-576-2">
+							CF-576-2
+						</a>
+						<p>
+							Codeforces Round #576 (Div. 2)A.City Day啊，爆哭，还想着怎么能优化一下，感觉会超时
+结果优化wa了，真好，那就纯暴力
+对每一个a，都找到l,r判断区间符不符合条件
+注意0天的时候就好
+B.Wat...
+						</p>
+					</div>
+
+					<a href="/2019/07/31/CF-576-2/" title="CF-576-2">				
+						<img src="/img/post_cover/cover39.jpg" class="relateImg" alt="CF-576-2">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/07/30/ECF-69-2/" title="ECF-69-2">
+							ECF-69-2
+						</a>
+						<p>
+							Educational Codeforces Round 69 (Rated for Div. 2)A.DIY Wooden Ladder找最长的的俩个，然后看是能放的木板多，还是给的木板多
+B.Pillars观察发现这个序列有三种情...
+						</p>
+					</div>
+
+					<a href="/2019/07/30/ECF-69-2/" title="ECF-69-2">				
+						<img src="/img/post_cover/cover34.jpg" class="relateImg" alt="ECF-69-2">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/07/29/19JXCPC/" title="19JXCPC">
+							19JXCPC
+						</a>
+						<p>
+							 2019CCPC-江西省赛（重现赛）- 感谢南昌大学1001.Cotree题目思路：又是我换根大法的展现时间
+首先来了解一个知识点啊，树的重心
+树的重心：
+树中所有点到某个点的距离和中，到重心的距离和是最小的，如果有两个距离和，他们...
+						</p>
+					</div>
+
+					<a href="/2019/07/29/19JXCPC/" title="19JXCPC">				
+						<img src="/img/post_cover/cover13.jpg" class="relateImg" alt="19JXCPC">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/07/27/HD-MUTC-3/" title="HD-MUTC-3">
+							HD-MUTC-3
+						</a>
+						<p>
+							 2019 Multi-University Training Contest 31007.Find the answer题意是：把最少的序列（1 - i）中的树变为0使得序列和小于M
+题目思路：有一点贪心的思想，如果和大于M，我们总...
+						</p>
+					</div>
+
+					<a href="/2019/07/27/HD-MUTC-3/" title="HD-MUTC-3">				
+						<img src="/img/post_cover/cover37.jpg" class="relateImg" alt="HD-MUTC-3">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/07/27/HD-MUTC-2/" title="HD-MUTC-2">
+							HD-MUTC-2
+						</a>
+						<p>
+							
+						</p>
+					</div>
+
+					<a href="/2019/07/27/HD-MUTC-2/" title="HD-MUTC-2">				
+						<img src="/img/post_cover/cover36.jpg" class="relateImg" alt="HD-MUTC-2">
+					</a>
+				</li>											
+		
+		
+	</ul>
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- comment gitalk -->
+			<!-- show gitalk comment -->
+<div id="gitalk-container"></div>
+
+<!-- gitalk`s css & js -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<link rel="stylesheet" href="/css/comment.css">
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script type="text/javascript">
+	//Thanks O-R
+	//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
+	//去除尾部匹配正则数组的字符串  
+	//Remove redundant characters
+	String.prototype.trimEnd = function(regStr) {
+		var result = this;
+		if(regStr == undefined || regStr == null || regStr == "") {
+			return result;
+		}
+		var array = regStr.split(',');
+
+		if(array.length > 0) {
+
+			var c = array.shift();
+			var str = this;
+			var i = str.length;
+			var rg = new RegExp(c);
+			var matchArr = str.match(rg);
+
+			if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
+				var matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
+					.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
+					.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
+					.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
+					.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
+					.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
+					.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
+					.replace(/\./g, "\\.").replace(/\&/g, "\\&");
+				matchStr = matchStr + '$';
+				result = str.replace(new RegExp(matchStr), "");
+			}
+
+			if(array.length > 0) {
+				return result.trimEnd(array.join())
+			} else {
+				return result;
+			}
+		}
+	};
+
+	//Create gitalk
+	var gitalk = new Gitalk({
+		clientID: '47172de74a40743c125a',
+		clientSecret: '93fd04b5f0decd1225d7f9c6abf2afd88238c2ba',
+		//id: window.location.pathname,
+		//id: decodeURI(window.location.pathname),
+		//id: (window.location.pathname).split("/").pop().substring(0, 49),
+		id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
+		repo: 'HXYerror-Gitalk',
+		owner: 'HXYerror',
+		admin: 'HXYerror',
+		distractionFreeMode: 'true',
+	})
+	gitalk.render('gitalk-container');
+</script>
+
+		
+		
+	
+
+</div>
+			</div>
+		</div>	
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'qiL3zitC0QXJs4BH0lfR6Bxs-gzGzoHsz',
+            appkey = 'Ed5EpgtpTf8X767pnAavl1Cg';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+
+<!-- show math formula -->
+
+	<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config(
+			{ 
+				tex2jax: {
+					inlineMath: [['$','$'], ['\\(','\\)']]
+				} 
+			}
+		);
+	</script>
+
+
+
+
+<!-- TODO: There seems to be a bug when you close the post gallery! -->
+<link rel="stylesheet" href="/plugin/lightgallery/css/lightgallery.css">
+<script src="/plugin/lightgallery/js/jquery-1.11.0.min.js"></script>
+<script src="/plugin/lightgallery/js/lightgallery-all.min.js"></script>
+
+<script type="text/javascript">
+	var postTitle = $('.article-title a').text() ? $('.article-title a').text() : "No post title!";
+	$('.article-content img').each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		$(this).wrap('<div class="img-responsive" data-src="' + imgPath + '" data-responsive="' + imgPath + '" data-sub-html="<p>图片 ' + imgTitle + '</p><h4>文章' + postTitle + '</h4>"></div>');
+	});
+
+	$('.article-content').lightGallery({
+		mode: 'lg-slide',
+		selector: '.img-responsive',
+		share: false,
+		zoom: false,
+		download: false
+	});
+	//TODO：支持video
+</script>
+
+<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+		
+
+		<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://weibo.com/u/3155549480/home" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://mail.qq.com" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="https://user.qzone.qq.com/841985525/infocenter" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2019, content by HXYerror. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+
+	</div>		
+</footer>
+		
+    <!-- set '1' to show motto in all pages! -->
+
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+    <!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup">
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      ESC
+   </span>
+		<div class="local-search-header">
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			
+
+   
+	<div id="topN"></div>
+	
+    <script>
+        var appid = 'qiL3zitC0QXJs4BH0lfR6Bxs-gzGzoHsz',
+            appkey = 'Ed5EpgtpTf8X767pnAavl1Cg',
+            limitCount = 10;
+        if( $('#topN').length ){
+            AV.initialize(appid, appkey);
+            var Counter = AV.Object.extend("Counter");  
+            topNPost(Counter, limitCount);
+        }
+    </script>
+   
+
+		</div>
+	</div>
+</div>
+
+<script src="/js/ziploader.js"></script>
+<script src="/js/search.js"></script>
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/search.zip',
+		version_Path = '/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+
+    <script src="/js/love.js"></script>
+
+
+<!--back to top-->
+
+    
+	<div id="totop">
+  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
+	</div>
+	<div id="tobuttom">
+		<a href="javascript:;" name="TOBUTTOM" class="fa fa-arrow-down"></a>
+	</div>
+ 
+
+
+ 
+
+<script src="/js/vibrant.js"></script>
+<script src="/js/chinese.js"></script>
+<script src="/js/main.js"></script>
+	</body>
+	</html>
