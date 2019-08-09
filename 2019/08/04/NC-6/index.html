@@ -266,7 +266,7 @@
 	更新于
 	<a href="/2019/08/04/NC-6/" itemprop="url">
 		<time datetime="2019-08-04T03:20:15.000Z" itemprop="dateUpdated">
-	  		2019-08-04
+	  		2019-08-09
 	  </time>
 	</a> 	
 
@@ -307,7 +307,7 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h2 id="2019牛客暑期多校训练营（第六场）"><a href="#2019牛客暑期多校训练营（第六场）" class="headerlink" title="2019牛客暑期多校训练营（第六场）"></a><a href="https://ac.nowcoder.com/acm/contest/886" target="_blank" rel="noopener">2019牛客暑期多校训练营（第六场）</a></h2><h3 id="A-Garbage-Classification"><a href="#A-Garbage-Classification" class="headerlink" title="A.Garbage Classification"></a>A.<a href="https://ac.nowcoder.com/acm/contest/886/A" target="_blank" rel="noopener">Garbage Classification</a></h3><p>就用map统计一下每种辣鸡有多少个</p>
+		<h2 id="2019牛客暑期多校训练营（第六场）"><a href="#2019牛客暑期多校训练营（第六场）" class="headerlink" title="2019牛客暑期多校训练营（第六场）"></a><a href="https://ac.nowcoder.com/acm/contest/886" target="_blank" rel="noopener">2019牛客暑期多校训练营（第六场）</a></h2><h3 id="A-Garbage-Classification"><a href="#A-Garbage-Classification" class="headerlink" title="A.Garbage Classification"></a>A.<a href="https://ac.nowcoder.com/acm/contest/886/A" target="_blank" rel="noopener">Garbage Classification</a></h3><p>就用map统计一下每种垃圾有多少个</p>
 <p>然后在进行分类，看看每个类型的垃圾有多少个</p>
 <p>最后就根据题意分类就好了</p>
 <h3 id="B-Shorten-IPv6-Address"><a href="#B-Shorten-IPv6-Address" class="headerlink" title="B.Shorten IPv6 Address"></a>B.<a href="https://ac.nowcoder.com/acm/contest/886/B" target="_blank" rel="noopener">Shorten IPv6 Address</a></h3><h4 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h4><p>这个题本身不难，但是他有一个坑</p>
@@ -497,8 +497,95 @@
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> multiset<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="J-Upgrading-Technology"><a href="#J-Upgrading-Technology" class="headerlink" title="J.Upgrading Technology"></a>J.Upgrading Technology</h3><p>题目思路：</p>
-<p>题目代码：</p>
+<h3 id="J-Upgrading-Technology"><a href="#J-Upgrading-Technology" class="headerlink" title="J.Upgrading Technology"></a>J.Upgrading Technology</h3><h4 id="题目思路：-2"><a href="#题目思路：-2" class="headerlink" title="题目思路："></a>题目思路：</h4><p>题解完美的说出了我们的<strong>错误</strong>思想，先假设到 j 都升满，然后对每个 i 看再继续走看能赚的钱最多为多少（负数）但是这样贪心选取的只是等级提升赚的最大了，但是全体升级可能给的奖励是负的，支出更大了</p>
+<p>所以说<strong>正确</strong>的做法是：枚举一种科技作为等级最小的科技，然后枚举这个科技的level j，然后其他科技可以在（j ， M）之间取了</p>
+<p>我们预处理出来奖励的前缀和</p>
+<p>a（i，j）继续学习花的钱（赚的最多钱）（负数）</p>
+<p>a（1-&gt;N,j）继续学习花的钱的和</p>
+<p>都学到 j 等级时需要花多少钱</p>
+<p>我们枚举的时候就很快速的找到答案了</p>
+<p>​                <code>temp = lesum[j] - tesum[j] - temsum[j] + temax[i][j];</code></p>
+<p>学习到 j 级奖励的和 - 学习到 j 级花的钱 - 所有人继续学习花的钱（负数）+ i 位继续学习花的钱（i 只能为 j级，不能偷偷学了）</p>
+<h4 id="题目代码：-1"><a href="#题目代码：-1" class="headerlink" title="题目代码："></a>题目代码：</h4><pre class="line-numbers language-cpp"><code class="language-cpp">LL T<span class="token punctuation">,</span>N<span class="token punctuation">,</span>M<span class="token punctuation">,</span>K<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*-------------------------------------------------------------------------------------------*/</span>
+LL lesum<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//奖励和</span>
+LL temax<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//i技能学到j时，再向上能赚多少</span>
+LL temsum<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//j时，向上赚的和</span>
+LL tesum<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//1 - i层的技能消耗和</span>
+LL a<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//技能</span>
+<span class="token comment" spellcheck="true">/* ------------------------------------------------------------------------------------------*/</span>
+
+<span class="token keyword">void</span> <span class="token function">mycase</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span>LL ans<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Case #"</span> <span class="token operator">&lt;&lt;</span> x <span class="token operator">&lt;&lt;</span><span class="token string">": "</span><span class="token operator">&lt;&lt;</span>ans <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    std<span class="token operator">::</span>ios<span class="token operator">::</span><span class="token function">sync_with_stdio</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cin<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//freopen("input.in","r",stdin);</span>
+    <span class="token comment" spellcheck="true">//freopen("output.out","w",stdout);</span>
+<span class="token comment" spellcheck="true">/* -----------------------------------------------------------------------------------------*/</span>
+    cin <span class="token operator">>></span> T<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> cnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>T<span class="token operator">--</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        cnt<span class="token operator">++</span><span class="token punctuation">;</span>
+        cin <span class="token operator">>></span> N <span class="token operator">>></span> M<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i <span class="token operator">&lt;=</span> N<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>j <span class="token operator">&lt;=</span> M<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                cin <span class="token operator">>></span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//技能</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        lesum<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        LL level<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i <span class="token operator">&lt;=</span> M<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            cin <span class="token operator">>></span> level<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//奖励</span>
+            lesum<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> level <span class="token operator">+</span> lesum<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//奖励和</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token function">fill</span><span class="token punctuation">(</span>tesum<span class="token punctuation">,</span>tesum<span class="token operator">+</span>MAX<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i <span class="token operator">&lt;=</span> N<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            temax<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>M<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            tesum<span class="token punctuation">[</span>M<span class="token punctuation">]</span> <span class="token operator">+</span><span class="token operator">=</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span> M<span class="token number">-1</span> <span class="token punctuation">;</span> j <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">--</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                tesum<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span><span class="token operator">=</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                temax<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span> temax<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token function">min</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">(</span>LL<span class="token punctuation">)</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//看看能不能靠学习赚钱了，不能赚钱就不学了</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token function">fill</span><span class="token punctuation">(</span>temsum<span class="token punctuation">,</span>temsum<span class="token operator">+</span>MAX<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;=</span> M<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            tesum<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span><span class="token operator">=</span> tesum<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//等级都到i的花费</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>j <span class="token operator">&lt;=</span> N<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                temsum<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span><span class="token operator">=</span> temax<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        LL ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        LL temp<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i <span class="token operator">&lt;=</span> N<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>j <span class="token operator">&lt;=</span> M<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                temp <span class="token operator">=</span> lesum<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">-</span> tesum<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">-</span> temsum<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> temax<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                ans <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">mycase</span><span class="token punctuation">(</span>cnt<span class="token punctuation">,</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 	
 	</div>
 	
@@ -516,6 +603,10 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
+			<a href="/2019/08/07/CF-577-2/" title="CF-577-2" rel="prev">
+				&laquo;上一篇
+			</a>
+		
 		
 			<a href="/2019/08/01/NC-5/" title="NC-5" rel="next">
 				下一篇&raquo;
@@ -532,6 +623,24 @@
 
 <div class="relate-post">
 	<ul>
+		
+				<li>
+					<div>
+						<a href="/2019/08/09/NC-7/" title="NC-7">
+							NC-7
+						</a>
+						<p>
+							2019牛客暑期多校训练营（第七场）A.String题目思路：其实就是要求一个字符串，把原串的后缀拼到前面的时候，每一种后缀拼完字典序都比原串大
+然后题目给你一个s，问你s最少能切割为多少个这样的字符串
+可以发现，这样的串一定是0开头...
+						</p>
+					</div>
+
+					<a href="/2019/08/09/NC-7/" title="NC-7">				
+						<img src="/img/post_cover/cover47.jpg" class="relateImg" alt="NC-7">
+					</a>
+				</li>											
+		
 		
 				<li>
 					<div>
@@ -594,7 +703,7 @@ cfrerooting传送门
 		
 				<li>
 					<div>
-						<a href="/2019/07/21/NC-2 补/" title="NC-2">
+						<a href="/2019/07/21/NC-2/" title="NC-2">
 							NC-2
 						</a>
 						<p>
@@ -602,7 +711,7 @@ cfrerooting传送门
 						</p>
 					</div>
 
-					<a href="/2019/07/21/NC-2 补/" title="NC-2">				
+					<a href="/2019/07/21/NC-2/" title="NC-2">				
 						<img src="/img/post_cover/cover16.jpg" class="relateImg" alt="NC-2">
 					</a>
 				</li>											
@@ -610,7 +719,7 @@ cfrerooting传送门
 		
 				<li>
 					<div>
-						<a href="/2019/07/19/NC-1 补/" title="NC-1">
+						<a href="/2019/07/19/NC-1/" title="NC-1">
 							NC-1
 						</a>
 						<p>
@@ -618,7 +727,7 @@ cfrerooting传送门
 						</p>
 					</div>
 
-					<a href="/2019/07/19/NC-1 补/" title="NC-1">				
+					<a href="/2019/07/19/NC-1/" title="NC-1">				
 						<img src="/img/post_cover/cover15.jpg" class="relateImg" alt="NC-1">
 					</a>
 				</li>											
@@ -663,54 +772,34 @@ cfrerooting传送门
 		
 				<li>
 					<div>
-						<a href="/2019/08/01/CF-569-2/" title="CF-569-2">
-							CF-569-2
+						<a href="/2019/08/09/ECF-70-2/" title="ECF-70-2">
+							ECF-70-2
 						</a>
 						<p>
-							吹爆这一场，第一次打到这么前，虽然赛后打得
-Codeforces Round #569 (Div. 2)A.Alex and a Rhombus每次增多（i-1）*4个
-B.Nick and Array他的操作真正的意思就是，变负数绝...
+							Educational Codeforces Round 70 (Rated for Div. 2)A.You Are Given Two Binary Strings乘2^k次，其实就是把二进制左移了k位
+加法就是对应位加就好了，然...
 						</p>
 					</div>
 
-					<a href="/2019/08/01/CF-569-2/" title="CF-569-2">				
-						<img src="/img/post_cover/cover9.jpg" class="relateImg" alt="CF-569-2">
+					<a href="/2019/08/09/ECF-70-2/" title="ECF-70-2">				
+						<img src="/img/post_cover/cover48.jpg" class="relateImg" alt="ECF-70-2">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/08/01/HD-MUTC-4/" title="HD-MUTC-4">
-							HD-MUTC-4
+						<a href="/2019/08/07/HD-MUTC-6/" title="HD-MUTC-6">
+							HD-MUTC-6
 						</a>
 						<p>
-							 2019 Multi-University Training Contest 41001.AND Minimum Spanning Tree题目思路：完全图，边的权值是点 &amp; 点，求最小生成树，且与2-N连接的点的字典序最小...
+							 2019 Multi-University Training Contest 61012.Stay Real根据最小堆的性质，可以确定每次选取最大的值就是最优的
+所以我们就用一个优先队列来维护，读入的时候记录父节点的儿子数量，然后把...
 						</p>
 					</div>
 
-					<a href="/2019/08/01/HD-MUTC-4/" title="HD-MUTC-4">				
-						<img src="/img/post_cover/cover40.jpg" class="relateImg" alt="HD-MUTC-4">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/07/31/CF-576-2/" title="CF-576-2">
-							CF-576-2
-						</a>
-						<p>
-							Codeforces Round #576 (Div. 2)A.City Day啊，爆哭，还想着怎么能优化一下，感觉会超时
-结果优化wa了，真好，那就纯暴力
-对每一个a，都找到l,r判断区间符不符合条件
-注意0天的时候就好
-B.Wat...
-						</p>
-					</div>
-
-					<a href="/2019/07/31/CF-576-2/" title="CF-576-2">				
-						<img src="/img/post_cover/cover39.jpg" class="relateImg" alt="CF-576-2">
+					<a href="/2019/08/07/HD-MUTC-6/" title="HD-MUTC-6">				
+						<img src="/img/post_cover/cover46.jpg" class="relateImg" alt="HD-MUTC-6">
 					</a>
 				</li>											
 		
