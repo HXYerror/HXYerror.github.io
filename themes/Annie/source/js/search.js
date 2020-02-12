@@ -1,4 +1,10 @@
-var themeLocalSearch = function({search_path, zip_Path, version_Path, input_Trigger, top_N}) {
+/**
+ * Created & edited by SuperKieran (https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs.
+ * 
+ * Modified slightly by Sariay (https://github.com/Sariay/hexo-theme-Annie).
+ */
+
+const themeLocalSearch = function({search_path, zip_Path, version_Path, input_Trigger, top_N}) {
     // Popup Window;
     var isfetched = false,
         isXml = true;
@@ -12,20 +18,30 @@ var themeLocalSearch = function({search_path, zip_Path, version_Path, input_Trig
 
     // monitor main search box;
     var onPopupClose = function(e) {
-        $('.popup').fadeOut(300);
+        $('.popup').addClass('scale-out-horizontal').fadeOut(600);
+		$('body').removeClass('body-fixed-search')
         $('#local-search-input').val('');
         $('.search-result-list').remove();
         $('#no-result').remove();
-        $('body').css('overflow', '');
-    }
+        $('.search-result-number').remove();
+		
+		setTimeout(function(){
+			$('.popup').removeClass('scale-out-horizontal');
+		}, 1000);
+	}
 
     function proceedsearch() {
-        $('.popup').fadeIn(300);
-        $('body').css('overflow', 'hidden');
+        $('.popup').addClass('scale-in-hor-center').fadeIn(600);
+        
         var $localSearchInput = $('#local-search-input');
         $localSearchInput.attr("autocapitalize", "none");
         $localSearchInput.attr("autocorrect", "off");
         $localSearchInput.focus();
+		
+		setTimeout(function(){
+			$('.popup').removeClass('scale-in-hor-center');		
+			$('body').addClass('body-fixed-search');
+		}, 1000);
     }
 
     // get search zip version and initialize  the search zip;
@@ -54,9 +70,37 @@ var themeLocalSearch = function({search_path, zip_Path, version_Path, input_Trig
             }
         })
     }
-
+    
+	function fixedInputWhenScrolling() {
+		var searchContainerId = '.local-search-popup',
+			searchInputId = '#local-search-input',
+			searchInputPromptH = $(".input-prompt").outerHeight();
+		
+		$(searchContainerId).scroll(function() {
+			var scrollTop = $(searchContainerId).scrollTop();
+		
+			if(scrollTop >= searchInputPromptH/2) {				
+				$(searchInputId).addClass('input-fixed');
+			} else {
+				$(searchInputId).removeClass('input-fixed');
+			}
+		}).trigger('scroll');
+	}
+	
+	
+	function clearScroll() {
+		var searchContainerId = '.local-search-popup',
+			scrollSpeed = 5; //shoud be small value! 
+		
+		$(searchContainerId).animate({
+			scrollTop: 0
+		}, scrollSpeed);	
+	}
+   
+	
     // search function;
     var searchFunc = function(search_id, content_id) {
+    		
         'use strict';
         isfetched = true;
         var datas = JSON.parse(localStorage.getItem('searchJson'));
@@ -64,6 +108,9 @@ var themeLocalSearch = function({search_path, zip_Path, version_Path, input_Trig
         var input = document.getElementById(search_id);
         var resultContent = document.getElementById(content_id);
         var inputEventFunction = function() {
+        	// TODO
+        	clearScroll(); 
+        	                   	
             var searchText = input.value.trim().toLowerCase();
             var keywords = searchText.split(/[\s\-]+/);
             if (keywords.length > 1) {
@@ -232,9 +279,7 @@ var themeLocalSearch = function({search_path, zip_Path, version_Path, input_Trig
                         }
 
                         slicesOfContent.forEach(function(slice) {
-                            resultItem += "<a target='_blank' href='" + articleUrl + "'>" +
-                                "<p class=\"search-result-content\">" + highlightKeyword(content, slice) +
-                                "...</p>" + "</a>";
+                            resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
                         });
 
                         resultItem += "</li>";
@@ -248,9 +293,9 @@ var themeLocalSearch = function({search_path, zip_Path, version_Path, input_Trig
                 })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-                resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-4x" /></div>'
+                resultContent.innerHTML = '<div id="no-result"><i class="" />Please type in some words!</div>'
             } else if (resultItems.length === 0) {
-                resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-4x" /></div>'
+                resultContent.innerHTML = '<div id="no-result"><i class="" />No any results!</div>'
             } else {
                 resultItems.sort(function(resultLeft, resultRight) {
                     if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -261,7 +306,7 @@ var themeLocalSearch = function({search_path, zip_Path, version_Path, input_Trig
                         return resultRight.id - resultLeft.id;
                     }
                 });
-                var searchResultList = '<ul class=\"search-result-list\">';
+                var searchResultList = '<div class=\"search-result-number"\>' + resultItems.length + ' results at total!</div>' + '<ul class=\"search-result-list\">';
                 resultItems.forEach(function(result) {
                     searchResultList += result.item;
                 })
@@ -281,10 +326,7 @@ var themeLocalSearch = function({search_path, zip_Path, version_Path, input_Trig
             });
         }
 
-        // remove loading animation
-        $('body').css('overflow', '');
-
-        proceedsearch();
+        proceedsearch(); 
     }
 
     // handle and trigger popup window;
@@ -309,4 +351,7 @@ var themeLocalSearch = function({search_path, zip_Path, version_Path, input_Trig
             onPopupClose();
         }
     });
+    
+    // TODO
+    fixedInputWhenScrolling();
 };

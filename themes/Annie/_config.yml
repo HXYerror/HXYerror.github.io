@@ -1,4 +1,6 @@
-# 01-header
+#########################################################################################################
+# 001-HEADER
+#########################################################################################################
 # menu
 menu:
     home: /
@@ -8,41 +10,55 @@ menu:
     #about: /about
     #gallery: /gallery
 
-# favicon & avtor
-# if the value of avtor is false, the 'say' is optional.
+# favicon & logo
 favicon: /img/favicon.png
-avtor: /img/logo.png
-say: Welcome 
+logo: /img/logo.png 
 
 # background_image
-# /img/1.jpg
-# https://source.unsplash.com/collection/954550/1920x1080
-# https://sariay.github.io/Random-img/
-# May be cause CROS bug!
+# mask_alpha: 0 ~ 1
+# mode: normal | random_you | random_other
+# normal_url: /img/header-bg.jpg
+# random_you_url: https://sariay.github.io/Random-img/
+# random_other_url: https://source.unsplash.com/collection/954550/1920x1080 | https://api.berryapi.net/?service=App.Bing.Images&day=-0
+mask_alpha: 0.4
 background_image:
-    mode: random #normal or random
-    normal_url: /img/1.jpg
-    random_max: 110 
-    random_url: https://hxyerror.github.io/Random-img/
-    
-# show motto
-motto:
-    enable: true
+    mode: random_you 
+    normal_url: http://121.36.0.69:8080/img/100.jpg #/img/1.png
+    random_you_max: 110 
+    random_you_url: http://121.36.0.69:8080/img/
+    #mode: normal
+    #normal_url: /img/header-bg.jpg 
+    #random_you_max: 110 
+    #random_you_url: https://sariay.github.io/Random-img/
+    #random_other_url: https://api.berryapi.net/?service=App.Bing.Images&day=-0
 
-# 02-PROLOADER
-# animation: spinner, transition or cyclic
+# motto 
+# source: local | hitokoto
+motto:
+	enable: true
+	source: local
+    
+#########################################################################################################
+# 002-PROLOADER
+#########################################################################################################
+# animation: spinner | transition | cyclic
 preloader:
     enable: true
-    animation: transition
+    animation: spinner
 
-# 03-INDEX
-# index-style: pure, cart
+#########################################################################################################
+# 003-INDEX
+#########################################################################################################
+# index-style: pure | cart
 index_style: cart
 
 # index_cart_cover
 cover: /img/cart_cover.png
+lazy_image: /img/lazy.gif
 
-# 04-POST
+#########################################################################################################
+# 004-POST
+#########################################################################################################
 # post_relate
 relate:
     enable: true
@@ -57,7 +73,7 @@ gitalk:
     enable: true
     clientID: '47172de74a40743c125a' 
     clientSecret: '93fd04b5f0decd1225d7f9c6abf2afd88238c2ba' 
-    repo: HXYerror-Gitalk
+    repo: Blog-Comment-Reop
     owner: HXYerror
     admin: HXYerror 
     distractionFreeMode: true
@@ -88,55 +104,101 @@ leancloud_count:
         limit: 10 #param2 for topN_post
 busuanzi_count:
     enable: true
+    
+baidu_analytics:
+    enable: false
+    id: 
+
+cnzz_analytics:
+    enable: false
+    id:
+
+google_analytics:
+    enable: false
+    id:
+
+tencent_analytics:
+    enable: false
+    id:
 
 # post_toc
 post_toc:
     enable: true
     katelog: true
-
-# post_code
-# highlight_theme: normal | night | night blue | night bright | night eighties
-# highlight_theme: night bright 
-code_copy:
-    enable: false
-
+    
 # post_mathJax
 mathjax:
   enable: true
   
-
+# post_code
+# highlight_theme: normal | night | night blue | night bright | night eighties
+highlight_theme: night bright
+code_copy:
+    enable: true
 
 # post_excerpt for index page
 excerpt_cart: 80
 excerpt_pure: 300   
 excerpt_link: true
 
-# 05-FOOTER
-# social
-social:
+# post_share
+share:
     enable: true
-    github: http://github.com/
-    weibo: https://weibo.com/u/3155549480/home
-    email: https://mail.qq.com
-    qq: https://user.qzone.qq.com/841985525/infocenter
-    twitter: http://github.com/
+# https://www.addthis.com/
+# 注意浏览器的内容拦截插件
+addThis:
+    enable: false
+    id: ra-xxx
+# http://share.baidu.com/code
+baiduShare: 
+    enable: false
+    style: button # you can add slide style!
+# https://www.sharethis.com/onboarding-cms/    
+shareThis:
+    enable: false
+    id: 5c-xxx
+# https://github.com/overtrue/share.js
+socialShare:
+    enable: true
+
+#########################################################################################################
+# 005-FOOTER
+#########################################################################################################
+# social links
+# Check the icon in the page of Icomoon
+social:
+	one: 
+        url: http://github.com/
+        icon: <span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+	zhihu: 
+        url: http://github.com/
+        icon: <span class="icon-zhihu"></span>
+	github:
+        url: http://github.com/
+        icon: <span class="icon-github"></span>
+	weibo: 
+        url: https://weibo.com/u/3155549480/home
+        icon: <span class="icon-sina-weibo "></span>   
+
 
 # copyright  
 since: 2019
 cotent_author: HXYerror
 
-# 06-OTHERS
-# rss
-rss: /atom.xml
-
-# gallery 
-# format: natural or square
+#########################################################################################################
+# 006-GALLERY PAGE
+#########################################################################################################
+# gallery page
+# gallery_format: natural | square
 gallery_format: natural
 # one time to load 4 rows or other count, 0 to load img automatically when scrolling.(0,1,2,3,4,5,6......)
 gallery_limit: 0
 # data url
-gallery_data: gallery/data.json
+gallery_data: plugin/gallerypage/data.json
 
+#########################################################################################################
+# 007-LOCAL SEARCH
+#########################################################################################################
 # Local search
 # Dependencies: https://github.com/flashlab/hexo-generator-search
 local_search:
@@ -146,11 +208,14 @@ local_search:
     trigger: auto
     # show top n results per article, show all results by setting to -1
     top_n_per_article: 2
-    
-#when click, emerge heart
+
+#########################################################################################################
+# 008-OTHERS
+#########################################################################################################
+# when click, emerge heart
 love:
     enable: true
 
-#totop
+# back to top
 totop:
     enable: true
