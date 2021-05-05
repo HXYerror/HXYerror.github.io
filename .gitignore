@@ -10,3 +10,4 @@ sshkey
 sshkey.pub
 themes/Annie/_config.yml
 themes/Annie4.0/_config.yml
+package-lock.json
