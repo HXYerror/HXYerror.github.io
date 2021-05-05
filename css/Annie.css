@@ -109,12 +109,16 @@ body {
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: auto !important;
 /*
 		word-spacing: 1px;
 		letter-spacing: 1px;
 		word-wrap: break-word;//针对单词本身换行做处理
 		word-break: break-all;//针对句子本身换行做处理
 	*/
+}
+::-webkit-scrollbar {
+  width: 0px;
 }
 p {
   text-align: justify;
@@ -1380,7 +1384,7 @@ main {
 .layout-cart .post>a {
   position: relative;
   width: 680px;
-  height: 440px;
+  height: 480px;
   display: inline-block;
   overflow: hidden;
   background: #fff;

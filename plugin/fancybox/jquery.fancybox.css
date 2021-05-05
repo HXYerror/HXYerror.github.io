@@ -825,7 +825,7 @@ body.compensate-for-scrollbar {
 }
 
 .fancybox-thumbs-y .fancybox-thumbs__list::-webkit-scrollbar {
-    width: 7px;
+    width: 12px;
 }
 
 .fancybox-thumbs-y .fancybox-thumbs__list::-webkit-scrollbar-track {

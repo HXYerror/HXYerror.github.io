@@ -5,7 +5,7 @@
 <html class="html-loading">
 		
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
 	<meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
@@ -15,44 +15,51 @@
     
   </title>
   <meta name="author" content="HXYerror">
-  <meta name="keywords" content="ACM">
-  <meta name="description" content="miao~">
+  <meta name="keywords" content="ACM" />
+  <meta name="description" content="miao~" />
 	<!-- favicon -->
   <link rel="shortcut icon" href="/img/favicon.png">
 
   <!-- css -->
-  <link rel="stylesheet" href="/css/Annie.css">
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
   
   <!-- jquery -->
-	<script src="/plugin/jquery/jquery.min.js"></script>
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
 
 <script>
     const CONFIG_BGIMAGE = {
       mode: 'random_you',
       normalSrc: 'http://121.36.0.69:8080/img/100.jpg',
       randomYouMax: 110,
-      randomYouSrc: 'http://121.36.0.69:8080/img/',
+      randomYouSrc: 'https://hxyerror.github.io/Random-img/',
 	  randomOtherSrc: '/',
 	  preloaderEnable: true
     }
 	
     const CONFIG_LEACLOUD_COUNT = {
       enable: true,
-	  appId: 'qiL3zitC0QXJs4BH0lfR6Bxs-gzGzoHsz',
-	  appKey: 'Ed5EpgtpTf8X767pnAavl1Cg',
-	  serverURLs: '' || ' '
+	  appId: 'B8YRtbdKJxNcVmcotmbKAtVO-9Nh9j0Va',
+	  appKey: 'qHpjnzvYw4DTBwEqoX68icXu',
+	  serverURLs: 'https://b8yrtbdk.lc-cn-e1-shared.com' || ' '
     }
   </script>
-</head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 	<body>
 		<!-- Preloader -->
 
 	<div id="preloader">
 		<div class="pre-container">
 			
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
+				<div class="cyclic">
+					<div><span></span></div>
+					<div><span></span></div>
+					<div><span></span></div>
+					<div><span></span></div>
 				</div>
 						
 		</div>
@@ -67,8 +74,8 @@
 			
 				<div class="motto text-shadow-pop-left">
 					<p class="content" id="motto-content">获取中...</p>
-					<p>-</p><p>
-					</p><p class="author" id="motto-author">Just a minute...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
 				</div>
 			
 		</div>
@@ -197,7 +204,7 @@
 	<div id="layout-post">
 		<div class="article-title">
 			
-	<a href="/2019/07/14/CF-559-2 补/" itemprop="url">
+	<a href="/2019/07/14/CF-559-2%20%E8%A1%A5/" itemprop="url">
 		CF-559-2（未完待续）
 	</a>
 
@@ -214,7 +221,7 @@
 
 	更新于
 
-	<a href="/2019/07/14/CF-559-2 补/" itemprop="url">
+	<a href="/2019/07/14/CF-559-2%20%E8%A1%A5/" itemprop="url">
 		<time datetime="2019-07-14T05:44:11.000Z" itemprop="dateUpdated">
 	  		2019-07-30
 	  </time>
@@ -237,7 +244,7 @@
 			
 
 	
-    <span class="leancloud_visitors" id="/2019/07/14/CF-559-2 补/_visitors" data-url="/2019/07/14/CF-559-2 补/" data-title="CF-559-2（未完待续）">
+    <span class="leancloud_visitors" id="/2019/07/14/CF-559-2%20%E8%A1%A5/_visitors" data-url="/2019/07/14/CF-559-2%20%E8%A1%A5/" data-title="CF-559-2（未完待续）">
        	<i class="icon-eye"></i>
        	热度
         
@@ -249,7 +256,7 @@
 
 
 	
-    <span class="leancloud_likes" id="/2019/07/14/CF-559-2 补/_likes" data-url="/2019/07/14/CF-559-2 补/" data-title="CF-559-2（未完待续）" rel="unlike">
+    <span class="leancloud_likes" id="/2019/07/14/CF-559-2%20%E8%A1%A5/_likes" data-url="/2019/07/14/CF-559-2%20%E8%A1%A5/" data-title="CF-559-2（未完待续）" rel="unlike">
         <i class="icon-heart"></i>
         喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -261,105 +268,8 @@
 		<div class="article-content" id="article-content">
 			<p>就学了一个lower把，先放在这里</p>
 <p>还要学习读题23333</p>
-<pre><code class="cpp">//#include&lt;bits/stdc++.h&gt;
-#include &lt;iostream&gt;
-#include &lt;cstdio&gt;
-#include &lt;cmath&gt;
-#include &lt;iomanip&gt;
-#include &lt;string&gt;
-#include &lt;cstring&gt;
-#include &lt;algorithm&gt;
-#include &lt;set&gt;
-#include &lt;map&gt;
-#include &lt;vector&gt;
-#include &lt;queue&gt;
-#include &lt;stack&gt;
-#define LL long long
-using namespace std;
-const int MAX = 300010;
-const int MAX_1 = 55;
-const int INF = 0xfffffff;//268435455,2e8;
-const double EPS = 0.0000001;
-const int MOD = 10000007;
-int T,N,M;
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//#include&lt;bits/stdc++.h&gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX = <span class="number">300010</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX_1 = <span class="number">55</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0xfffffff</span>;<span class="comment">//268435455,2e8;</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> EPS = <span class="number">0.0000001</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">10000007</span>;</span><br><span class="line"><span class="keyword">int</span> T,N,M;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*-------------------------------------------------------------------------------------------*/</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Man</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    LL x;</span><br><span class="line">    LL sum;</span><br><span class="line">    <span class="keyword">int</span> cnt;</span><br><span class="line">    <span class="keyword">int</span> m;</span><br><span class="line">&#125;man[MAX];</span><br><span class="line"><span class="keyword">int</span> won[MAX];</span><br><span class="line"><span class="comment">/* ------------------------------------------------------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Cmp</span><span class="params">(Man a,Man b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.x &lt; b.x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; N &gt;&gt; M;</span><br><span class="line">    LL ma = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> mi = INF;</span><br><span class="line">    <span class="keyword">int</span> flagm = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; man[i].x;</span><br><span class="line">        ma = <span class="built_in">max</span>(man[i].x,ma);</span><br><span class="line">        <span class="keyword">if</span>(man[i].x) flagm = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= M;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; won[i];</span><br><span class="line">        mi = <span class="built_in">min</span>(mi,won[i]);</span><br><span class="line">        <span class="keyword">if</span>(!won[i]) flag = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>((flag &amp;&amp; flagm) || (ma &gt; mi))</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="number">-1</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(man+<span class="number">1</span>,man+N+<span class="number">1</span>,Cmp);</span><br><span class="line">    <span class="built_in">sort</span>(won+<span class="number">1</span>,won+M+<span class="number">1</span>,greater&lt;<span class="keyword">int</span>&gt;());</span><br><span class="line">    <span class="keyword">bool</span> f = <span class="literal">false</span>；</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= M;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        Man temp;</span><br><span class="line">        temp.x = won[i];</span><br><span class="line">        <span class="keyword">auto</span> it = <span class="built_in">lower_bound</span>(man+<span class="number">1</span>,man+N,temp,Cmp);</span><br><span class="line">        <span class="keyword">for</span>(;it != &amp;man[<span class="number">0</span>];it--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(it-&gt;cnt == M - <span class="number">1</span> &amp;&amp; !it-&gt;m &amp;&amp; won[i] != it-&gt;x)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            it-&gt;sum += won[i];</span><br><span class="line">            <span class="keyword">if</span>(it-&gt;x == won[i]) it-&gt;m = <span class="number">1</span>;</span><br><span class="line">            it-&gt;cnt++;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(it == &amp;man[<span class="number">0</span>]) f = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(f)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;-1&quot;</span> &lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    LL ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ans += man[i].sum;</span><br><span class="line">        ans += (M - man[i].cnt) * man[i].x;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-/*-------------------------------------------------------------------------------------------*/
-struct Man
-{
-    LL x;
-    LL sum;
-    int cnt;
-    int m;
-}man[MAX];
-int won[MAX];
-/* ------------------------------------------------------------------------------------------*/
-
-bool Cmp(Man a,Man b)
-{
-    return a.x &lt; b.x;
-}
-
-int main()
-{
-    cin &gt;&gt; N &gt;&gt; M;
-    LL ma = 0;
-    int mi = INF;
-    int flagm = 0;
-    int flag = 0;
-    for(int i = 1;i &lt;= N;i++)
-    {
-        cin &gt;&gt; man[i].x;
-        ma = max(man[i].x,ma);
-        if(man[i].x) flagm = 1;
-    }
-    for(int i = 1;i &lt;= M;i++)
-    {
-        cin &gt;&gt; won[i];
-        mi = min(mi,won[i]);
-        if(!won[i]) flag = 1;
-    }
-    if((flag &amp;&amp; flagm) || (ma &gt; mi))
-    {
-        cout &lt;&lt; -1 &lt;&lt; endl;
-        return 0;
-    }
-    sort(man+1,man+N+1,Cmp);
-    sort(won+1,won+M+1,greater&lt;int&gt;());
-    bool f = false；
-    for(int i = 1;i &lt;= M;i++)
-    {
-        Man temp;
-        temp.x = won[i];
-        auto it = lower_bound(man+1,man+N,temp,Cmp);
-        for(;it != &amp;man[0];it--)
-        {
-            if(it-&gt;cnt == M - 1 &amp;&amp; !it-&gt;m &amp;&amp; won[i] != it-&gt;x)
-            {
-                continue;
-            }
-            it-&gt;sum += won[i];
-            if(it-&gt;x == won[i]) it-&gt;m = 1;
-            it-&gt;cnt++;
-            break;
-        }
-        if(it == &amp;man[0]) f = true;
-    }
-
-    if(f)
-    {
-        cout &lt;&lt; &quot;-1&quot; &lt;&lt;endl;
-        return 0;
-    }
-    LL ans = 0;
-    for(int i = 1;i &lt;= N;i++)
-    {
-        ans += man[i].sum;
-        ans += (M - man[i].cnt) * man[i].x;
-    }
-    cout &lt;&lt; ans;
-    return 0;
-}</code></pre>
 	
 		</div>
 		
@@ -383,7 +293,7 @@ int main()
 			</a>
 		
 		
-			<a href="/2019/07/14/CF-554-2 补/" title="CF-554-2（未完待续）" rel="next">
+			<a href="/2019/07/14/CF-554-2%20%E8%A1%A5/" title="CF-554-2（未完待续）" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -420,7 +330,7 @@ int main()
 						<div class="relate-post-cover">
 							<a href="/2019/08/09/ECF-70-2/" title="ECF-70-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover48.jpg" alt="ECF-70-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover48.jpg" alt="ECF-70-2"/>
 							</a>
 						</div>
 					</li>												
@@ -445,7 +355,7 @@ B.Zero Array如果sum是奇数的一定不行
 						<div class="relate-post-cover">
 							<a href="/2019/08/07/CF-577-2/" title="CF-577-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover44.jpg" alt="CF-577-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover44.jpg" alt="CF-577-2"/>
 							</a>
 						</div>
 					</li>												
@@ -469,7 +379,7 @@ B.Nick and Array他的操作真正的意思就是，变负数绝...
 						<div class="relate-post-cover">
 							<a href="/2019/08/01/CF-569-2/" title="CF-569-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover9.jpg" alt="CF-569-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover9.jpg" alt="CF-569-2"/>
 							</a>
 						</div>
 					</li>												
@@ -495,7 +405,7 @@ B.Wat...
 						<div class="relate-post-cover">
 							<a href="/2019/07/31/CF-576-2/" title="CF-576-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover39.jpg" alt="CF-576-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover39.jpg" alt="CF-576-2"/>
 							</a>
 						</div>
 					</li>												
@@ -518,7 +428,7 @@ B.Pillars观察发现这个序列有三种情...
 						<div class="relate-post-cover">
 							<a href="/2019/07/30/ECF-69-2/" title="ECF-69-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover34.jpg" alt="ECF-69-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover34.jpg" alt="ECF-69-2"/>
 							</a>
 						</div>
 					</li>												
@@ -542,7 +452,7 @@ B.Odd Sum Segments一个序列里只有奇数个奇数时和才是奇数
 						<div class="relate-post-cover">
 							<a href="/2019/07/25/CF-575-3/" title="CF-575-3">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover29.jpg" alt="CF-575-3">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover29.jpg" alt="CF-575-3"/>
 							</a>
 						</div>
 					</li>												
@@ -566,7 +476,7 @@ B.Sport Mafia题目思路：算出全放糖果的sum，算出与留下糖果的�
 						<div class="relate-post-cover">
 							<a href="/2019/07/19/CF-574-2/" title="CF-574-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover28.jpg" alt="CF-574-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover28.jpg" alt="CF-574-2"/>
 							</a>
 						</div>
 					</li>												
@@ -589,7 +499,7 @@ Vus the Cossack and Strings通过观察可以发现当字符串中’1’的数�
 						<div class="relate-post-cover">
 							<a href="/2019/07/17/CF-571-2/" title="CF-571-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover25.jpg" alt="CF-571-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover25.jpg" alt="CF-571-2"/>
 							</a>
 						</div>
 					</li>												
@@ -612,14 +522,14 @@ Yet Another Crosses Problem这个气死了，存的...
 						<div class="relate-post-cover">
 							<a href="/2019/07/15/ECF-68-2/" title="ECF-68-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover33.jpg" alt="ECF-68-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover33.jpg" alt="ECF-68-2"/>
 							</a>
 						</div>
 					</li>												
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/07/14/CF-554-2 补/" title="CF-554-2（未完待续）">
+							<a class="relate-post-title" href="/2019/07/14/CF-554-2%20%E8%A1%A5/" title="CF-554-2（未完待续）">
 								CF-554-2（未完待续）			
 							</a>
 							<p class="relate-post-date">
@@ -627,18 +537,14 @@ Yet Another Crosses Problem这个气死了，存的...
 								七月 14日, 2019				
 							</p>
 							<p class="relate-post-content">
-								
-/*-------------------------------------------------------------------------------------------*/
-
-int er[40];
-int ans...
+								123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019/07/14/CF-554-2 补/" title="CF-554-2（未完待续）">				
+							<a href="/2019/07/14/CF-554-2%20%E8%A1%A5/" title="CF-554-2（未完待续）">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover22.jpg" alt="CF-554-2（未完待续）">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover22.jpg" alt="CF-554-2（未完待续）"/>
 							</a>
 						</div>
 					</li>												
@@ -734,18 +640,9 @@ int ans...
 					<div class="layout-share">
 	
 	
-
-		
-			
-			<!-- socialShare share -->
-			<div class="social-share"></div>
-
-<!--  css & js -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-			
-		
-		
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
 	
 </div>
 
@@ -760,13 +657,87 @@ int ans...
 
 
 
+	 
 	
+<script src="/plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
 
 
 
 
 <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
 <script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
 
 <script type="text/javascript">
 	(function gallerySet(){
@@ -845,15 +816,15 @@ int ans...
 	
 </ul>
 	</div>
-	<div class="beian">
+	<div class = "beian" >
 		<p> 
-			<a href="http://www.beian.miit.gov.cn/"> 津ICP备19011540号-1 </a>
+			<a href = "http://www.beian.miit.gov.cn/"> 津ICP备19011540号-1 </a>
 		</p>
 	</div>
 	<div class="copyright">
 		<p>
 			 
-				&copy;2019 - 2020, content by HXYerror. All Rights Reserved.
+				&copy;2019 - 2021, content by HXYerror. All Rights Reserved.
 			
 			
 				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
@@ -878,15 +849,18 @@ int ans...
 
 
 
-			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">ç®€ä½“</a> 
-			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">ç¹�é«”</a>				
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁体</a>				
 		</p>
 	</div>		
 </footer>
+
 		
 	<!-- Local or hitokoto! -->
 
-	<script src="/plugin/motto/motto.js"></script>
+	
+<script src="/plugin/motto/motto.js"></script>
+
 	
 	<script type="text/javascript">
 		(function motto(){
@@ -907,7 +881,9 @@ int ans...
 
 <!-- love effect -->
 
-	<script src="/plugin/love/love.js"></script>
+	
+<script src="/plugin/love/love.js"></script>
+
 
 
 <!-- back to top -->
@@ -952,8 +928,11 @@ int ans...
 -->
 
 
-  <script src="/plugin/leancloud/av-min.js"></script>
+	
+  
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.1.0/dist/av-min.js"></script>
 <script src="/js/leancloud-count.js"></script>
+
 
 	
 
@@ -966,7 +945,7 @@ int ans...
 		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
 		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
 -->
-<div class="popup search-popup local-search-popup scrollbar">
+<div class="popup search-popup local-search-popup scrollbar" >
 	<div class="local-search-container">
 		<span class="popup-btn-close">
       		ESC
@@ -985,7 +964,7 @@ int ans...
 
    
 	<div id="topN">
-		<div class="topN-title" data-title="热门文章"></div> 
+		<div class="topN-title" data-title= "热门文章"></div> 
 	</div>
 	
     <script>
@@ -1003,8 +982,10 @@ int ans...
 	</div>
 </div>
 
+
 <script src="/plugin/search/ziploader.js"></script>
 <script src="/js/search.js"></script>
+
 
 <script type="text/javascript">
 	var search_path = 'search.json',
@@ -1023,12 +1004,14 @@ int ans...
 </script>
 
 
+
 <script src="/plugin/chinese/chinese.js"></script>
 <script src="/plugin/imagelazyloader/yall.min.js"></script>
 <script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
 <script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
 <script src="/plugin/resizediv/resizediv.js"></script>
 <script src="/js/main.js"></script>
+
 	<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {

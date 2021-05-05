@@ -5,7 +5,7 @@
 <html class="html-loading">
 		
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
 	<meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
@@ -15,44 +15,51 @@
     
   </title>
   <meta name="author" content="HXYerror">
-  <meta name="keywords" content="ACM">
-  <meta name="description" content="miao~">
+  <meta name="keywords" content="ACM" />
+  <meta name="description" content="miao~" />
 	<!-- favicon -->
   <link rel="shortcut icon" href="/img/favicon.png">
 
   <!-- css -->
-  <link rel="stylesheet" href="/css/Annie.css">
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
   
   <!-- jquery -->
-	<script src="/plugin/jquery/jquery.min.js"></script>
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
 
 <script>
     const CONFIG_BGIMAGE = {
       mode: 'random_you',
       normalSrc: 'http://121.36.0.69:8080/img/100.jpg',
       randomYouMax: 110,
-      randomYouSrc: 'http://121.36.0.69:8080/img/',
+      randomYouSrc: 'https://hxyerror.github.io/Random-img/',
 	  randomOtherSrc: '/',
 	  preloaderEnable: true
     }
 	
     const CONFIG_LEACLOUD_COUNT = {
       enable: true,
-	  appId: 'qiL3zitC0QXJs4BH0lfR6Bxs-gzGzoHsz',
-	  appKey: 'Ed5EpgtpTf8X767pnAavl1Cg',
-	  serverURLs: '' || ' '
+	  appId: 'B8YRtbdKJxNcVmcotmbKAtVO-9Nh9j0Va',
+	  appKey: 'qHpjnzvYw4DTBwEqoX68icXu',
+	  serverURLs: 'https://b8yrtbdk.lc-cn-e1-shared.com' || ' '
     }
   </script>
-</head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 	<body>
 		<!-- Preloader -->
 
 	<div id="preloader">
 		<div class="pre-container">
 			
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
+				<div class="cyclic">
+					<div><span></span></div>
+					<div><span></span></div>
+					<div><span></span></div>
+					<div><span></span></div>
 				</div>
 						
 		</div>
@@ -67,8 +74,8 @@
 			
 				<div class="motto text-shadow-pop-left">
 					<p class="content" id="motto-content">获取中...</p>
-					<p>-</p><p>
-					</p><p class="author" id="motto-author">Just a minute...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
 				</div>
 			
 		</div>
@@ -197,7 +204,7 @@
 	<div id="layout-post">
 		<div class="article-title">
 			
-	<a href="/2019/07/14/CF-554-2 补/" itemprop="url">
+	<a href="/2019/07/14/CF-554-2%20%E8%A1%A5/" itemprop="url">
 		CF-554-2（未完待续）
 	</a>
 
@@ -214,7 +221,7 @@
 
 	更新于
 
-	<a href="/2019/07/14/CF-554-2 补/" itemprop="url">
+	<a href="/2019/07/14/CF-554-2%20%E8%A1%A5/" itemprop="url">
 		<time datetime="2019-07-14T05:43:33.000Z" itemprop="dateUpdated">
 	  		2019-07-30
 	  </time>
@@ -231,11 +238,11 @@
 			cf
 		</a>
 	
-		<a href="/tags/位运算/" class=" ">
+		<a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" class=" ">
 			位运算
 		</a>
 	
-		<a href="/tags/异或/" class=" ">
+		<a href="/tags/%E5%BC%82%E6%88%96/" class=" ">
 			异或
 		</a>
 	
@@ -245,7 +252,7 @@
 			
 
 	
-    <span class="leancloud_visitors" id="/2019/07/14/CF-554-2 补/_visitors" data-url="/2019/07/14/CF-554-2 补/" data-title="CF-554-2（未完待续）">
+    <span class="leancloud_visitors" id="/2019/07/14/CF-554-2%20%E8%A1%A5/_visitors" data-url="/2019/07/14/CF-554-2%20%E8%A1%A5/" data-title="CF-554-2（未完待续）">
        	<i class="icon-eye"></i>
        	热度
         
@@ -257,7 +264,7 @@
 
 
 	
-    <span class="leancloud_likes" id="/2019/07/14/CF-554-2 补/_likes" data-url="/2019/07/14/CF-554-2 补/" data-title="CF-554-2（未完待续）" rel="unlike">
+    <span class="leancloud_likes" id="/2019/07/14/CF-554-2%20%E8%A1%A5/_likes" data-url="/2019/07/14/CF-554-2%20%E8%A1%A5/" data-title="CF-554-2（未完待续）" rel="unlike">
         <i class="icon-heart"></i>
         喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -267,123 +274,8 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<pre><code class="cpp">
-/*-------------------------------------------------------------------------------------------*/
+			<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/*-------------------------------------------------------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> er[<span class="number">40</span>];</span><br><span class="line"><span class="keyword">int</span> ans[<span class="number">40</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">/* ------------------------------------------------------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BinaryRecursion</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> step)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    a=n%<span class="number">2</span>;</span><br><span class="line">    n=n&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (n==<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">BinaryRecursion</span>(n,step+<span class="number">1</span>);</span><br><span class="line">    er[step] = a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fan</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = m;i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(ans[i]) ans[i] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> ans[i] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!ans[i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f1</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = n;i &gt;= <span class="number">0</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(ans[i] == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ans[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            ans[i] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"><span class="comment">/* --------------------------------------------------------------------------------------*/</span></span><br><span class="line">    cin &gt;&gt; N;</span><br><span class="line">    <span class="built_in">fill</span>(er,er+<span class="number">40</span>,<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">BinaryRecursion</span>(N,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;i &lt; <span class="number">50</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(er[i] == <span class="number">-1</span>) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    i--;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt;= i;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        ans[j] = er[i - j];</span><br><span class="line">        <span class="comment">//cout &lt;&lt; ans[j];</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> cn = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">50</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="built_in">f</span>(i);</span><br><span class="line">        <span class="keyword">if</span>(k &gt; i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            a[cn++] = i - k + <span class="number">1</span>;</span><br><span class="line">            <span class="built_in">fan</span>(i,k);</span><br><span class="line">            cnt++;</span><br><span class="line">            <span class="keyword">int</span> k = <span class="built_in">f</span>(i);</span><br><span class="line">            <span class="keyword">if</span>(k &gt; i) <span class="keyword">break</span>;</span><br><span class="line">            <span class="built_in">f1</span>(i);</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//        for(int j = 0;j &lt;= i;j++)</span></span><br><span class="line"><span class="comment">//        &#123;</span></span><br><span class="line"><span class="comment">//            cout &lt;&lt;ans[j] &lt;&lt; &quot; &quot;;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//        cout &lt;&lt;endl;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(cnt == <span class="number">0</span>) cout &lt;&lt; <span class="number">0</span> &lt;&lt;endl;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt;cnt &lt;&lt;endl;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; cn;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; a[j];</span><br><span class="line">            <span class="keyword">if</span>(j!= cnt) cout &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-int er[40];
-int ans[40];
-
-/* ------------------------------------------------------------------------------------------*/
-
-void BinaryRecursion(int n,int step)
-{
-    int a;
-    a=n%2;
-    n=n&gt;&gt;1;
-    if (n==0);
-    else BinaryRecursion(n,step+1);
-    er[step] = a;
-}
-
-void fan(int n,int m)
-{
-    for(int i = m;i &lt;= n;i++)
-    {
-        if(ans[i]) ans[i] = 0;
-        else ans[i] = 1;
-    }
-}
-
-int f(int n)
-{
-    int i;
-    for(i = 0;i &lt;= n;i++)
-    {
-        if(!ans[i])
-        {
-            return i;
-        }
-    }
-    return i;
-}
-
-void f1(int n)
-{
-    for(int i = n;i &gt;= 0;i--)
-    {
-        if(ans[i] == 1)
-        {
-            ans[i] = 0;
-        }
-        else
-        {
-            ans[i] = 1;
-            return;
-        }
-    }
-}
-
-int main()
-{
-    std::ios::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-/* --------------------------------------------------------------------------------------*/
-    cin &gt;&gt; N;
-    fill(er,er+40,-1);
-    BinaryRecursion(N,0);
-    int i = 0;
-    for(;i &lt; 50;i++)
-    {
-        if(er[i] == -1) break;
-    }
-    i--;
-    for(int j = 0;j &lt;= i;j++)
-    {
-        ans[j] = er[i - j];
-        //cout &lt;&lt; ans[j];
-    }
-
-    int cnt = 0;
-    int cn = 0;
-    int a[50];
-
-    while(1)
-    {
-        int k = f(i);
-        if(k &gt; i)
-        {
-            break;
-        }
-        else
-        {
-            a[cn++] = i - k + 1;
-            fan(i,k);
-            cnt++;
-            int k = f(i);
-            if(k &gt; i) break;
-            f1(i);
-            cnt++;
-        }
-//        for(int j = 0;j &lt;= i;j++)
-//        {
-//            cout &lt;&lt;ans[j] &lt;&lt; &quot; &quot;;
-//        }
-//        cout &lt;&lt;endl;
-    }
-
-    if(cnt == 0) cout &lt;&lt; 0 &lt;&lt;endl;
-    else
-    {
-        cout &lt;&lt;cnt &lt;&lt;endl;
-        for(int j = 0;j &lt; cn;j++)
-        {
-            cout &lt;&lt; a[j];
-            if(j!= cnt) cout &lt;&lt; &quot; &quot;;
-        }
-    }
-    return 0;
-}</code></pre>
 	
 		</div>
 		
@@ -402,7 +294,7 @@ int main()
 	<span>
 		<a id="totop-post-page">返回顶部</a>
 		
-			<a href="/2019/07/14/CF-559-2 补/" title="CF-559-2（未完待续）" rel="prev">
+			<a href="/2019/07/14/CF-559-2%20%E8%A1%A5/" title="CF-559-2（未完待续）" rel="prev">
 				&laquo;上一篇
 			</a>
 		
@@ -444,7 +336,7 @@ int main()
 						<div class="relate-post-cover">
 							<a href="/2019/08/09/ECF-70-2/" title="ECF-70-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover48.jpg" alt="ECF-70-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover48.jpg" alt="ECF-70-2"/>
 							</a>
 						</div>
 					</li>												
@@ -469,7 +361,7 @@ B.Zero Array如果sum是奇数的一定不行
 						<div class="relate-post-cover">
 							<a href="/2019/08/07/CF-577-2/" title="CF-577-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover44.jpg" alt="CF-577-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover44.jpg" alt="CF-577-2"/>
 							</a>
 						</div>
 					</li>												
@@ -493,7 +385,7 @@ B.Nick and Array他的操作真正的意思就是，变负数绝...
 						<div class="relate-post-cover">
 							<a href="/2019/08/01/CF-569-2/" title="CF-569-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover9.jpg" alt="CF-569-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover9.jpg" alt="CF-569-2"/>
 							</a>
 						</div>
 					</li>												
@@ -519,7 +411,7 @@ B.Wat...
 						<div class="relate-post-cover">
 							<a href="/2019/07/31/CF-576-2/" title="CF-576-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover39.jpg" alt="CF-576-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover39.jpg" alt="CF-576-2"/>
 							</a>
 						</div>
 					</li>												
@@ -542,7 +434,7 @@ B.Pillars观察发现这个序列有三种情...
 						<div class="relate-post-cover">
 							<a href="/2019/07/30/ECF-69-2/" title="ECF-69-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover34.jpg" alt="ECF-69-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover34.jpg" alt="ECF-69-2"/>
 							</a>
 						</div>
 					</li>												
@@ -566,7 +458,7 @@ B.Odd Sum Segments一个序列里只有奇数个奇数时和才是奇数
 						<div class="relate-post-cover">
 							<a href="/2019/07/25/CF-575-3/" title="CF-575-3">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover29.jpg" alt="CF-575-3">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover29.jpg" alt="CF-575-3"/>
 							</a>
 						</div>
 					</li>												
@@ -590,7 +482,7 @@ B.Sport Mafia题目思路：算出全放糖果的sum，算出与留下糖果的�
 						<div class="relate-post-cover">
 							<a href="/2019/07/19/CF-574-2/" title="CF-574-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover28.jpg" alt="CF-574-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover28.jpg" alt="CF-574-2"/>
 							</a>
 						</div>
 					</li>												
@@ -613,7 +505,7 @@ Vus the Cossack and Strings通过观察可以发现当字符串中’1’的数�
 						<div class="relate-post-cover">
 							<a href="/2019/07/17/CF-571-2/" title="CF-571-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover25.jpg" alt="CF-571-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover25.jpg" alt="CF-571-2"/>
 							</a>
 						</div>
 					</li>												
@@ -636,14 +528,14 @@ Yet Another Crosses Problem这个气死了，存的...
 						<div class="relate-post-cover">
 							<a href="/2019/07/15/ECF-68-2/" title="ECF-68-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover33.jpg" alt="ECF-68-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover33.jpg" alt="ECF-68-2"/>
 							</a>
 						</div>
 					</li>												
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/07/14/CF-559-2 补/" title="CF-559-2（未完待续）">
+							<a class="relate-post-title" href="/2019/07/14/CF-559-2%20%E8%A1%A5/" title="CF-559-2（未完待续）">
 								CF-559-2（未完待续）			
 							</a>
 							<p class="relate-post-date">
@@ -653,17 +545,14 @@ Yet Another Crosses Problem这个气死了，存的...
 							<p class="relate-post-content">
 								就学了一个lower把，先放在这里
 还要学习读题23333
-//#include&lt;bits/stdc++.h&gt;
-#include &lt;iostream&gt;
-#include &lt;cstdio&gt;
-#incl...
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019/07/14/CF-559-2 补/" title="CF-559-2（未完待续）">				
+							<a href="/2019/07/14/CF-559-2%20%E8%A1%A5/" title="CF-559-2（未完待续）">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover23.jpg" alt="CF-559-2（未完待续）">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover23.jpg" alt="CF-559-2（未完待续）"/>
 							</a>
 						</div>
 					</li>												
@@ -759,18 +648,9 @@ Yet Another Crosses Problem这个气死了，存的...
 					<div class="layout-share">
 	
 	
-
-		
-			
-			<!-- socialShare share -->
-			<div class="social-share"></div>
-
-<!--  css & js -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-			
-		
-		
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
 	
 </div>
 
@@ -785,13 +665,87 @@ Yet Another Crosses Problem这个气死了，存的...
 
 
 
+	 
 	
+<script src="/plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
 
 
 
 
 <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
 <script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
 
 <script type="text/javascript">
 	(function gallerySet(){
@@ -870,15 +824,15 @@ Yet Another Crosses Problem这个气死了，存的...
 	
 </ul>
 	</div>
-	<div class="beian">
+	<div class = "beian" >
 		<p> 
-			<a href="http://www.beian.miit.gov.cn/"> 津ICP备19011540号-1 </a>
+			<a href = "http://www.beian.miit.gov.cn/"> 津ICP备19011540号-1 </a>
 		</p>
 	</div>
 	<div class="copyright">
 		<p>
 			 
-				&copy;2019 - 2020, content by HXYerror. All Rights Reserved.
+				&copy;2019 - 2021, content by HXYerror. All Rights Reserved.
 			
 			
 				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
@@ -903,15 +857,18 @@ Yet Another Crosses Problem这个气死了，存的...
 
 
 
-			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">ç®€ä½“</a> 
-			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">ç¹�é«”</a>				
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁体</a>				
 		</p>
 	</div>		
 </footer>
+
 		
 	<!-- Local or hitokoto! -->
 
-	<script src="/plugin/motto/motto.js"></script>
+	
+<script src="/plugin/motto/motto.js"></script>
+
 	
 	<script type="text/javascript">
 		(function motto(){
@@ -932,7 +889,9 @@ Yet Another Crosses Problem这个气死了，存的...
 
 <!-- love effect -->
 
-	<script src="/plugin/love/love.js"></script>
+	
+<script src="/plugin/love/love.js"></script>
+
 
 
 <!-- back to top -->
@@ -977,8 +936,11 @@ Yet Another Crosses Problem这个气死了，存的...
 -->
 
 
-  <script src="/plugin/leancloud/av-min.js"></script>
+	
+  
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.1.0/dist/av-min.js"></script>
 <script src="/js/leancloud-count.js"></script>
+
 
 	
 
@@ -991,7 +953,7 @@ Yet Another Crosses Problem这个气死了，存的...
 		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
 		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
 -->
-<div class="popup search-popup local-search-popup scrollbar">
+<div class="popup search-popup local-search-popup scrollbar" >
 	<div class="local-search-container">
 		<span class="popup-btn-close">
       		ESC
@@ -1010,7 +972,7 @@ Yet Another Crosses Problem这个气死了，存的...
 
    
 	<div id="topN">
-		<div class="topN-title" data-title="热门文章"></div> 
+		<div class="topN-title" data-title= "热门文章"></div> 
 	</div>
 	
     <script>
@@ -1028,8 +990,10 @@ Yet Another Crosses Problem这个气死了，存的...
 	</div>
 </div>
 
+
 <script src="/plugin/search/ziploader.js"></script>
 <script src="/js/search.js"></script>
+
 
 <script type="text/javascript">
 	var search_path = 'search.json',
@@ -1048,12 +1012,14 @@ Yet Another Crosses Problem这个气死了，存的...
 </script>
 
 
+
 <script src="/plugin/chinese/chinese.js"></script>
 <script src="/plugin/imagelazyloader/yall.min.js"></script>
 <script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
 <script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
 <script src="/plugin/resizediv/resizediv.js"></script>
 <script src="/js/main.js"></script>
+
 	<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {

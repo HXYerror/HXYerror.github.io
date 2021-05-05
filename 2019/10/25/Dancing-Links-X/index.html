@@ -5,7 +5,7 @@
 <html class="html-loading">
 		
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
 	<meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
@@ -15,44 +15,51 @@
     
   </title>
   <meta name="author" content="HXYerror">
-  <meta name="keywords" content="ACM">
-  <meta name="description" content="miao~">
+  <meta name="keywords" content="ACM" />
+  <meta name="description" content="miao~" />
 	<!-- favicon -->
   <link rel="shortcut icon" href="/img/favicon.png">
 
   <!-- css -->
-  <link rel="stylesheet" href="/css/Annie.css">
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
   
   <!-- jquery -->
-	<script src="/plugin/jquery/jquery.min.js"></script>
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
 
 <script>
     const CONFIG_BGIMAGE = {
       mode: 'random_you',
       normalSrc: 'http://121.36.0.69:8080/img/100.jpg',
       randomYouMax: 110,
-      randomYouSrc: 'http://121.36.0.69:8080/img/',
+      randomYouSrc: 'https://hxyerror.github.io/Random-img/',
 	  randomOtherSrc: '/',
 	  preloaderEnable: true
     }
 	
     const CONFIG_LEACLOUD_COUNT = {
       enable: true,
-	  appId: 'qiL3zitC0QXJs4BH0lfR6Bxs-gzGzoHsz',
-	  appKey: 'Ed5EpgtpTf8X767pnAavl1Cg',
-	  serverURLs: '' || ' '
+	  appId: 'B8YRtbdKJxNcVmcotmbKAtVO-9Nh9j0Va',
+	  appKey: 'qHpjnzvYw4DTBwEqoX68icXu',
+	  serverURLs: 'https://b8yrtbdk.lc-cn-e1-shared.com' || ' '
     }
   </script>
-</head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 	<body>
 		<!-- Preloader -->
 
 	<div id="preloader">
 		<div class="pre-container">
 			
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
+				<div class="cyclic">
+					<div><span></span></div>
+					<div><span></span></div>
+					<div><span></span></div>
+					<div><span></span></div>
 				</div>
 						
 		</div>
@@ -67,8 +74,8 @@
 			
 				<div class="motto text-shadow-pop-left">
 					<p class="content" id="motto-content">获取中...</p>
-					<p>-</p><p>
-					</p><p class="author" id="motto-author">Just a minute...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
 				</div>
 			
 		</div>
@@ -199,7 +206,9 @@
 			</div>
 		</div>
 
-		<script src="/plugin/toc/katelog.min.js"></script>
+		
+<script src="/plugin/toc/katelog.min.js"></script>
+
 
 		
 	 
@@ -270,113 +279,8 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<h1 id="122"><a href="#122" class="headerlink" title="122"></a>122</h1><pre><code class="cpp">struct DLX
-{
-    int n,m,si;//n:row,m:col,si:node number
-    int U[MAX],D[MAX],L[MAX],R[MAX],row[MAX],col[MAX];//i node it and row and col
-    //行头结点-&gt;right和-&gt;left分别指向第i行的第一个“1”和最后一个“1”对应的结点
+			<h1 id="122"><a href="#122" class="headerlink" title="122"></a>122</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">DLX</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> n,m,si;<span class="comment">//n:row,m:col,si:node number</span></span><br><span class="line">    <span class="keyword">int</span> U[MAX],D[MAX],L[MAX],R[MAX],row[MAX],col[MAX];<span class="comment">//i node it and row and col</span></span><br><span class="line">    <span class="comment">//行头结点-&gt;right和-&gt;left分别指向第i行的第一个“1”和最后一个“1”对应的结点</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//列头节点-&gt;down和-&gt;up分别指向第i列的第一个“1”和最后一个“1”对应的结点</span></span><br><span class="line">    <span class="keyword">int</span> H[MAX_1],S[MAX_1];<span class="comment">//记录行的选择情况和列的覆盖情况</span></span><br><span class="line">    <span class="keyword">int</span> ansd,ans[MAX];</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> nn,<span class="keyword">int</span> mm)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        n = nn;</span><br><span class="line">        m = mm;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt;= m;i ++)<span class="comment">//列的头结点</span></span><br><span class="line">        &#123;</span><br><span class="line">            S[i] = <span class="number">0</span>;<span class="comment">//都没有被覆盖</span></span><br><span class="line">            U[i] = D[i] = i;<span class="comment">//列是空的，都指向自己</span></span><br><span class="line">            L[i] = i<span class="number">-1</span>;<span class="comment">//横向的链连起来</span></span><br><span class="line">            R[i] = i+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        L[<span class="number">0</span>] = m;<span class="comment">//连成一个环</span></span><br><span class="line">        R[m] = <span class="number">0</span>;</span><br><span class="line">        si = m;<span class="comment">//当前有了si个节点</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            H[i] = <span class="number">-1</span>;<span class="comment">//最开始行都没</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">link</span><span class="params">(<span class="keyword">int</span> r,<span class="keyword">int</span> c)</span><span class="comment">//insert node(r,c)//怎么操作的</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        col[++si] = c;<span class="comment">//增加一个节点si+1，并且所在的列为c</span></span><br><span class="line">        S[c]++;<span class="comment">//c列的1的数量++</span></span><br><span class="line">        row[si] = r;<span class="comment">//所在的行为r</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//D[c]:c列的第一个1</span></span><br><span class="line">        <span class="comment">//U[c]:c列的最后一个1</span></span><br><span class="line">        U[si] = U[c];<span class="comment">//节点的上指针指向上一个1</span></span><br><span class="line">        D[si] = c;<span class="comment">//节点的下指针指向列头结点</span></span><br><span class="line">        D[U[c]] = si;<span class="comment">//当前列的上一个1的下指针指向si</span></span><br><span class="line">        U[c] = si;<span class="comment">//c列头结点的上指针指向si，该列的最后一个1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(H[r] &lt; <span class="number">0</span>)<span class="comment">//还没有节点</span></span><br><span class="line">            H[r] = L[si] = R[si] = si;<span class="comment">//指向自己，h[r]代表本行第一个元素</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            R[si] = H[r];<span class="comment">//最右边的节点的右指针指向第一个节点</span></span><br><span class="line">            L[si] =  L[H[r]];<span class="comment">//最右边的节点的左指针指向前一个节点</span></span><br><span class="line"></span><br><span class="line">            R[L[H[r]]] = si;<span class="comment">//前一个节点的右指针指向当前节点</span></span><br><span class="line">            L[H[r]] = si;<span class="comment">//第一个节点的左指针指向当前节点</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">myremove</span><span class="params">(<span class="keyword">int</span> c)</span><span class="comment">//delete c col</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        L[R[c]] = L[c];<span class="comment">//右边节点的左节点从塔变为他的左节点</span></span><br><span class="line">        R[L[c]] = R[c];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = D[c];i != c;i = D[i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = R[i];j != i;j = R[j])</span><br><span class="line">            &#123;</span><br><span class="line">                U[D[j]] = U[j];<span class="comment">//上下断开</span></span><br><span class="line">                D[U[j]] = D[j];</span><br><span class="line">                --S[col[j]];<span class="comment">//该列1元素--</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">resume</span><span class="params">(<span class="keyword">int</span> c)</span><span class="comment">//添加第c列</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = U[c];i != c;i = U[i])<span class="comment">//和删除的时候的方向是反着的</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = L[i];j != i;j = L[j])</span><br><span class="line">            &#123;</span><br><span class="line">                U[D[j]] = D[U[j]] = j;</span><br><span class="line">                ++S[col[j]];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        L[R[c]] = R[L[c]] = c;<span class="comment">//头结点重新连接</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">dance</span><span class="params">(<span class="keyword">int</span> d)</span><span class="comment">//深度d</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(R[<span class="number">0</span>] == <span class="number">0</span>)<span class="comment">//达到全覆盖，头结点指向头节点</span></span><br><span class="line">        &#123;</span><br><span class="line">            ansd = d;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> c = R[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = R[<span class="number">0</span>];i != <span class="number">0</span>;i = R[i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(S[i] &lt; S[c])</span><br><span class="line">                c = i;</span><br><span class="line">        &#125;<span class="comment">//选择包含1最少的一列</span></span><br><span class="line">        <span class="built_in">myremove</span>(c);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = D[c];i != c;i = D[i])</span><br><span class="line">        &#123;</span><br><span class="line">            ans[d] = row[i];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = R[i];j != i;j = R[j])<span class="comment">//选了一行</span></span><br><span class="line">                <span class="built_in">myremove</span>(col[j]);<span class="comment">//移除这一行其他包含1的列</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">dance</span>(d+<span class="number">1</span>))<span class="comment">//下一层</span></span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = L[i];j != i ;j = L[j])<span class="comment">//反移除</span></span><br><span class="line">                <span class="built_in">resume</span>(col[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">resume</span>(c);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;answer;</span><br></pre></td></tr></table></figure>
 
-    //列头节点-&gt;down和-&gt;up分别指向第i列的第一个“1”和最后一个“1”对应的结点
-    int H[MAX_1],S[MAX_1];//记录行的选择情况和列的覆盖情况
-    int ansd,ans[MAX];
-    void init(int nn,int mm)
-    {
-        n = nn;
-        m = mm;
-        for(int i = 0;i &lt;= m;i ++)//列的头结点
-        {
-            S[i] = 0;//都没有被覆盖
-            U[i] = D[i] = i;//列是空的，都指向自己
-            L[i] = i-1;//横向的链连起来
-            R[i] = i+1;
-        }
-        L[0] = m;//连成一个环
-        R[m] = 0;
-        si = m;//当前有了si个节点
-        for(int i = 1;i &lt;= n;i++)
-        {
-            H[i] = -1;//最开始行都没
-        }
-    }
-    void link(int r,int c)//insert node(r,c)//怎么操作的
-    {
-        col[++si] = c;//增加一个节点si+1，并且所在的列为c
-        S[c]++;//c列的1的数量++
-        row[si] = r;//所在的行为r
-
-        //D[c]:c列的第一个1
-        //U[c]:c列的最后一个1
-        U[si] = U[c];//节点的上指针指向上一个1
-        D[si] = c;//节点的下指针指向列头结点
-        D[U[c]] = si;//当前列的上一个1的下指针指向si
-        U[c] = si;//c列头结点的上指针指向si，该列的最后一个1
-
-        if(H[r] &lt; 0)//还没有节点
-            H[r] = L[si] = R[si] = si;//指向自己，h[r]代表本行第一个元素
-        else
-        {
-            R[si] = H[r];//最右边的节点的右指针指向第一个节点
-            L[si] =  L[H[r]];//最右边的节点的左指针指向前一个节点
-
-            R[L[H[r]]] = si;//前一个节点的右指针指向当前节点
-            L[H[r]] = si;//第一个节点的左指针指向当前节点
-        }
-    }
-    void myremove(int c)//delete c col
-    {
-        L[R[c]] = L[c];//右边节点的左节点从塔变为他的左节点
-        R[L[c]] = R[c];
-        for(int i = D[c];i != c;i = D[i])
-        {
-            for(int j = R[i];j != i;j = R[j])
-            {
-                U[D[j]] = U[j];//上下断开
-                D[U[j]] = D[j];
-                --S[col[j]];//该列1元素--
-            }
-        }
-    }
-    void resume(int c)//添加第c列
-    {
-        for(int i = U[c];i != c;i = U[i])//和删除的时候的方向是反着的
-        {
-            for(int j = L[i];j != i;j = L[j])
-            {
-                U[D[j]] = D[U[j]] = j;
-                ++S[col[j]];
-            }
-        }
-        L[R[c]] = R[L[c]] = c;//头结点重新连接
-    }
-    bool dance(int d)//深度d
-    {
-        if(R[0] == 0)//达到全覆盖，头结点指向头节点
-        {
-            ansd = d;
-            return 1;
-        }
-        int c = R[0];
-        for(int i = R[0];i != 0;i = R[i])
-        {
-            if(S[i] &lt; S[c])
-                c = i;
-        }//选择包含1最少的一列
-        myremove(c);
-        for(int i = D[c];i != c;i = D[i])
-        {
-            ans[d] = row[i];
-            for(int j = R[i];j != i;j = R[j])//选了一行
-                myremove(col[j]);//移除这一行其他包含1的列
-            if(dance(d+1))//下一层
-                return 1;
-            for(int j = L[i];j != i ;j = L[j])//反移除
-                resume(col[j]);
-        }
-        resume(c);
-        return 0;
-    }
-
-}answer;</code></pre>
 	
 		</div>
 		
@@ -400,7 +304,7 @@
 			</a>
 		
 		
-			<a href="/2019/10/15/搜索/" title="专题-搜索" rel="next">
+			<a href="/2019/10/15/%E6%90%9C%E7%B4%A2/" title="专题-搜索" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -436,7 +340,7 @@
 						<div class="relate-post-cover">
 							<a href="/2020/09/08/test2020/" title="专题-搜索">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover54.jpg" alt="专题-搜索">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover54.jpg" alt="专题-搜索"/>
 							</a>
 						</div>
 					</li>												
@@ -458,7 +362,7 @@
 						<div class="relate-post-cover">
 							<a href="/2019/11/03/vim/" title="vim">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover53.jpg" alt="vim">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover53.jpg" alt="vim"/>
 							</a>
 						</div>
 					</li>												
@@ -483,7 +387,7 @@ UEFI or BCD？看清楚再安装（百度怎么看）
 						<div class="relate-post-cover">
 							<a href="/2019/10/14/ubuntu/" title="ubuntu18.04双硬盘（ssd+机械）+双系统（win10+linux）">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover53.jpg" alt="ubuntu18.04双硬盘（ssd+机械）+双系统（win10+linux）">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover53.jpg" alt="ubuntu18.04双硬盘（ssd+机械）+双系统（win10+linux）"/>
 							</a>
 						</div>
 					</li>												
@@ -505,7 +409,7 @@ UEFI or BCD？看清楚再安装（百度怎么看）
 						<div class="relate-post-cover">
 							<a href="/2019/09/01/NC-10/" title="NC-10">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover51.jpg" alt="NC-10">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover51.jpg" alt="NC-10"/>
 							</a>
 						</div>
 					</li>												
@@ -527,7 +431,7 @@ UEFI or BCD？看清楚再安装（百度怎么看）
 						<div class="relate-post-cover">
 							<a href="/2019/09/01/NC-9/" title="NC-9">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover50.jpg" alt="NC-9">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover50.jpg" alt="NC-9"/>
 							</a>
 						</div>
 					</li>												
@@ -549,7 +453,7 @@ UEFI or BCD？看清楚再安装（百度怎么看）
 						<div class="relate-post-cover">
 							<a href="/2019/09/01/NC-8/" title="NC-8">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover49.jpg" alt="NC-8">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover49.jpg" alt="NC-8"/>
 							</a>
 						</div>
 					</li>												
@@ -572,7 +476,7 @@ UEFI or BCD？看清楚再安装（百度怎么看）
 						<div class="relate-post-cover">
 							<a href="/2019/08/09/ECF-70-2/" title="ECF-70-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover48.jpg" alt="ECF-70-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover48.jpg" alt="ECF-70-2"/>
 							</a>
 						</div>
 					</li>												
@@ -596,7 +500,7 @@ UEFI or BCD？看清楚再安装（百度怎么看）
 						<div class="relate-post-cover">
 							<a href="/2019/08/09/NC-7/" title="NC-7">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover47.jpg" alt="NC-7">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover47.jpg" alt="NC-7"/>
 							</a>
 						</div>
 					</li>												
@@ -621,7 +525,7 @@ B.Zero Array如果sum是奇数的一定不行
 						<div class="relate-post-cover">
 							<a href="/2019/08/07/CF-577-2/" title="CF-577-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover44.jpg" alt="CF-577-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover44.jpg" alt="CF-577-2"/>
 							</a>
 						</div>
 					</li>												
@@ -646,7 +550,7 @@ B.Shorten IPv6 Address...
 						<div class="relate-post-cover">
 							<a href="/2019/08/04/NC-6/" title="NC-6">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover43.jpg" alt="NC-6">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover43.jpg" alt="NC-6"/>
 							</a>
 						</div>
 					</li>												
@@ -742,18 +646,9 @@ B.Shorten IPv6 Address...
 					<div class="layout-share">
 	
 	
-
-		
-			
-			<!-- socialShare share -->
-			<div class="social-share"></div>
-
-<!--  css & js -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-			
-		
-		
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
 	
 </div>
 
@@ -766,7 +661,7 @@ B.Shorten IPv6 Address...
 
 <!-- show math formula -->
 
-	<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=AM_HTMLorMML-full"></script>
 	<script type="text/x-mathjax-config">
 		MathJax.Hub.Config(
 			{ 
@@ -779,13 +674,87 @@ B.Shorten IPv6 Address...
 
 
 
+	 
 	
+<script src="/plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
 
 
 
 
 <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
 <script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
 
 <script type="text/javascript">
 	(function gallerySet(){
@@ -864,15 +833,15 @@ B.Shorten IPv6 Address...
 	
 </ul>
 	</div>
-	<div class="beian">
+	<div class = "beian" >
 		<p> 
-			<a href="http://www.beian.miit.gov.cn/"> 津ICP备19011540号-1 </a>
+			<a href = "http://www.beian.miit.gov.cn/"> 津ICP备19011540号-1 </a>
 		</p>
 	</div>
 	<div class="copyright">
 		<p>
 			 
-				&copy;2019 - 2020, content by HXYerror. All Rights Reserved.
+				&copy;2019 - 2021, content by HXYerror. All Rights Reserved.
 			
 			
 				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
@@ -897,15 +866,18 @@ B.Shorten IPv6 Address...
 
 
 
-			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">ç®€ä½“</a> 
-			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">ç¹�é«”</a>				
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁体</a>				
 		</p>
 	</div>		
 </footer>
+
 		
 	<!-- Local or hitokoto! -->
 
-	<script src="/plugin/motto/motto.js"></script>
+	
+<script src="/plugin/motto/motto.js"></script>
+
 	
 	<script type="text/javascript">
 		(function motto(){
@@ -926,7 +898,9 @@ B.Shorten IPv6 Address...
 
 <!-- love effect -->
 
-	<script src="/plugin/love/love.js"></script>
+	
+<script src="/plugin/love/love.js"></script>
+
 
 
 <!-- back to top -->
@@ -971,8 +945,11 @@ B.Shorten IPv6 Address...
 -->
 
 
-  <script src="/plugin/leancloud/av-min.js"></script>
+	
+  
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.1.0/dist/av-min.js"></script>
 <script src="/js/leancloud-count.js"></script>
+
 
 	
 
@@ -985,7 +962,7 @@ B.Shorten IPv6 Address...
 		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
 		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
 -->
-<div class="popup search-popup local-search-popup scrollbar">
+<div class="popup search-popup local-search-popup scrollbar" >
 	<div class="local-search-container">
 		<span class="popup-btn-close">
       		ESC
@@ -1004,7 +981,7 @@ B.Shorten IPv6 Address...
 
    
 	<div id="topN">
-		<div class="topN-title" data-title="热门文章"></div> 
+		<div class="topN-title" data-title= "热门文章"></div> 
 	</div>
 	
     <script>
@@ -1022,8 +999,10 @@ B.Shorten IPv6 Address...
 	</div>
 </div>
 
+
 <script src="/plugin/search/ziploader.js"></script>
 <script src="/js/search.js"></script>
+
 
 <script type="text/javascript">
 	var search_path = 'search.json',
@@ -1042,12 +1021,14 @@ B.Shorten IPv6 Address...
 </script>
 
 
+
 <script src="/plugin/chinese/chinese.js"></script>
 <script src="/plugin/imagelazyloader/yall.min.js"></script>
 <script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
 <script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
 <script src="/plugin/resizediv/resizediv.js"></script>
 <script src="/js/main.js"></script>
+
 	<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {

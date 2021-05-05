@@ -5,7 +5,7 @@
 <html class="html-loading">
 		
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
 	<meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
@@ -15,44 +15,51 @@
     
   </title>
   <meta name="author" content="HXYerror">
-  <meta name="keywords" content="ACM">
-  <meta name="description" content="miao~">
+  <meta name="keywords" content="ACM" />
+  <meta name="description" content="miao~" />
 	<!-- favicon -->
   <link rel="shortcut icon" href="/img/favicon.png">
 
   <!-- css -->
-  <link rel="stylesheet" href="/css/Annie.css">
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
   
   <!-- jquery -->
-	<script src="/plugin/jquery/jquery.min.js"></script>
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
 
 <script>
     const CONFIG_BGIMAGE = {
       mode: 'random_you',
       normalSrc: 'http://121.36.0.69:8080/img/100.jpg',
       randomYouMax: 110,
-      randomYouSrc: 'http://121.36.0.69:8080/img/',
+      randomYouSrc: 'https://hxyerror.github.io/Random-img/',
 	  randomOtherSrc: '/',
 	  preloaderEnable: true
     }
 	
     const CONFIG_LEACLOUD_COUNT = {
       enable: true,
-	  appId: 'qiL3zitC0QXJs4BH0lfR6Bxs-gzGzoHsz',
-	  appKey: 'Ed5EpgtpTf8X767pnAavl1Cg',
-	  serverURLs: '' || ' '
+	  appId: 'B8YRtbdKJxNcVmcotmbKAtVO-9Nh9j0Va',
+	  appKey: 'qHpjnzvYw4DTBwEqoX68icXu',
+	  serverURLs: 'https://b8yrtbdk.lc-cn-e1-shared.com' || ' '
     }
   </script>
-</head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 	<body>
 		<!-- Preloader -->
 
 	<div id="preloader">
 		<div class="pre-container">
 			
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
+				<div class="cyclic">
+					<div><span></span></div>
+					<div><span></span></div>
+					<div><span></span></div>
+					<div><span></span></div>
 				</div>
 						
 		</div>
@@ -67,8 +74,8 @@
 			
 				<div class="motto text-shadow-pop-left">
 					<p class="content" id="motto-content">获取中...</p>
-					<p>-</p><p>
-					</p><p class="author" id="motto-author">Just a minute...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
 				</div>
 			
 		</div>
@@ -199,7 +206,9 @@
 			</div>
 		</div>
 
-		<script src="/plugin/toc/katelog.min.js"></script>
+		
+<script src="/plugin/toc/katelog.min.js"></script>
+
 
 		
 	 
@@ -270,7 +279,7 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<h2 id="2019牛客暑期多校训练营（第七场）"><a href="#2019牛客暑期多校训练营（第七场）" class="headerlink" title="2019牛客暑期多校训练营（第七场）"></a><a href="https://ac.nowcoder.com/acm/contest/887" target="_blank" rel="noopener">2019牛客暑期多校训练营（第七场）</a></h2><h3 id="A-String"><a href="#A-String" class="headerlink" title="A.String"></a>A.<a href="https://ac.nowcoder.com/acm/contest/887/A" target="_blank" rel="noopener">String</a></h3><h4 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h4><p>其实就是要求一个字符串，把原串的后缀拼到前面的时候，每一种后缀拼完字典序都比原串大</p>
+			<h2 id="2019牛客暑期多校训练营（第七场）"><a href="#2019牛客暑期多校训练营（第七场）" class="headerlink" title="2019牛客暑期多校训练营（第七场）"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/887">2019牛客暑期多校训练营（第七场）</a></h2><h3 id="A-String"><a href="#A-String" class="headerlink" title="A.String"></a>A.<a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/887/A">String</a></h3><h4 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h4><p>其实就是要求一个字符串，把原串的后缀拼到前面的时候，每一种后缀拼完字典序都比原串大</p>
 <p>然后题目给你一个s，问你s最少能切割为多少个这样的字符串</p>
 <p>可以发现，这样的串一定是0开头的1结尾的</p>
 <p>那么如果s开头是1，那么直到遇见0，这些1是一段</p>
@@ -278,139 +287,17 @@
 <p>然后中间的：</p>
 <p>首先我们可以把这些字符串分为01段，因为这样的串一定是0开头的1结尾的</p>
 <p>1.我们每次把可能的最多的01段拼到一起，然后每次拿（1，2，……n-1）个’01‘段的后缀拼到前面比较</p>
-<p><img src="/img/post_blog/NC-7-1.png" alt></p>
+<p><img src="/img/post_blog/NC-7-1.png"></p>
 <p>如果所有长度的后缀拼完的都比原来的大，说明这些01段组成的字符串是满足所求的</p>
 <p>2.如果有一个比原串小那么，就不行，就减去最末尾的一个01段，继续判断，直到找见满足的</p>
 <p>最坏的情况就是只有一个’01‘段本身做一个所求字符串</p>
 <p>3.然后继续从刚才去掉的’01‘段种找（回到第一步，用过的01段就不能用了），直到所有的都找完</p>
 <p>a，好难啊，说不清楚，看看代码的注释呀</p>
-<h4 id="题目代码：一坨屎"><a href="#题目代码：一坨屎" class="headerlink" title="题目代码：一坨屎"></a>题目代码：一坨屎</h4><pre><code class="cpp">int T,N,M,K;
-/*-------------------------------------------------------------------------------------------*/
-string str;
-/* ------------------------------------------------------------------------------------------*/
-int solve(int l,int r,vector&lt;int&gt; a,int n,int cnt)
-{
-    char c[MAX];
-    int j = 0;
-    for(int i = a[l];i &lt;= n;i++)//第一步拼尽可能多的01段
-    {
-        c[j++] = str[i];
-    }
-    int lc = j;
-    c[j] = &#39;\0&#39;;
-    char cmp[MAX];
-    int k = l;
-    while(r &gt;= l)//第二步,cmp
-    {
-        while(k &lt;= r)
-        {
-            int i;
-            int j = 0;
+<h4 id="题目代码：一坨屎"><a href="#题目代码：一坨屎" class="headerlink" title="题目代码：一坨屎"></a>题目代码：一坨屎</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> T,N,M,K;</span><br><span class="line"><span class="comment">/*-------------------------------------------------------------------------------------------*/</span></span><br><span class="line">string str;</span><br><span class="line"><span class="comment">/* ------------------------------------------------------------------------------------------*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,vector&lt;<span class="keyword">int</span>&gt; a,<span class="keyword">int</span> n,<span class="keyword">int</span> cnt)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c[MAX];</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = a[l];i &lt;= n;i++)<span class="comment">//第一步拼尽可能多的01段</span></span><br><span class="line">    &#123;</span><br><span class="line">        c[j++] = str[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> lc = j;</span><br><span class="line">    c[j] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">    <span class="keyword">char</span> cmp[MAX];</span><br><span class="line">    <span class="keyword">int</span> k = l;</span><br><span class="line">    <span class="keyword">while</span>(r &gt;= l)<span class="comment">//第二步,cmp</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(k &lt;= r)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> i;</span><br><span class="line">            <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> m;</span><br><span class="line">            <span class="keyword">if</span>(r == cnt<span class="number">-1</span>) m = n + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> m = a[r+<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(i = a[k];i &lt; m;i++)</span><br><span class="line">            &#123;</span><br><span class="line">                cmp[j++] = str[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(i = a[l];i &lt; a[k];i++)</span><br><span class="line">            &#123;</span><br><span class="line">                cmp[j++] = str[i];</span><br><span class="line">            &#125;</span><br><span class="line">            cmp[j] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">strcmp</span>(c,cmp) &gt; <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(k == r+<span class="number">1</span>) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">int</span> m;</span><br><span class="line">        m = n - a[r] + <span class="number">1</span>;</span><br><span class="line">        c[lc - m] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">        r--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">//freopen(&quot;input.in&quot;,&quot;r&quot;,stdin);</span></span><br><span class="line">    <span class="comment">//freopen(&quot;output.out&quot;,&quot;w&quot;,stdout);</span></span><br><span class="line"><span class="comment">/* -----------------------------------------------------------------------------------------*/</span></span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; str;</span><br><span class="line">        N = str.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; a;</span><br><span class="line">        <span class="keyword">int</span> cnt1 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(k = <span class="number">0</span> ;k &lt; N;k++)<span class="comment">//前面1</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(str[k] == <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                cnt1++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(cnt1 &gt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(cnt1--)</span><br><span class="line">            &#123;</span><br><span class="line">                cout &lt;&lt; <span class="string">&quot;1&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> cnt0 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> j;</span><br><span class="line">        <span class="keyword">for</span>(j = N<span class="number">-1</span>;j &gt;= <span class="number">0</span>;j--)<span class="comment">//后面0</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(str[j] == <span class="string">&#x27;0&#x27;</span>) cnt0++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = k;i &lt; j;)<span class="comment">//分为01段</span></span><br><span class="line">        &#123;</span><br><span class="line">            a.<span class="built_in">push_back</span>(i);</span><br><span class="line">            cnt++;</span><br><span class="line">            <span class="keyword">while</span>(i &lt;= j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(str[i] == <span class="string">&#x27;0&#x27;</span>) i++;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(i &lt;= j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(str[i] == <span class="string">&#x27;1&#x27;</span>) i++;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(n &lt; cnt<span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> m = n+<span class="number">1</span>;</span><br><span class="line">            n = <span class="built_in">solve</span>(n+<span class="number">1</span>,cnt<span class="number">-1</span>,a,j,cnt);<span class="comment">//第三步，不断的从剩下的01段中找</span></span><br><span class="line">            <span class="keyword">int</span> r;</span><br><span class="line">            <span class="keyword">if</span>(n == cnt<span class="number">-1</span>) r = j+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> r = a[n+<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = a[m];i &lt; r;i++)</span><br><span class="line">                cout &lt;&lt; str[i];</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(cnt0)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(cnt0--) cout &lt;&lt; <span class="string">&quot;0&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-            int m;
-            if(r == cnt-1) m = n + 1;
-            else m = a[r+1];
-
-            for(i = a[k];i &lt; m;i++)
-            {
-                cmp[j++] = str[i];
-            }
-            for(i = a[l];i &lt; a[k];i++)
-            {
-                cmp[j++] = str[i];
-            }
-            cmp[j] = &#39;\0&#39;;
-            if(strcmp(c,cmp) &gt; 0) break;
-            k++;
-        }
-        if(k == r+1) break;
-        int m;
-        m = n - a[r] + 1;
-        c[lc - m] = &#39;\0&#39;;
-        r--;
-    }
-    return r;
-}
-
-int main()
-{
-    std::ios::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-    //freopen(&quot;input.in&quot;,&quot;r&quot;,stdin);
-    //freopen(&quot;output.out&quot;,&quot;w&quot;,stdout);
-/* -----------------------------------------------------------------------------------------*/
-    cin &gt;&gt; T;
-    while(T--)
-    {
-        cin &gt;&gt; str;
-        N = str.size();
-        vector&lt;int&gt; a;
-        int cnt1 = 0;
-        int k = 0;
-        for(k = 0 ;k &lt; N;k++)//前面1
-        {
-            if(str[k] == &#39;1&#39;)
-            {
-                cnt1++;
-            }
-            else break;
-        }
-        if(cnt1 &gt; 0)
-        {
-            while(cnt1--)
-            {
-                cout &lt;&lt; &quot;1&quot;;
-            }
-            cout &lt;&lt; &quot; &quot;;
-        }
-        int cnt0 = 0;
-        int j;
-        for(j = N-1;j &gt;= 0;j--)//后面0
-        {
-            if(str[j] == &#39;0&#39;) cnt0++;
-            else break;
-        }
-        int cnt = 0;
-        for(int i = k;i &lt; j;)//分为01段
-        {
-            a.push_back(i);
-            cnt++;
-            while(i &lt;= j)
-            {
-                if(str[i] == &#39;0&#39;) i++;
-                else break;
-            }
-            while(i &lt;= j)
-            {
-                if(str[i] == &#39;1&#39;) i++;
-                else break;
-            }
-        }
-        int n = -1;
-        while(n &lt; cnt-1)
-        {
-            int m = n+1;
-            n = solve(n+1,cnt-1,a,j,cnt);//第三步，不断的从剩下的01段中找
-            int r;
-            if(n == cnt-1) r = j+1;
-            else r = a[n+1];
-            for(int i = a[m];i &lt; r;i++)
-                cout &lt;&lt; str[i];
-            cout &lt;&lt; &quot; &quot;;
-        }
-        if(cnt0)
-        {
-            while(cnt0--) cout &lt;&lt; &quot;0&quot;;
-        }
-        cout &lt;&lt;endl;
-    }
-    return 0;
-}
-</code></pre>
-<h3 id="B-Irreducible-Polynomial"><a href="#B-Irreducible-Polynomial" class="headerlink" title="B.Irreducible Polynomial"></a>B.<a href="https://ac.nowcoder.com/acm/contest/887/B" target="_blank" rel="noopener">Irreducible Polynomial</a></h3><p>为什么3次以上一定可以</p>
-<h3 id="D-Number"><a href="#D-Number" class="headerlink" title="D.Number"></a>D.<a href="https://ac.nowcoder.com/acm/contest/887/D" target="_blank" rel="noopener">Number</a></h3><p>超简单啊，位数要是小于P就行，多的话的不断加0</p>
-<h3 id="J-A-B-problem"><a href="#J-A-B-problem" class="headerlink" title="J.A+B problem"></a>J.<a href="https://ac.nowcoder.com/acm/contest/887/J" target="_blank" rel="noopener">A+B problem</a></h3><p>很简单啊，把每一位提取出来，先提取的不断乘10</p>
+<h3 id="B-Irreducible-Polynomial"><a href="#B-Irreducible-Polynomial" class="headerlink" title="B.Irreducible Polynomial"></a>B.<a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/887/B">Irreducible Polynomial</a></h3><p>为什么3次以上一定可以</p>
+<h3 id="D-Number"><a href="#D-Number" class="headerlink" title="D.Number"></a>D.<a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/887/D">Number</a></h3><p>超简单啊，位数要是小于P就行，多的话的不断加0</p>
+<h3 id="J-A-B-problem"><a href="#J-A-B-problem" class="headerlink" title="J.A+B problem"></a>J.<a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/887/J">A+B problem</a></h3><p>很简单啊，把每一位提取出来，先提取的不断乘10</p>
 <p>加一下，在反转一下</p>
 	
 		</div>
@@ -471,7 +358,7 @@ int main()
 						<div class="relate-post-cover">
 							<a href="/2019/09/01/NC-10/" title="NC-10">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover51.jpg" alt="NC-10">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover51.jpg" alt="NC-10"/>
 							</a>
 						</div>
 					</li>												
@@ -493,7 +380,7 @@ int main()
 						<div class="relate-post-cover">
 							<a href="/2019/09/01/NC-9/" title="NC-9">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover50.jpg" alt="NC-9">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover50.jpg" alt="NC-9"/>
 							</a>
 						</div>
 					</li>												
@@ -515,7 +402,7 @@ int main()
 						<div class="relate-post-cover">
 							<a href="/2019/09/01/NC-8/" title="NC-8">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover49.jpg" alt="NC-8">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover49.jpg" alt="NC-8"/>
 							</a>
 						</div>
 					</li>												
@@ -540,7 +427,7 @@ B.Shorten IPv6 Address...
 						<div class="relate-post-cover">
 							<a href="/2019/08/04/NC-6/" title="NC-6">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover43.jpg" alt="NC-6">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover43.jpg" alt="NC-6"/>
 							</a>
 						</div>
 					</li>												
@@ -565,7 +452,7 @@ B.generator 1题目思路：平常这个脑子会比比赛时候好用很多
 						<div class="relate-post-cover">
 							<a href="/2019/08/01/NC-5/" title="NC-5">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover42.jpg" alt="NC-5">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover42.jpg" alt="NC-5"/>
 							</a>
 						</div>
 					</li>												
@@ -592,7 +479,7 @@ cfrerooting传送门
 						<div class="relate-post-cover">
 							<a href="/2019/07/27/NC-4/" title="NC-4">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover18.jpg" alt="NC-4">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover18.jpg" alt="NC-4"/>
 							</a>
 						</div>
 					</li>												
@@ -617,7 +504,7 @@ cfrerooting传送门
 						<div class="relate-post-cover">
 							<a href="/2019/07/27/NC-3/" title="NC-3">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover17.jpg" alt="NC-3">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover17.jpg" alt="NC-3"/>
 							</a>
 						</div>
 					</li>												
@@ -639,7 +526,7 @@ cfrerooting传送门
 						<div class="relate-post-cover">
 							<a href="/2019/07/21/NC-2/" title="NC-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover16.jpg" alt="NC-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover16.jpg" alt="NC-2"/>
 							</a>
 						</div>
 					</li>												
@@ -661,7 +548,7 @@ cfrerooting传送门
 						<div class="relate-post-cover">
 							<a href="/2019/07/19/NC-1/" title="NC-1">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover15.jpg" alt="NC-1">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover15.jpg" alt="NC-1"/>
 							</a>
 						</div>
 					</li>												
@@ -683,7 +570,7 @@ cfrerooting传送门
 						<div class="relate-post-cover">
 							<a href="/2020/09/08/test2020/" title="专题-搜索">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover54.jpg" alt="专题-搜索">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover54.jpg" alt="专题-搜索"/>
 							</a>
 						</div>
 					</li>												
@@ -779,18 +666,9 @@ cfrerooting传送门
 					<div class="layout-share">
 	
 	
-
-		
-			
-			<!-- socialShare share -->
-			<div class="social-share"></div>
-
-<!--  css & js -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-			
-		
-		
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
 	
 </div>
 
@@ -805,13 +683,87 @@ cfrerooting传送门
 
 
 
+	 
 	
+<script src="/plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
 
 
 
 
 <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
 <script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
 
 <script type="text/javascript">
 	(function gallerySet(){
@@ -890,15 +842,15 @@ cfrerooting传送门
 	
 </ul>
 	</div>
-	<div class="beian">
+	<div class = "beian" >
 		<p> 
-			<a href="http://www.beian.miit.gov.cn/"> 津ICP备19011540号-1 </a>
+			<a href = "http://www.beian.miit.gov.cn/"> 津ICP备19011540号-1 </a>
 		</p>
 	</div>
 	<div class="copyright">
 		<p>
 			 
-				&copy;2019 - 2020, content by HXYerror. All Rights Reserved.
+				&copy;2019 - 2021, content by HXYerror. All Rights Reserved.
 			
 			
 				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
@@ -923,15 +875,18 @@ cfrerooting传送门
 
 
 
-			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">ç®€ä½“</a> 
-			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">ç¹�é«”</a>				
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁体</a>				
 		</p>
 	</div>		
 </footer>
+
 		
 	<!-- Local or hitokoto! -->
 
-	<script src="/plugin/motto/motto.js"></script>
+	
+<script src="/plugin/motto/motto.js"></script>
+
 	
 	<script type="text/javascript">
 		(function motto(){
@@ -952,7 +907,9 @@ cfrerooting传送门
 
 <!-- love effect -->
 
-	<script src="/plugin/love/love.js"></script>
+	
+<script src="/plugin/love/love.js"></script>
+
 
 
 <!-- back to top -->
@@ -997,8 +954,11 @@ cfrerooting传送门
 -->
 
 
-  <script src="/plugin/leancloud/av-min.js"></script>
+	
+  
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.1.0/dist/av-min.js"></script>
 <script src="/js/leancloud-count.js"></script>
+
 
 	
 
@@ -1011,7 +971,7 @@ cfrerooting传送门
 		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
 		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
 -->
-<div class="popup search-popup local-search-popup scrollbar">
+<div class="popup search-popup local-search-popup scrollbar" >
 	<div class="local-search-container">
 		<span class="popup-btn-close">
       		ESC
@@ -1030,7 +990,7 @@ cfrerooting传送门
 
    
 	<div id="topN">
-		<div class="topN-title" data-title="热门文章"></div> 
+		<div class="topN-title" data-title= "热门文章"></div> 
 	</div>
 	
     <script>
@@ -1048,8 +1008,10 @@ cfrerooting传送门
 	</div>
 </div>
 
+
 <script src="/plugin/search/ziploader.js"></script>
 <script src="/js/search.js"></script>
+
 
 <script type="text/javascript">
 	var search_path = 'search.json',
@@ -1068,12 +1030,14 @@ cfrerooting传送门
 </script>
 
 
+
 <script src="/plugin/chinese/chinese.js"></script>
 <script src="/plugin/imagelazyloader/yall.min.js"></script>
 <script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
 <script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
 <script src="/plugin/resizediv/resizediv.js"></script>
 <script src="/js/main.js"></script>
+
 	<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {

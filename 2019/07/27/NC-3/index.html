@@ -5,7 +5,7 @@
 <html class="html-loading">
 		
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
 	<meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
@@ -15,44 +15,51 @@
     
   </title>
   <meta name="author" content="HXYerror">
-  <meta name="keywords" content="ACM">
-  <meta name="description" content="miao~">
+  <meta name="keywords" content="ACM" />
+  <meta name="description" content="miao~" />
 	<!-- favicon -->
   <link rel="shortcut icon" href="/img/favicon.png">
 
   <!-- css -->
-  <link rel="stylesheet" href="/css/Annie.css">
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
   
   <!-- jquery -->
-	<script src="/plugin/jquery/jquery.min.js"></script>
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
 
 <script>
     const CONFIG_BGIMAGE = {
       mode: 'random_you',
       normalSrc: 'http://121.36.0.69:8080/img/100.jpg',
       randomYouMax: 110,
-      randomYouSrc: 'http://121.36.0.69:8080/img/',
+      randomYouSrc: 'https://hxyerror.github.io/Random-img/',
 	  randomOtherSrc: '/',
 	  preloaderEnable: true
     }
 	
     const CONFIG_LEACLOUD_COUNT = {
       enable: true,
-	  appId: 'qiL3zitC0QXJs4BH0lfR6Bxs-gzGzoHsz',
-	  appKey: 'Ed5EpgtpTf8X767pnAavl1Cg',
-	  serverURLs: '' || ' '
+	  appId: 'B8YRtbdKJxNcVmcotmbKAtVO-9Nh9j0Va',
+	  appKey: 'qHpjnzvYw4DTBwEqoX68icXu',
+	  serverURLs: 'https://b8yrtbdk.lc-cn-e1-shared.com' || ' '
     }
   </script>
-</head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 	<body>
 		<!-- Preloader -->
 
 	<div id="preloader">
 		<div class="pre-container">
 			
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
+				<div class="cyclic">
+					<div><span></span></div>
+					<div><span></span></div>
+					<div><span></span></div>
+					<div><span></span></div>
 				</div>
 						
 		</div>
@@ -67,8 +74,8 @@
 			
 				<div class="motto text-shadow-pop-left">
 					<p class="content" id="motto-content">获取中...</p>
-					<p>-</p><p>
-					</p><p class="author" id="motto-author">Just a minute...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
 				</div>
 			
 		</div>
@@ -199,7 +206,9 @@
 			</div>
 		</div>
 
-		<script src="/plugin/toc/katelog.min.js"></script>
+		
+<script src="/plugin/toc/katelog.min.js"></script>
+
 
 		
 	 
@@ -238,7 +247,7 @@
 				
 	<i class="icon-price-tags"></i>
 	
-		<a href="/tags/前缀和/" class=" ">
+		<a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" class=" ">
 			前缀和
 		</a>
 	
@@ -270,95 +279,13 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<h2 id="2019牛客暑期多校训练营（第三场）"><a href="#2019牛客暑期多校训练营（第三场）" class="headerlink" title="2019牛客暑期多校训练营（第三场）"></a><a href="https://ac.nowcoder.com/acm/contest/883" target="_blank" rel="noopener">2019牛客暑期多校训练营（第三场）</a></h2><h3 id="Crazy-Binary-String"><a href="#Crazy-Binary-String" class="headerlink" title="Crazy Binary String"></a><a href="https://ac.nowcoder.com/acm/contest/883/B" target="_blank" rel="noopener">Crazy Binary String</a></h3><h4 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h4><p>定义1为+1，0为-1</p>
+			<h2 id="2019牛客暑期多校训练营（第三场）"><a href="#2019牛客暑期多校训练营（第三场）" class="headerlink" title="2019牛客暑期多校训练营（第三场）"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/883">2019牛客暑期多校训练营（第三场）</a></h2><h3 id="Crazy-Binary-String"><a href="#Crazy-Binary-String" class="headerlink" title="Crazy Binary String"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/883/B">Crazy Binary String</a></h3><h4 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h4><p>定义1为+1，0为-1</p>
 <p>扫一遍数组，计算出前缀和，并将每个数字出现的index记录下来</p>
 <p>然后逆序往回找，想要区间0和1的个数相等，就要区间和为0</p>
 <p>所以当我们找到一个区间前缀和和为n，只需要减去前缀和为n的区间</p>
 <p>此时就找一下在他前面有没有前缀和为n的区间，刚才已经记录</p>
-<h4 id="题目代码："><a href="#题目代码：" class="headerlink" title="题目代码："></a>题目代码：</h4><pre><code class="cpp">#include&lt;bits/stdc++.h&gt;
-#include &lt;iostream&gt;
-#include &lt;cstdio&gt;
-#include &lt;cmath&gt;
-#include &lt;iomanip&gt;
-#include &lt;string&gt;
-#include &lt;cstring&gt;
-#include &lt;algorithm&gt;
-#include &lt;set&gt;
-#include &lt;map&gt;
-#include &lt;vector&gt;
-#include &lt;queue&gt;
-#include &lt;stack&gt;
-#include &lt;deque&gt;
-#include &lt;utility&gt;
-#define LL long long
-using namespace std;
-const int MAX = 200010;//100000
-const int MAX_1 = 100000;
-const int INF = 0x3f3f3f3f;//1061109567,1e9,int-MAX2147483647;
-const double EPS = 0.0000001;
-const int MOD = 998244353;//998244353;
-const double PI = acos(-1);
-LL T,N,M;
-/*-------------------------------------------------------------------------------------------*/
-int sum[MAX];
-vector&lt;int&gt; flag[MAX];
-/* ------------------------------------------------------------------------------------------*/
+<h4 id="题目代码："><a href="#题目代码：" class="headerlink" title="题目代码："></a>题目代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;utility&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX = <span class="number">200010</span>;<span class="comment">//100000</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX_1 = <span class="number">100000</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;<span class="comment">//1061109567,1e9,int-MAX2147483647;</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> EPS = <span class="number">0.0000001</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">998244353</span>;<span class="comment">//998244353;</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1</span>);</span><br><span class="line">LL T,N,M;</span><br><span class="line"><span class="comment">/*-------------------------------------------------------------------------------------------*/</span></span><br><span class="line"><span class="keyword">int</span> sum[MAX];</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; flag[MAX];</span><br><span class="line"><span class="comment">/* ------------------------------------------------------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">//freopen(&quot;input.in&quot;,&quot;r&quot;,stdin);</span></span><br><span class="line">    <span class="comment">//freopen(&quot;output.out&quot;,&quot;w&quot;,stdout);</span></span><br><span class="line"><span class="comment">/* --------------------------------------------------------------------------------------*/</span></span><br><span class="line">    cin &gt;&gt; N;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> cnt0,cnt1;</span><br><span class="line">    cnt0 = cnt1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; c;</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            sum[i] = sum[i<span class="number">-1</span>]- <span class="number">1</span>;</span><br><span class="line">            cnt0++;</span><br><span class="line">            flag[sum[i]+MAX_1].<span class="built_in">push_back</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            cnt1++;</span><br><span class="line">            sum[i] = sum[i<span class="number">-1</span>] + <span class="number">1</span>;</span><br><span class="line">            flag[sum[i]+MAX_1].<span class="built_in">push_back</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(cnt0 == N || cnt1 == N)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;0&quot;</span> &lt;&lt; <span class="string">&quot; 0&quot;</span> &lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = N<span class="number">-1</span>;i &gt;=<span class="number">0</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> n;</span><br><span class="line">        <span class="keyword">if</span>(sum[i] == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ans = <span class="built_in">max</span>(ans,i+<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag[sum[i]+MAX_1].<span class="built_in">size</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            n = flag[sum[i]+MAX_1][<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> m = i - n;</span><br><span class="line">        ans = <span class="built_in">max</span>(m,ans);</span><br><span class="line">        <span class="keyword">if</span>(ans == N) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; <span class="built_in">min</span>(cnt0,cnt1)*<span class="number">2</span> &lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-int main()
-{
-    std::ios::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-    //freopen(&quot;input.in&quot;,&quot;r&quot;,stdin);
-    //freopen(&quot;output.out&quot;,&quot;w&quot;,stdout);
-/* --------------------------------------------------------------------------------------*/
-    cin &gt;&gt; N;
-    char c;
-    int ans = 0;
-    int cnt0,cnt1;
-    cnt0 = cnt1 = 0;
-    for(int i = 0;i &lt; N;i++)
-    {
-        cin &gt;&gt; c;
-        if(c == &#39;0&#39;)
-        {
-            sum[i] = sum[i-1]- 1;
-            cnt0++;
-            flag[sum[i]+MAX_1].push_back(i);
-        }
-        else
-        {
-            cnt1++;
-            sum[i] = sum[i-1] + 1;
-            flag[sum[i]+MAX_1].push_back(i);
-        }
-
-    }
-    if(cnt0 == N || cnt1 == N)
-    {
-        cout &lt;&lt; &quot;0&quot; &lt;&lt; &quot; 0&quot; &lt;&lt;endl;
-        return 0;
-    }
-    for(int i = N-1;i &gt;=0;i--)
-    {
-        int n;
-        if(sum[i] == 0)
-        {
-            ans = max(ans,i+1);
-            continue;
-        }
-        if(flag[sum[i]+MAX_1].size())
-        {
-            n = flag[sum[i]+MAX_1][0];
-        }
-        int m = i - n;
-        ans = max(m,ans);
-        if(ans == N) break;
-    }
-    cout &lt;&lt; ans &lt;&lt; &quot; &quot; &lt;&lt; min(cnt0,cnt1)*2 &lt;&lt;endl;
-    return 0;
-}</code></pre>
 	
 		</div>
 		
@@ -418,7 +345,7 @@ int main()
 						<div class="relate-post-cover">
 							<a href="/2019/09/01/NC-10/" title="NC-10">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover51.jpg" alt="NC-10">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover51.jpg" alt="NC-10"/>
 							</a>
 						</div>
 					</li>												
@@ -440,7 +367,7 @@ int main()
 						<div class="relate-post-cover">
 							<a href="/2019/09/01/NC-9/" title="NC-9">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover50.jpg" alt="NC-9">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover50.jpg" alt="NC-9"/>
 							</a>
 						</div>
 					</li>												
@@ -462,7 +389,7 @@ int main()
 						<div class="relate-post-cover">
 							<a href="/2019/09/01/NC-8/" title="NC-8">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover49.jpg" alt="NC-8">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover49.jpg" alt="NC-8"/>
 							</a>
 						</div>
 					</li>												
@@ -486,7 +413,7 @@ int main()
 						<div class="relate-post-cover">
 							<a href="/2019/08/09/NC-7/" title="NC-7">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover47.jpg" alt="NC-7">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover47.jpg" alt="NC-7"/>
 							</a>
 						</div>
 					</li>												
@@ -511,7 +438,7 @@ B.Shorten IPv6 Address...
 						<div class="relate-post-cover">
 							<a href="/2019/08/04/NC-6/" title="NC-6">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover43.jpg" alt="NC-6">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover43.jpg" alt="NC-6"/>
 							</a>
 						</div>
 					</li>												
@@ -536,7 +463,7 @@ B.generator 1题目思路：平常这个脑子会比比赛时候好用很多
 						<div class="relate-post-cover">
 							<a href="/2019/08/01/NC-5/" title="NC-5">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover42.jpg" alt="NC-5">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover42.jpg" alt="NC-5"/>
 							</a>
 						</div>
 					</li>												
@@ -563,7 +490,7 @@ cfrerooting传送门
 						<div class="relate-post-cover">
 							<a href="/2019/07/27/NC-4/" title="NC-4">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover18.jpg" alt="NC-4">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover18.jpg" alt="NC-4"/>
 							</a>
 						</div>
 					</li>												
@@ -585,7 +512,7 @@ cfrerooting传送门
 						<div class="relate-post-cover">
 							<a href="/2019/07/21/NC-2/" title="NC-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover16.jpg" alt="NC-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover16.jpg" alt="NC-2"/>
 							</a>
 						</div>
 					</li>												
@@ -607,14 +534,14 @@ cfrerooting传送门
 						<div class="relate-post-cover">
 							<a href="/2019/07/19/NC-1/" title="NC-1">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover15.jpg" alt="NC-1">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover15.jpg" alt="NC-1"/>
 							</a>
 						</div>
 					</li>												
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/04/24/线性动态规划/" title="线性动态规划">
+							<a class="relate-post-title" href="/2019/04/24/%E7%BA%BF%E6%80%A7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" title="线性动态规划">
 								线性动态规划			
 							</a>
 							<p class="relate-post-date">
@@ -629,9 +556,9 @@ P1091：让每一个人做最中间人...
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019/04/24/线性动态规划/" title="线性动态规划">				
+							<a href="/2019/04/24/%E7%BA%BF%E6%80%A7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" title="线性动态规划">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover10.jpg" alt="线性动态规划">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover10.jpg" alt="线性动态规划"/>
 							</a>
 						</div>
 					</li>												
@@ -727,18 +654,9 @@ P1091：让每一个人做最中间人...
 					<div class="layout-share">
 	
 	
-
-		
-			
-			<!-- socialShare share -->
-			<div class="social-share"></div>
-
-<!--  css & js -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-			
-		
-		
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
 	
 </div>
 
@@ -753,13 +671,87 @@ P1091：让每一个人做最中间人...
 
 
 
+	 
 	
+<script src="/plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
 
 
 
 
 <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
 <script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
 
 <script type="text/javascript">
 	(function gallerySet(){
@@ -838,15 +830,15 @@ P1091：让每一个人做最中间人...
 	
 </ul>
 	</div>
-	<div class="beian">
+	<div class = "beian" >
 		<p> 
-			<a href="http://www.beian.miit.gov.cn/"> 津ICP备19011540号-1 </a>
+			<a href = "http://www.beian.miit.gov.cn/"> 津ICP备19011540号-1 </a>
 		</p>
 	</div>
 	<div class="copyright">
 		<p>
 			 
-				&copy;2019 - 2020, content by HXYerror. All Rights Reserved.
+				&copy;2019 - 2021, content by HXYerror. All Rights Reserved.
 			
 			
 				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
@@ -871,15 +863,18 @@ P1091：让每一个人做最中间人...
 
 
 
-			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">ç®€ä½“</a> 
-			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">ç¹�é«”</a>				
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁体</a>				
 		</p>
 	</div>		
 </footer>
+
 		
 	<!-- Local or hitokoto! -->
 
-	<script src="/plugin/motto/motto.js"></script>
+	
+<script src="/plugin/motto/motto.js"></script>
+
 	
 	<script type="text/javascript">
 		(function motto(){
@@ -900,7 +895,9 @@ P1091：让每一个人做最中间人...
 
 <!-- love effect -->
 
-	<script src="/plugin/love/love.js"></script>
+	
+<script src="/plugin/love/love.js"></script>
+
 
 
 <!-- back to top -->
@@ -945,8 +942,11 @@ P1091：让每一个人做最中间人...
 -->
 
 
-  <script src="/plugin/leancloud/av-min.js"></script>
+	
+  
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.1.0/dist/av-min.js"></script>
 <script src="/js/leancloud-count.js"></script>
+
 
 	
 
@@ -959,7 +959,7 @@ P1091：让每一个人做最中间人...
 		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
 		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
 -->
-<div class="popup search-popup local-search-popup scrollbar">
+<div class="popup search-popup local-search-popup scrollbar" >
 	<div class="local-search-container">
 		<span class="popup-btn-close">
       		ESC
@@ -978,7 +978,7 @@ P1091：让每一个人做最中间人...
 
    
 	<div id="topN">
-		<div class="topN-title" data-title="热门文章"></div> 
+		<div class="topN-title" data-title= "热门文章"></div> 
 	</div>
 	
     <script>
@@ -996,8 +996,10 @@ P1091：让每一个人做最中间人...
 	</div>
 </div>
 
+
 <script src="/plugin/search/ziploader.js"></script>
 <script src="/js/search.js"></script>
+
 
 <script type="text/javascript">
 	var search_path = 'search.json',
@@ -1016,12 +1018,14 @@ P1091：让每一个人做最中间人...
 </script>
 
 
+
 <script src="/plugin/chinese/chinese.js"></script>
 <script src="/plugin/imagelazyloader/yall.min.js"></script>
 <script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
 <script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
 <script src="/plugin/resizediv/resizediv.js"></script>
 <script src="/js/main.js"></script>
+
 	<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {

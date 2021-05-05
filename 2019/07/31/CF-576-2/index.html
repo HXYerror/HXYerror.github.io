@@ -5,7 +5,7 @@
 <html class="html-loading">
 		
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
 	<meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
@@ -15,44 +15,51 @@
     
   </title>
   <meta name="author" content="HXYerror">
-  <meta name="keywords" content="ACM">
-  <meta name="description" content="miao~">
+  <meta name="keywords" content="ACM" />
+  <meta name="description" content="miao~" />
 	<!-- favicon -->
   <link rel="shortcut icon" href="/img/favicon.png">
 
   <!-- css -->
-  <link rel="stylesheet" href="/css/Annie.css">
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
   
   <!-- jquery -->
-	<script src="/plugin/jquery/jquery.min.js"></script>
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
 
 <script>
     const CONFIG_BGIMAGE = {
       mode: 'random_you',
       normalSrc: 'http://121.36.0.69:8080/img/100.jpg',
       randomYouMax: 110,
-      randomYouSrc: 'http://121.36.0.69:8080/img/',
+      randomYouSrc: 'https://hxyerror.github.io/Random-img/',
 	  randomOtherSrc: '/',
 	  preloaderEnable: true
     }
 	
     const CONFIG_LEACLOUD_COUNT = {
       enable: true,
-	  appId: 'qiL3zitC0QXJs4BH0lfR6Bxs-gzGzoHsz',
-	  appKey: 'Ed5EpgtpTf8X767pnAavl1Cg',
-	  serverURLs: '' || ' '
+	  appId: 'B8YRtbdKJxNcVmcotmbKAtVO-9Nh9j0Va',
+	  appKey: 'qHpjnzvYw4DTBwEqoX68icXu',
+	  serverURLs: 'https://b8yrtbdk.lc-cn-e1-shared.com' || ' '
     }
   </script>
-</head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 	<body>
 		<!-- Preloader -->
 
 	<div id="preloader">
 		<div class="pre-container">
 			
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
+				<div class="cyclic">
+					<div><span></span></div>
+					<div><span></span></div>
+					<div><span></span></div>
+					<div><span></span></div>
 				</div>
 						
 		</div>
@@ -67,8 +74,8 @@
 			
 				<div class="motto text-shadow-pop-left">
 					<p class="content" id="motto-content">获取中...</p>
-					<p>-</p><p>
-					</p><p class="author" id="motto-author">Just a minute...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
 				</div>
 			
 		</div>
@@ -199,7 +206,9 @@
 			</div>
 		</div>
 
-		<script src="/plugin/toc/katelog.min.js"></script>
+		
+<script src="/plugin/toc/katelog.min.js"></script>
+
 
 		
 	 
@@ -270,92 +279,21 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<h2 id="Codeforces-Round-576-Div-2"><a href="#Codeforces-Round-576-Div-2" class="headerlink" title="Codeforces Round #576 (Div. 2)"></a><a href="https://codeforces.com/contest/1199" target="_blank" rel="noopener">Codeforces Round #576 (Div. 2)</a></h2><h3 id="A-City-Day"><a href="#A-City-Day" class="headerlink" title="A.City Day"></a>A.<a href="https://codeforces.com/contest/1199/problem/A" target="_blank" rel="noopener">City Day</a></h3><p>啊，爆哭，还想着怎么能优化一下，感觉会超时</p>
+			<h2 id="Codeforces-Round-576-Div-2"><a href="#Codeforces-Round-576-Div-2" class="headerlink" title="Codeforces Round #576 (Div. 2)"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1199">Codeforces Round #576 (Div. 2)</a></h2><h3 id="A-City-Day"><a href="#A-City-Day" class="headerlink" title="A.City Day"></a>A.<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1199/problem/A">City Day</a></h3><p>啊，爆哭，还想着怎么能优化一下，感觉会超时</p>
 <p>结果优化wa了，真好，那就纯暴力</p>
 <p>对每一个a，都找到l,r判断区间符不符合条件</p>
 <p>注意0天的时候就好</p>
-<h3 id="B-Water-Lily"><a href="#B-Water-Lily" class="headerlink" title="B.Water Lily"></a>B.<a href="https://codeforces.com/contest/1199/problem/B" target="_blank" rel="noopener">Water Lily</a></h3><p>贼气，杆子的长度是不变的，设x解出来</p>
-<h3 id="C-MP3"><a href="#C-MP3" class="headerlink" title="C.MP3"></a>C.<a href="https://codeforces.com/contest/1199/problem/C" target="_blank" rel="noopener">MP3</a></h3><h4 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h4><p>题意是如果有K种数字，转化为系数$k = log_2K$，就需要nk个bit储存，让你选一个区间（l，r），使得数字可以存的下，并且删的数字最少，问你最少删除多少个数字</p>
+<h3 id="B-Water-Lily"><a href="#B-Water-Lily" class="headerlink" title="B.Water Lily"></a>B.<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1199/problem/B">Water Lily</a></h3><p>贼气，杆子的长度是不变的，设x解出来</p>
+<h3 id="C-MP3"><a href="#C-MP3" class="headerlink" title="C.MP3"></a>C.<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1199/problem/C">MP3</a></h3><h4 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h4><p>题意是如果有K种数字，转化为系数$k = log_2K$，就需要nk个bit储存，让你选一个区间（l，r），使得数字可以存的下，并且删的数字最少，问你最少删除多少个数字</p>
 <p>现在给了你N个数字，还有M个bity</p>
 <p>所以现在就有8Mbit，k = 8 * M / N;（向下取整）</p>
 <p>K就等于了$2 ^k$，所以我们最多能有K种数字</p>
 <p>读入数字的时候记录下有多少种和数量（map）</p>
 <p>然后计算出最多能存多少种数字</p>
 <p>如果存不下就要删减，因为删的种数是确定的，把数排序好之后，你只能从左边拿一部分，右边拿一部分，（因为你选的是区间l，r，不能从中间随便挑数字删）枚举找到最小就好了</p>
-<h4 id="题目代码："><a href="#题目代码：" class="headerlink" title="题目代码："></a>题目代码：</h4><pre><code class="cpp">LL T,N,M,K;
-/*-------------------------------------------------------------------------------------------*/
-map&lt;int,int&gt; cnt;
-set&lt;int&gt; num;
-vector&lt;int&gt; a;
-int sumcnt[MAX];
-/* ------------------------------------------------------------------------------------------*/
+<h4 id="题目代码："><a href="#题目代码：" class="headerlink" title="题目代码："></a>题目代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">LL T,N,M,K;</span><br><span class="line"><span class="comment">/*-------------------------------------------------------------------------------------------*/</span></span><br><span class="line">map&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; cnt;</span><br><span class="line">set&lt;<span class="keyword">int</span>&gt; num;</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; a;</span><br><span class="line"><span class="keyword">int</span> sumcnt[MAX];</span><br><span class="line"><span class="comment">/* ------------------------------------------------------------------------------------------*/</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">//freopen(&quot;input.in&quot;,&quot;r&quot;,stdin);</span></span><br><span class="line">    <span class="comment">//freopen(&quot;output.out&quot;,&quot;w&quot;,stdout);</span></span><br><span class="line"><span class="comment">/* -----------------------------------------------------------------------------------------*/</span></span><br><span class="line">    cin &gt;&gt; N &gt;&gt; M;</span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; x;</span><br><span class="line">        num.<span class="built_in">insert</span>(x);</span><br><span class="line">        cnt[x]++;</span><br><span class="line">    &#125;</span><br><span class="line">    M *= <span class="number">8</span>;</span><br><span class="line">    <span class="keyword">if</span>(N == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;0&quot;</span> &lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> k = M / N;</span><br><span class="line">    <span class="keyword">if</span>(k &gt; <span class="number">30</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="number">0</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    K = <span class="number">1</span>&lt;&lt;k;</span><br><span class="line"><span class="comment">//cout &lt;&lt; K &lt;&lt;endl;</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> it = num.<span class="built_in">begin</span>();it != num.<span class="built_in">end</span>();it++)</span><br><span class="line">    &#123;</span><br><span class="line">        a.<span class="built_in">push_back</span>(*it);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> len = a.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = len<span class="number">-1</span>;i &gt;= <span class="number">0</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        sumcnt[i] = sumcnt[i+<span class="number">1</span>] + cnt[a[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans = INF,temp;</span><br><span class="line">    <span class="keyword">if</span>(num.<span class="built_in">size</span>() &lt;= K)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="number">0</span> &lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        K = len - K;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> cntm = <span class="number">0</span>;</span><br><span class="line">        temp = sumcnt[len - K];</span><br><span class="line">        ans = <span class="built_in">min</span>(ans,temp);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; len;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(cntm == K) <span class="keyword">break</span>;</span><br><span class="line">            cntm++;</span><br><span class="line">            sum += cnt[a[i]];</span><br><span class="line">            temp = sum;</span><br><span class="line">            temp += sumcnt[len - K + cntm];</span><br><span class="line">            ans = <span class="built_in">min</span>(ans,temp);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-int main()
-{
-    std::ios::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-    //freopen(&quot;input.in&quot;,&quot;r&quot;,stdin);
-    //freopen(&quot;output.out&quot;,&quot;w&quot;,stdout);
-/* -----------------------------------------------------------------------------------------*/
-    cin &gt;&gt; N &gt;&gt; M;
-    int x;
-    for(int i = 0;i &lt; N;i++)
-    {
-        cin &gt;&gt; x;
-        num.insert(x);
-        cnt[x]++;
-    }
-    M *= 8;
-    if(N == 0)
-    {
-        cout &lt;&lt; &quot;0&quot; &lt;&lt;endl;
-        return 0;
-    }
-    int k = M / N;
-    if(k &gt; 30)
-    {
-        cout &lt;&lt; 0 &lt;&lt; endl;
-        return 0;
-    }
-    K = 1&lt;&lt;k;
-//cout &lt;&lt; K &lt;&lt;endl;
-    for(auto it = num.begin();it != num.end();it++)
-    {
-        a.push_back(*it);
-    }
-    int len = a.size();
-    for(int i = len-1;i &gt;= 0;i--)
-    {
-        sumcnt[i] = sumcnt[i+1] + cnt[a[i]];
-    }
-    int ans = INF,temp;
-    if(num.size() &lt;= K)
-    {
-        cout &lt;&lt; 0 &lt;&lt;endl;
-        return 0;
-    }
-    else
-    {
-        K = len - K;
-        int sum = 0;
-        int cntm = 0;
-        temp = sumcnt[len - K];
-        ans = min(ans,temp);
-        for(int i = 0;i &lt; len;i++)
-        {
-            if(cntm == K) break;
-            cntm++;
-            sum += cnt[a[i]];
-            temp = sum;
-            temp += sumcnt[len - K + cntm];
-            ans = min(ans,temp);
-        }
-    }
-    cout &lt;&lt; ans &lt;&lt;endl;
-    return 0;
-}</code></pre>
-<h3 id="D-Welfare-State"><a href="#D-Welfare-State" class="headerlink" title="D.Welfare State"></a>D.<a href="https://codeforces.com/contest/1199/problem/D" target="_blank" rel="noopener">Welfare State</a></h3><p>题意就是给你一个数组，有俩个操作</p>
+<h3 id="D-Welfare-State"><a href="#D-Welfare-State" class="headerlink" title="D.Welfare State"></a>D.<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1199/problem/D">Welfare State</a></h3><p>题意就是给你一个数组，有俩个操作</p>
 <p>1.把a[i]变为x</p>
 <p>2.把小于x的所有a[i]变为x（发福利）</p>
 <p>问你最后数组是什么</p>
@@ -364,76 +302,8 @@ int main()
 <p>我们可以发现，福利对一个数的影响为在他最后一次改变之后发的福利中的最大福利</p>
 <p>所以说我们只需要记住，每个数最后一次操作1变为了什么，他是在哪一次福利之后变得就可以</p>
 <p>然后我们处理出来每一次福利之后后面最大的福利是什么就可以了</p>
-<h4 id="题目代码：-1"><a href="#题目代码：-1" class="headerlink" title="题目代码："></a>题目代码：</h4><pre><code class="cpp">/*-------------------------------------------------------------------------------------------*/
-int a[MAX];//初始数组
-int reduce[MAX];//改变为的值
-int flag[MAX];//还能享受的福利开始点
-int dp[MAX];//之后福利最大值
-vector&lt;int&gt; pay;//福利按顺序
-/* ------------------------------------------------------------------------------------------*/
+<h4 id="题目代码：-1"><a href="#题目代码：-1" class="headerlink" title="题目代码："></a>题目代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*-------------------------------------------------------------------------------------------*/</span></span><br><span class="line"><span class="keyword">int</span> a[MAX];<span class="comment">//初始数组</span></span><br><span class="line"><span class="keyword">int</span> reduce[MAX];<span class="comment">//改变为的值</span></span><br><span class="line"><span class="keyword">int</span> flag[MAX];<span class="comment">//还能享受的福利开始点</span></span><br><span class="line"><span class="keyword">int</span> dp[MAX];<span class="comment">//之后福利最大值</span></span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; pay;<span class="comment">//福利按顺序</span></span><br><span class="line"><span class="comment">/* ------------------------------------------------------------------------------------------*/</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">find_max</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tempmax;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = pay.<span class="built_in">size</span>()<span class="number">-1</span>;i &gt;= <span class="number">0</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        dp[i] = <span class="built_in">max</span>(dp[i+<span class="number">1</span>],pay[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">//freopen(&quot;input.in&quot;,&quot;r&quot;,stdin);</span></span><br><span class="line">    <span class="comment">//freopen(&quot;output.out&quot;,&quot;w&quot;,stdout);</span></span><br><span class="line"><span class="comment">/* -----------------------------------------------------------------------------------------*/</span></span><br><span class="line">    cin &gt;&gt; N;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    cin &gt;&gt; M;</span><br><span class="line">    <span class="keyword">int</span> sign,pos,x;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; change;</span><br><span class="line">    <span class="keyword">while</span>(M--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; sign;</span><br><span class="line">        <span class="keyword">if</span>(sign == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; pos &gt;&gt; x;</span><br><span class="line">            reduce[pos] = x;</span><br><span class="line">            change.<span class="built_in">push_back</span>(pos);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; x;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; change.<span class="built_in">size</span>();i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> p = change[i];</span><br><span class="line">                flag[p] = pay.<span class="built_in">size</span>()+<span class="number">1</span>;</span><br><span class="line">                a[p] = reduce[p];</span><br><span class="line">                a[p] = <span class="built_in">max</span>(a[p],x);</span><br><span class="line">            &#125;</span><br><span class="line">            change.<span class="built_in">clear</span>();</span><br><span class="line">            pay.<span class="built_in">push_back</span>(x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; change.<span class="built_in">size</span>();i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> p = change[i];</span><br><span class="line">        flag[p] = pay.<span class="built_in">size</span>()+<span class="number">1</span>;</span><br><span class="line">        a[p] = reduce[p];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">find_max</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="built_in">max</span>(a[i],dp[flag[i]]);</span><br><span class="line">        <span class="keyword">if</span>(i != N) cout &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-void find_max()
-{
-    int tempmax;
-    for(int i = pay.size()-1;i &gt;= 0;i--)
-    {
-        dp[i] = max(dp[i+1],pay[i]);
-    }
-}
-
-int main()
-{
-    std::ios::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-    //freopen(&quot;input.in&quot;,&quot;r&quot;,stdin);
-    //freopen(&quot;output.out&quot;,&quot;w&quot;,stdout);
-/* -----------------------------------------------------------------------------------------*/
-    cin &gt;&gt; N;
-    for(int i = 1;i &lt;= N;i++)
-    {
-        cin &gt;&gt; a[i];
-    }
-    cin &gt;&gt; M;
-    int sign,pos,x;
-    vector&lt;int&gt; change;
-    while(M--)
-    {
-        cin &gt;&gt; sign;
-        if(sign == 1)
-        {
-            cin &gt;&gt; pos &gt;&gt; x;
-            reduce[pos] = x;
-            change.push_back(pos);
-        }
-        else
-        {
-            cin &gt;&gt; x;
-            for(int i = 0;i &lt; change.size();i++)
-            {
-                int p = change[i];
-                flag[p] = pay.size()+1;
-                a[p] = reduce[p];
-                a[p] = max(a[p],x);
-            }
-            change.clear();
-            pay.push_back(x);
-        }
-    }
-    for(int i = 0;i &lt; change.size();i++)
-    {
-        int p = change[i];
-        flag[p] = pay.size()+1;
-        a[p] = reduce[p];
-    }
-    find_max();
-    for(int i = 1;i &lt;= N;i++)
-    {
-        cout &lt;&lt; max(a[i],dp[flag[i]]);
-        if(i != N) cout &lt;&lt; &quot; &quot;;
-    }
-    return 0;
-}</code></pre>
 	
 		</div>
 		
@@ -457,7 +327,7 @@ int main()
 			</a>
 		
 		
-			<a href="/2019/07/30/我是树-主席树/" title="我是树-主席树" rel="next">
+			<a href="/2019/07/30/%E6%88%91%E6%98%AF%E6%A0%91-%E4%B8%BB%E5%B8%AD%E6%A0%91/" title="我是树-主席树" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -494,7 +364,7 @@ int main()
 						<div class="relate-post-cover">
 							<a href="/2019/08/09/ECF-70-2/" title="ECF-70-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover48.jpg" alt="ECF-70-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover48.jpg" alt="ECF-70-2"/>
 							</a>
 						</div>
 					</li>												
@@ -519,7 +389,7 @@ B.Zero Array如果sum是奇数的一定不行
 						<div class="relate-post-cover">
 							<a href="/2019/08/07/CF-577-2/" title="CF-577-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover44.jpg" alt="CF-577-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover44.jpg" alt="CF-577-2"/>
 							</a>
 						</div>
 					</li>												
@@ -543,7 +413,7 @@ B.Nick and Array他的操作真正的意思就是，变负数绝...
 						<div class="relate-post-cover">
 							<a href="/2019/08/01/CF-569-2/" title="CF-569-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover9.jpg" alt="CF-569-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover9.jpg" alt="CF-569-2"/>
 							</a>
 						</div>
 					</li>												
@@ -566,7 +436,7 @@ B.Pillars观察发现这个序列有三种情...
 						<div class="relate-post-cover">
 							<a href="/2019/07/30/ECF-69-2/" title="ECF-69-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover34.jpg" alt="ECF-69-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover34.jpg" alt="ECF-69-2"/>
 							</a>
 						</div>
 					</li>												
@@ -590,7 +460,7 @@ B.Odd Sum Segments一个序列里只有奇数个奇数时和才是奇数
 						<div class="relate-post-cover">
 							<a href="/2019/07/25/CF-575-3/" title="CF-575-3">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover29.jpg" alt="CF-575-3">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover29.jpg" alt="CF-575-3"/>
 							</a>
 						</div>
 					</li>												
@@ -614,7 +484,7 @@ B.Sport Mafia题目思路：算出全放糖果的sum，算出与留下糖果的�
 						<div class="relate-post-cover">
 							<a href="/2019/07/19/CF-574-2/" title="CF-574-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover28.jpg" alt="CF-574-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover28.jpg" alt="CF-574-2"/>
 							</a>
 						</div>
 					</li>												
@@ -637,7 +507,7 @@ Vus the Cossack and Strings通过观察可以发现当字符串中’1’的数�
 						<div class="relate-post-cover">
 							<a href="/2019/07/17/CF-571-2/" title="CF-571-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover25.jpg" alt="CF-571-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover25.jpg" alt="CF-571-2"/>
 							</a>
 						</div>
 					</li>												
@@ -660,14 +530,14 @@ Yet Another Crosses Problem这个气死了，存的...
 						<div class="relate-post-cover">
 							<a href="/2019/07/15/ECF-68-2/" title="ECF-68-2">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover33.jpg" alt="ECF-68-2">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover33.jpg" alt="ECF-68-2"/>
 							</a>
 						</div>
 					</li>												
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/07/14/CF-559-2 补/" title="CF-559-2（未完待续）">
+							<a class="relate-post-title" href="/2019/07/14/CF-559-2%20%E8%A1%A5/" title="CF-559-2（未完待续）">
 								CF-559-2（未完待续）			
 							</a>
 							<p class="relate-post-date">
@@ -677,24 +547,21 @@ Yet Another Crosses Problem这个气死了，存的...
 							<p class="relate-post-content">
 								就学了一个lower把，先放在这里
 还要学习读题23333
-//#include&lt;bits/stdc++.h&gt;
-#include &lt;iostream&gt;
-#include &lt;cstdio&gt;
-#incl...
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019/07/14/CF-559-2 补/" title="CF-559-2（未完待续）">				
+							<a href="/2019/07/14/CF-559-2%20%E8%A1%A5/" title="CF-559-2（未完待续）">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover23.jpg" alt="CF-559-2（未完待续）">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover23.jpg" alt="CF-559-2（未完待续）"/>
 							</a>
 						</div>
 					</li>												
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/07/14/CF-554-2 补/" title="CF-554-2（未完待续）">
+							<a class="relate-post-title" href="/2019/07/14/CF-554-2%20%E8%A1%A5/" title="CF-554-2（未完待续）">
 								CF-554-2（未完待续）			
 							</a>
 							<p class="relate-post-date">
@@ -702,18 +569,14 @@ Yet Another Crosses Problem这个气死了，存的...
 								七月 14日, 2019				
 							</p>
 							<p class="relate-post-content">
-								
-/*-------------------------------------------------------------------------------------------*/
-
-int er[40];
-int ans...
+								123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019/07/14/CF-554-2 补/" title="CF-554-2（未完待续）">				
+							<a href="/2019/07/14/CF-554-2%20%E8%A1%A5/" title="CF-554-2（未完待续）">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover22.jpg" alt="CF-554-2（未完待续）">
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/post_cover/cover22.jpg" alt="CF-554-2（未完待续）"/>
 							</a>
 						</div>
 					</li>												
@@ -809,18 +672,9 @@ int ans...
 					<div class="layout-share">
 	
 	
-
-		
-			
-			<!-- socialShare share -->
-			<div class="social-share"></div>
-
-<!--  css & js -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-			
-		
-		
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
 	
 </div>
 
@@ -833,7 +687,7 @@ int ans...
 
 <!-- show math formula -->
 
-	<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=AM_HTMLorMML-full"></script>
 	<script type="text/x-mathjax-config">
 		MathJax.Hub.Config(
 			{ 
@@ -846,13 +700,87 @@ int ans...
 
 
 
+	 
 	
+<script src="/plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
 
 
 
 
 <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
 <script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
 
 <script type="text/javascript">
 	(function gallerySet(){
@@ -931,15 +859,15 @@ int ans...
 	
 </ul>
 	</div>
-	<div class="beian">
+	<div class = "beian" >
 		<p> 
-			<a href="http://www.beian.miit.gov.cn/"> 津ICP备19011540号-1 </a>
+			<a href = "http://www.beian.miit.gov.cn/"> 津ICP备19011540号-1 </a>
 		</p>
 	</div>
 	<div class="copyright">
 		<p>
 			 
-				&copy;2019 - 2020, content by HXYerror. All Rights Reserved.
+				&copy;2019 - 2021, content by HXYerror. All Rights Reserved.
 			
 			
 				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
@@ -964,15 +892,18 @@ int ans...
 
 
 
-			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">ç®€ä½“</a> 
-			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">ç¹�é«”</a>				
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁体</a>				
 		</p>
 	</div>		
 </footer>
+
 		
 	<!-- Local or hitokoto! -->
 
-	<script src="/plugin/motto/motto.js"></script>
+	
+<script src="/plugin/motto/motto.js"></script>
+
 	
 	<script type="text/javascript">
 		(function motto(){
@@ -993,7 +924,9 @@ int ans...
 
 <!-- love effect -->
 
-	<script src="/plugin/love/love.js"></script>
+	
+<script src="/plugin/love/love.js"></script>
+
 
 
 <!-- back to top -->
@@ -1038,8 +971,11 @@ int ans...
 -->
 
 
-  <script src="/plugin/leancloud/av-min.js"></script>
+	
+  
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.1.0/dist/av-min.js"></script>
 <script src="/js/leancloud-count.js"></script>
+
 
 	
 
@@ -1052,7 +988,7 @@ int ans...
 		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
 		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
 -->
-<div class="popup search-popup local-search-popup scrollbar">
+<div class="popup search-popup local-search-popup scrollbar" >
 	<div class="local-search-container">
 		<span class="popup-btn-close">
       		ESC
@@ -1071,7 +1007,7 @@ int ans...
 
    
 	<div id="topN">
-		<div class="topN-title" data-title="热门文章"></div> 
+		<div class="topN-title" data-title= "热门文章"></div> 
 	</div>
 	
     <script>
@@ -1089,8 +1025,10 @@ int ans...
 	</div>
 </div>
 
+
 <script src="/plugin/search/ziploader.js"></script>
 <script src="/js/search.js"></script>
+
 
 <script type="text/javascript">
 	var search_path = 'search.json',
@@ -1109,12 +1047,14 @@ int ans...
 </script>
 
 
+
 <script src="/plugin/chinese/chinese.js"></script>
 <script src="/plugin/imagelazyloader/yall.min.js"></script>
 <script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
 <script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
 <script src="/plugin/resizediv/resizediv.js"></script>
 <script src="/js/main.js"></script>
+
 	<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {

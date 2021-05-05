@@ -15,7 +15,7 @@ jQuery(document).ready(function ($) {
 	const ANNIE = {
 		scrollLimitG        : 500,
 		scrollSpeedG        : 500,
-		delayTimeG          : 500,
+		delayTimeG          : 233,
 		headerH             : $('header').outerHeight(),
 		postContentH        : $('#article-content').outerHeight(),
 		mainH               : $('main').outerHeight(),
@@ -192,7 +192,7 @@ jQuery(document).ready(function ($) {
 					console.log('timeout');
 				}
 				return timeoutCalled();
-			}, ANNIE.delayTimeG * 20); // delayTime = ANNIE.delayTimeG * 20 = 10s
+			}, ANNIE.delayTimeG * 2); // delayTime = ANNIE.delayTimeG * 20 = 10s
 			
 			// 10s以前, The background iamge of header is already loaded.
 			/**
@@ -549,7 +549,7 @@ jQuery(document).ready(function ($) {
 				type: "get",
 				url: thisUrl,
 				async: true,
-				timeout: delayTime * 20, //10s
+				timeout: delayTime * 2, //10s
 				error: function (event, xhr, options) {
 
 					$(paginationId).attr("href", thisUrl).empty().text( loaderTitle );
@@ -630,7 +630,7 @@ jQuery(document).ready(function ($) {
 					url: href,
 					type: "get",
 					async: true,
-					timeout: delayTime * 20, //10s
+					timeout: delayTime * 2, //10s
 					error: function (event, xhr, options) {
 
 						alert("Error requesting " + options.url + ": " + xhr.status + "," + xhr.statusText);
